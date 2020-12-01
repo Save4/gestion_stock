@@ -3,8 +3,8 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>@yield('title',config('app.name')) </title>
 
-        <title>Best management</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -79,7 +79,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    <marquee>BEST MANAGEMENT</marquee>
+                    <marquee>Bienvenu a notre application de gestion du stock</marquee>
                 </div>
 
 
@@ -88,7 +88,3 @@
         </div>
     </body>
 </html>
-
-
-
- 
