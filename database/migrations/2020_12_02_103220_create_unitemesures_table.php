@@ -15,6 +15,7 @@ class CreateUnitemesuresTable extends Migration
     {
         Schema::create('unitemesures', function (Blueprint $table) {
             $table->id();
+            $table->string('nomunite');
             $table->timestamps();
         });
     }
