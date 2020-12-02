@@ -7,79 +7,67 @@ use Illuminate\Http\Request;
 
 class ModePaiementController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+  function __construct()
+   {
+       $this->middleware('auth');
+   }
+
     public function index()
     {
-        //
+      $mode_paiements = Mode_paiement::all();
+      return view('mode_paiements/index',[
+          'mode_paiement' => $mode_paiement
+      ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+      return view('mode_paiements/create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+      $request->validate([
+      'nom_mode' =>'required',
+
+         ]);
+
+  $mode_paiement= new Mode_paiement();
+  $mode_paiement->nom_mode= $request->nom_mode;
+
+  $mode_paiement->save();
+  return redirect('mode_paiements');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Mode_paiement  $mode_paiement
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(Mode_paiement $mode_paiement)
     {
-        //
+
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Mode_paiement  $mode_paiement
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit(Mode_paiement $mode_paiement)
     {
-        //
+      $mode_paiement=Mode_paiement::find($mode_paiement->id);
+      return view('mode_paiements/edit',[
+       'Mode_paiement' => $mode_paiement]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Mode_paiement  $mode_paiement
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Mode_paiement $mode_paiement)
     {
-        //
+
+      $mode_paiement->nom_mode=$request->nom_mode;
+
+           $mode_paiement->save();
+           return redirect('mode_paiements');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Mode_paiement  $mode_paiement
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy(Mode_paiement $mode_paiement)
     {
-        //
+      $mode_paiement=Mode_paiement::find($mode_paiement->id);
+    $mode_paiement->delete();
+    return redirect('mode_paiements');
     }
 }
