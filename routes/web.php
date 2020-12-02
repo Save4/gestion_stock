@@ -32,3 +32,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:mana
 	Route::resource('users', 'UsersController');
 
 });
+
+
+/* Unitemesure */
+Route::resource('unitemesures', 'UnitemesureController');
