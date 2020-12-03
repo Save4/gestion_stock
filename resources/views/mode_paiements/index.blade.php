@@ -91,7 +91,7 @@
                                    @csrf
                                    @method('POST')
                                    <div class="form-group">
-                                       <label for="input-5">Nom d'unité</label>
+                                       <label for="input-5">Mode de paiement</label>
                                        <input type="text" name="nom_mode" class="form-control" id="input-5" required>
 
 
