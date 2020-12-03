@@ -128,15 +128,14 @@
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
-            <div class="card-header"><i class="fa fa-table"></i> Data Exporting</div>
+            <div class="card-header"><i class="fa fa-table"></i>Liste des fournisseurs</div>
             <div class="card-body">
                 <div class="table-responsive">
                     <div class="dataTables_wrapper container-fluid dt-bootstrap4" id="example_wrapper">
                         <div class="row">
                             <div class="col-sm-12 col-md-6">
                                 <div class="dt-buttons btn-group">
-                                    <button tabindex="0" class="btn btn-outline-primary buttons-copy buttons-html5"
-                                        aria-controls="example" type="button"><span>Copy</span></button>
+                                    
                                     <button tabindex="0" class="btn btn-outline-primary buttons-excel buttons-html5"
                                         aria-controls="example" type="button"><span>Excel</span></button>
                                     <button tabindex="0" class="btn btn-outline-primary buttons-pdf buttons-html5"
@@ -213,7 +212,7 @@
                                             <td>{{$fournisseur->assujetva == '0' ? 'No' : 'Yes'}}</td>
                                             <td>
                                                 <a href="fournisseurs/{{$fournisseur->id}}/edit"
-                                                    class="btn btn-primary btn-sm">
+                                                    class="btn btn-primary btn-sm" title="Edit">
                                                     <span class="fa fa-edit"></span></a>
 
                                                 <form action="fournisseurs/{{$fournisseur->id}} " method="POST"
@@ -221,7 +220,7 @@
                                                     @csrf
                                                     <button type="submit"
                                                         onclick="return confirm('Voulez vous supprimer le fournisseur ?')"
-                                                        class="btn btn-danger btn-sm">
+                                                        class="btn btn-danger btn-sm" title="Delete">
                                                         <span class="fa fa-trash"></span></button>
                                                     @method('DELETE')
                                                 </form>
