@@ -8,6 +8,16 @@ use Illuminate\Http\Request;
 class UnitemesureController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -15,6 +25,9 @@ class UnitemesureController extends Controller
     public function index()
     {
         //
+        $unite = Unitemesure::all();
+
+        return view('unitemesures.index', compact('unite'));
     }
 
     /**
@@ -35,7 +48,19 @@ class UnitemesureController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // validation
+        $request->validate([
+            'nomunite' => 'required',
+        ]);
+
+        $unitemesure = new Unitemesure();
+
+        $unitemesure->nomunite = $request->nomunite;
+
+        $unitemesure->save();
+
+        return redirect('unitemesures')->with('succes', 'Nouvelle unité ajoutée !');
+
     }
 
     /**
@@ -58,6 +83,10 @@ class UnitemesureController extends Controller
     public function edit($id)
     {
         //
+        $unite = Unitemesure::find($id);
+
+        return view('unitemesures.edit', compact('unite'));
+
     }
 
     /**
@@ -70,6 +99,15 @@ class UnitemesureController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $unite = Unitemesure::find($id);
+
+        $unite->nomunite = $request->get('nomunite');
+
+        $unite->save();
+
+        return redirect('unitemesures')->with('succes', 'Unité modifiée !');
+
+
     }
 
     /**
@@ -81,5 +119,10 @@ class UnitemesureController extends Controller
     public function destroy($id)
     {
         //
+        $unitemesure = Unitemesure::find($id);
+
+        $unitemesure->delete();
+
+        return redirect('unitemesures')->with('succes', 'Nouvelle unité supprimée !');
     }
 }
