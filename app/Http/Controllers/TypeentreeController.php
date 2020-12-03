@@ -8,6 +8,16 @@ use Illuminate\Http\Request;
 class TypeentreeController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -15,6 +25,9 @@ class TypeentreeController extends Controller
     public function index()
     {
         //
+        $typeentree = Typeentree::all();
+
+        return \view('typeentrees.index', compact('typeentree'));
     }
 
     /**
@@ -36,6 +49,17 @@ class TypeentreeController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'nomtype' => 'required'
+        ]);
+
+        $typeentree = new Typeentree();
+
+        $typeentree->nomtype = $request->nomtype;
+
+        $typeentree->save();
+
+        return redirect('typeentrees')->with('succes', 'Type ajouté !');
     }
 
     /**
@@ -58,6 +82,9 @@ class TypeentreeController extends Controller
     public function edit($id)
     {
         //
+        $typeentree = Typeentree::find($id);
+
+        return \view('typeentrees.edit', compact('typeentree'));
     }
 
     /**
@@ -70,6 +97,13 @@ class TypeentreeController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $typeentree = Typeentree::find($id);
+
+        $typeentree->nomtype = $request->get('nomtype');
+
+        $typeentree->save();
+
+        return redirect('typeentrees')->with('succes', 'Type modifié !');
     }
 
     /**
@@ -81,5 +115,10 @@ class TypeentreeController extends Controller
     public function destroy($id)
     {
         //
+        $typeentree = Typeentree::find($id);
+
+        $typeentree->delete();
+
+        return redirect('typeentrees')->with('succes', 'Type supprimé !');
     }
 }
