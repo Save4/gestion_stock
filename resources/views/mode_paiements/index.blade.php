@@ -30,7 +30,7 @@
                            <thead>
                                <tr>
                                    <th>#</th>
-                                   <th>Unité</th>
+                                   <th>Mode de paiement</th>
                                    <th>Actions</th>
 
                                </tr>
@@ -59,7 +59,7 @@
                            <tfoot>
                                <tr>
                                    <th>#</th>
-                                   <th>Unité</th>
+                                   <th>MOde de paiement</th>
                                    <th>Actions</th>
                                </tr>
                            </tfoot>
