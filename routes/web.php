@@ -1,6 +1,7 @@
 
 <?php
 
+use App\Typeentree;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,3 +33,8 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:mana
 	Route::resource('users', 'UsersController');
 
 });
+
+
+/* TypeEntrees */
+
+Route::resource('typeentrees', 'TypeentreeController');
