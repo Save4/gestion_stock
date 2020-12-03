@@ -70,6 +70,7 @@ class FournisseursController extends Controller
     public function show(Fournisseur $fournisseur)
     {
         //
+       
     }
 
     /**
@@ -81,6 +82,10 @@ class FournisseursController extends Controller
     public function edit(Fournisseur $fournisseur)
     {
         //
+        $fournisseur = Fournisseur::find($fournisseur->id);
+        return view('fournisseurs.edit',[
+            'fournisseur' => $fournisseur
+        ]);
     }
 
     /**
@@ -93,6 +98,23 @@ class FournisseursController extends Controller
     public function update(Request $request, Fournisseur $fournisseur)
     {
         //
+        $request->validate(['name' => 'required',
+        'tel' => 'required',
+        'email' => 'required',
+        'nif' => 'required',
+        'rc' => 'required',
+        'adresse' => 'required',
+        ]);
+        
+        $fournisseur->name = $request->name;
+        $fournisseur->tel = $request->tel;
+        $fournisseur->email = $request->email;
+        $fournisseur->nif = $request->nif;
+        $fournisseur->rc = $request->rc;
+        $fournisseur->adresse = $request->adresse;
+        $fournisseur->assujetva = isset($request->assujetva) ? 1 : 0;
+        $fournisseur->save();
+        return redirect('fournisseurs');
     }
 
     /**
