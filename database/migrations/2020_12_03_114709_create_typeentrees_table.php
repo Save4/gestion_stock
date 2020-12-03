@@ -15,6 +15,7 @@ class CreateTypeentreesTable extends Migration
     {
         Schema::create('typeentrees', function (Blueprint $table) {
             $table->id();
+            $table->string('nomtype')->unique();
             $table->timestamps();
         });
     }
