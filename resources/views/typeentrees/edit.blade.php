@@ -38,7 +38,7 @@
                             Editer
                         </h4>
                         <div class="form-group">
-                            <label for="input-22">Unité</label>
+                            <label for="input-22">Nom du type d'entre</label>
                         <input type="text" name="nomtype" value="{{ $typeentree->nomtype }}" class="form-control form-control-square" id="input-22" required>
                         </div>
                         <div class="form-footer">
