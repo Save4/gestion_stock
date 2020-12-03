@@ -15,6 +15,10 @@ class FournisseursController extends Controller
     public function index()
     {
         //
+        $fournisseurs = Fournisseur::all();
+        return view('fournisseurs.index',[
+            'fournisseurs' => $fournisseurs
+        ]);
     }
 
     /**
