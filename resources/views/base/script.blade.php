@@ -45,7 +45,7 @@
 
        var table = $('#example').DataTable( {
         lengthChange: false,
-        buttons: [ 'copy', 'excel', 'pdf', 'print', 'colvis' ]
+        buttons: [ 'excel', 'pdf', 'print', 'colvis' ]
       } );
 
      table.buttons().container()
