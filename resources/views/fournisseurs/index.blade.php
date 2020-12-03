@@ -132,30 +132,7 @@
             <div class="card-body">
                 <div class="table-responsive">
                     <div class="dataTables_wrapper container-fluid dt-bootstrap4" id="example_wrapper">
-                        <div class="row">
-                            <div class="col-sm-12 col-md-6">
-                                <div class="dt-buttons btn-group">
-                                    
-                                    <button tabindex="0" class="btn btn-outline-primary buttons-excel buttons-html5"
-                                        aria-controls="example" type="button"><span>Excel</span></button>
-                                    <button tabindex="0" class="btn btn-outline-primary buttons-pdf buttons-html5"
-                                        aria-controls="example" type="button"><span>PDF</span></button>
-                                    <button tabindex="0" class="btn btn-outline-primary buttons-print"
-                                        aria-controls="example" type="button"><span>Print</span></button>
-                                    <button tabindex="0"
-                                        class="btn btn-outline-primary buttons-collection dropdown-toggle buttons-colvis"
-                                        aria-haspopup="true" aria-controls="example" type="button"><span>Column
-                                            visibility</span></button>
-                                </div>
-                            </div>
-                            <div class="col-sm-12 col-md-6">
-                                <div class="dataTables_filter" id="example_filter">
-                                    <label>Search:<input class="form-control form-control-sm" aria-controls="example"
-                                            type="search" placeholder="">
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
+                        
                         <div class="row">
                             <div class="col-sm-12">
                                 <table class="table table-bordered dataTable" id="example" role="grid"
@@ -244,36 +221,7 @@
                                 </table>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-sm-12 col-md-5">
-                                <div class="dataTables_info" id="example_info" role="status" aria-live="polite">
-                                    Showing 1 to 10 of 57 entries</div>
-                            </div>
-                            <div class="col-sm-12 col-md-7">
-                                <div class="dataTables_paginate paging_simple_numbers" id="example_paginate">
-                                    <ul class="pagination">
-                                        <li class="paginate_button page-item previous disabled" id="example_previous"><a
-                                                tabindex="0" class="page-link" aria-controls="example" href="#"
-                                                data-dt-idx="0">Previous</a></li>
-                                        <li class="paginate_button page-item active"><a tabindex="0" class="page-link"
-                                                aria-controls="example" href="#" data-dt-idx="1">1</a></li>
-                                        <li class="paginate_button page-item "><a tabindex="0" class="page-link"
-                                                aria-controls="example" href="#" data-dt-idx="2">2</a></li>
-                                        <li class="paginate_button page-item "><a tabindex="0" class="page-link"
-                                                aria-controls="example" href="#" data-dt-idx="3">3</a></li>
-                                        <li class="paginate_button page-item "><a tabindex="0" class="page-link"
-                                                aria-controls="example" href="#" data-dt-idx="4">4</a></li>
-                                        <li class="paginate_button page-item "><a tabindex="0" class="page-link"
-                                                aria-controls="example" href="#" data-dt-idx="5">5</a></li>
-                                        <li class="paginate_button page-item "><a tabindex="0" class="page-link"
-                                                aria-controls="example" href="#" data-dt-idx="6">6</a></li>
-                                        <li class="paginate_button page-item next" id="example_next"><a tabindex="0"
-                                                class="page-link" aria-controls="example" href="#"
-                                                data-dt-idx="7">Next</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                       
                     </div>
                 </div>
             </div>
