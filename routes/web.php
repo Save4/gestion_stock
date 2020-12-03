@@ -34,3 +34,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:mana
 });
 
 Route::resource('fournisseurs','FournisseursController');
+
+
+/* Unitemesure */
+Route::resource('unitemesures', 'UnitemesureController');
