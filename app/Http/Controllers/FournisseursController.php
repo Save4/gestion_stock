@@ -29,6 +29,7 @@ class FournisseursController extends Controller
     public function create()
     {
         //
+        return view('fournisseurs.create');
     }
 
     /**
@@ -40,6 +41,24 @@ class FournisseursController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate(['name' => 'required',
+        'tel' => 'required',
+        'email' => 'required',
+        'nif' => 'required',
+        'rc' => 'required',
+        'adresse' => 'required',
+        ]);
+
+        $fournisseur = new Fournisseur();
+        $fournisseur->name = $request->name;
+        $fournisseur->tel = $request->tel;
+        $fournisseur->email = $request->email;
+        $fournisseur->nif = $request->nif;
+        $fournisseur->rc = $request->rc;
+        $fournisseur->adresse = $request->adresse;
+        $fournisseur->assujetva = (isset($request->assujetva) && $request->assujetva == 'on') ? 1 : 0;
+        $fournisseur->save();
+        return redirect('fournisseurs');
     }
 
     /**
