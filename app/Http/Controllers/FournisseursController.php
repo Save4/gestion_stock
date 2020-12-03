@@ -126,5 +126,8 @@ class FournisseursController extends Controller
     public function destroy(Fournisseur $fournisseur)
     {
         //
+        $fournisseur = Fournisseur::find($fournisseur->id);
+        $fournisseur->delete();
+        return redirect('fournisseurs');
     }
 }
