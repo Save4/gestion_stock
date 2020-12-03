@@ -41,16 +41,20 @@
                                        <td>{{ $mode_paiement->id }}</td>
                                        <td>{{ $mode_paiement->nom_mode }}</td>
                                        <td>
-                                           <div class="btn-group" role="group" aria-label="Button group">
-                                               <button><a href="{{ route('mode_paiements.edit', $mode_paiement->id) }}"  title="Edit"><strong><i
-                                                           class="fa fa-edit"></i></strong></a></button>
-                                               <form action="{{ route('mode_paiements.destroy', $mode_paiement->id)}}" method="post">
-                                                   @csrf
-                                                   @method('DELETE')
-                                                   <button type="submit" onclick="return confirm('Supprimer ? ')" title="Delete"><strong><i class="fa fa-trash"></i></strong></button>
-                                               </form>
-                                           </div>
-                                       </td>
+                                                  <a href="{{ route('mode_paiements.edit', $mode_paiement->id) }}"
+                                                      class="btn btn-primary btn-sm" title="Edit">
+                                                      <span class="fa fa-edit"></span></a>
+
+                                                  <form action="{{ route('mode_paiements.destroy', $mode_paiement->id)}}" method="POST"
+                                                      class="d-inline">
+                                                      @csrf
+                                                      <button type="submit"
+                                                          onclick="return confirm('Voulez vous supprimer le mode de paiement ?')"
+                                                          class="btn btn-danger btn-sm" title="Delete">
+                                                          <span class="fa fa-trash"></span></button>
+                                                      @method('DELETE')
+                                                  </form>
+                                              </td>
                                    </tr>
                                @endforeach
 
@@ -87,7 +91,7 @@
                                    @csrf
                                    @method('POST')
                                    <div class="form-group">
-                                       <label for="input-5">Nom d'unité</label>
+                                       <label for="input-5">Mode de paiement</label>
                                        <input type="text" name="nom_mode" class="form-control" id="input-5" required>
 
 
