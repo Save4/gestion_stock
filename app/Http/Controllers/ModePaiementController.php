@@ -17,7 +17,7 @@ class ModePaiementController extends Controller
     {
       $mode_paiements = Mode_paiement::all();
       return view('mode_paiements/index',[
-          'mode_paiement' => $mode_paiement
+          'mode_paiements' => $mode_paiements
       ]);
     }
 
@@ -47,11 +47,11 @@ class ModePaiementController extends Controller
     }
 
 
-    public function edit(Mode_paiement $mode_paiement)
+    public function edit($id)
     {
-      $mode_paiement=Mode_paiement::find($mode_paiement->id);
-      return view('mode_paiements/edit',[
-       'Mode_paiement' => $mode_paiement]);
+      $mode_paiement = Mode_paiement::find($id);
+
+        return view('mode_paiements.edit', compact('mode_paiement'));
     }
 
     public function update(Request $request, Mode_paiement $mode_paiement)
