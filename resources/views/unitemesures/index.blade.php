@@ -6,11 +6,7 @@
     <div class="row pt-2 pb-2">
         <div class="col-sm-9">
             <h4 class="page-title">Les unités de mesure</h4>
-            {{-- <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="javaScript:void();">BangoDash</a></li>
-                <li class="breadcrumb-item"><a href="javaScript:void();">Tables</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Data Tables</li>
-            </ol> --}}
+
         </div>
         <div class="col-sm-3">
             <div class="btn-group float-sm-right">
@@ -25,7 +21,7 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
-                <div class="card-header"><i class="fa fa-table"></i> Data Exporting</div>
+                <div class="card-header"><i class="fa fa-table"></i> Liste des unites de mesure</div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table id="example" class="table table-bordered">
@@ -43,16 +39,20 @@
                                         <td>{{ $unite->id }}</td>
                                         <td>{{ $unite->nomunite }}</td>
                                         <td>
-                                            <div class="btn-group" role="group" aria-label="Button group">
-                                                <a href="{{ route('unitemesures.edit', $unite->id) }}"><strong><i
-                                                            class="fa fa-edit"></i></strong></a>
-                                                <form action="{{ route('unitemesures.destroy', $unite->id)}}" method="post">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" onclick="return confirm('Êtes-vous sûr de supprimer ce chauffeur ? ')"><strong><i class="fa fa-trash"></i></strong></button>
-                                                </form>
-                                            </div>
-                                        </td>
+                                               <a href="{{ route('unitemesures.edit', $unite->id) }}"
+                                                   class="btn btn-primary btn-sm" title="Edit">
+                                                   <span class="fa fa-edit"></span></a>
+
+                                               <form action="{{ route('unitemesures.destroy', $unite->id)}}" method="POST"
+                                                   class="d-inline">
+                                                   @csrf
+                                                   <button type="submit"
+                                                       onclick="return confirm('Voulez vous supprimer l'unite de mesure ?')"
+                                                       class="btn btn-danger btn-sm" title="Delete">
+                                                       <span class="fa fa-trash"></span></button>
+                                                   @method('DELETE')
+                                               </form>
+                                           </td>
                                     </tr>
                                 @endforeach
 
@@ -94,31 +94,7 @@
 
 
                                     </div>
-                                    {{-- <div class="form-group">
-                                        <button type="button" class="btn btn-primary btn-sm"><i
-                                                class="fa fa-check-square-o"></i>
-                                            Enregistrer</button>
-                                    </div> --}}
-                                    {{-- <div class="form-footer">
-                                        <button type="submit" class="btn btn-dark shadow-dark m-1"><i
-                                                class="fa fa-times"></i> Cancel</button>
-                                        <button type="submit" class="btn btn-success shadow-success m-1"><i
-                                                class="fa fa-check-square-o"></i> Save</button>
-                                    </div> --}}
 
-                                    {{-- <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal"><i
-                                                class="fa fa-times"></i>
-                                            Close</button>
-                                        <button type="button" class="btn btn-primary"><i class="fa fa-check-square-o"></i>
-                                            Save
-                                            changes</button>
-                                    </div> --}}
-
-
-                                    {{-- <button type="button" class="btn btn-primary"><i
-                                            class="fa fa-check-square-o"></i>
-                                        Enregistrer</button> --}}
 
                                     <button type="submit" class="btn btn-primary"> Save</button>
                                 </form>
@@ -126,12 +102,7 @@
                         </div>
                     </div>
                 </div>
-                {{-- <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa fa-times"></i>
-                        Close</button>
-                    <button type="button" class="btn btn-primary"><i class="fa fa-check-square-o"></i> Save
-                        changes</button>
-                </div> --}}
+
             </div>
         </div>
     </div>
