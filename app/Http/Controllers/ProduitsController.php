@@ -86,6 +86,12 @@ class ProduitsController extends Controller
     public function edit(Produit $produit)
     {
         //
+        $unitemesures = Unitemesure::all();
+        $produit = Produit::find($produit->id);
+        return view('produits.edit',[
+            'produit' => $produit,
+            'unitemesures' => $unitemesures
+        ]);
     }
 
     /**
@@ -98,6 +104,18 @@ class ProduitsController extends Controller
     public function update(Request $request, Produit $produit)
     {
         //
+        $request->validate(['nomproduit' => 'required',
+        'unitemesure_id' => 'required',
+        'prixachat' => 'required',
+        'prixvente' => 'required'
+        ]);
+
+        $produit->nomproduit = $request->nomproduit;
+        $produit->unitemesure_id = $request->unitemesure_id;
+        $produit->prixachat = $request->prixachat;
+        $produit->prixvente = $request->prixvente;
+        $produit->save();
+        return redirect('produits');
     }
 
     /**
@@ -109,5 +127,8 @@ class ProduitsController extends Controller
     public function destroy(Produit $produit)
     {
         //
+        $produit = Produit::find($produit->id);
+        $produit->delete();
+        return redirect('produits');
     }
 }
