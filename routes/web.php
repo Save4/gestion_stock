@@ -37,3 +37,6 @@ Route::resource('unitemesures','UnitemesureController');
 
 
 Route::resource('fournisseurs','FournisseursController');
+
+
+Route::resource('entrees','EntreesController');
