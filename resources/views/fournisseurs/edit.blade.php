@@ -95,11 +95,12 @@
 
 
                         <div class="form-footer">
-                            <button type="submit" class="btn btn-primary shadow-primary m-1"><i class="fa fa-times"></i>
-                                ANNULER</button>
+                            <button type="submit" class="btn btn-primary shadow-primary m-1"><i class="fa fa-backward"></i>
+                                RETOUR</button>
                                 <button type="reset" class="btn btn-dark shadow-dark m-1"><i class="fa fa-times"></i>
                                REINITIALISER</button>
-                            <button type="submit" class="btn btn-success shadow-success m-1"><i
+                            <button type="submit" onclick="return confirm('Voulez vous modifier le fournisseur ?')"
+                             class="btn btn-success shadow-success m-1"><i
                                     class="fa fa-check-square-o"></i>
                                 MODIFIER</button>
                     </form>
