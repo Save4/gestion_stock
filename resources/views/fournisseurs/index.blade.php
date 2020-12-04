@@ -8,8 +8,8 @@
         <div class="col-sm-9">
             <h4 class="page-title">Tables Fournisseurs</h4>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="javaScript:void();">Home</a></li>
-                <li class="breadcrumb-item"><a href="javaScript:void();">Fournisseurs</a></li>
+                <li class="breadcrumb-item"><a href="{{url('/home')}}">Home</a></li>
+                <!-- <li class="breadcrumb-item"><a href="javaScript:void();">Fournisseurs</a></li> -->
                 <li class="breadcrumb-item active" aria-current="page">Table Fournisseurs</li>
             </ol>
         </div>
