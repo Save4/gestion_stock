@@ -7,8 +7,8 @@
         <div class="col-sm-9">
             <!-- <h4 class="page-title">Form Bordered</h4> -->
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{url('/homr')}}">Home</a></li>
-                <li class="breadcrumb-item"><a href="{{url('fournisseurs')}}">Fournisseur</a></li>
+                <li class="breadcrumb-item"><a href="{{url('/home')}}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{url('fournisseurs')}}">Fournisseurs</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Edit Fournisseur</li>
             </ol>
         </div>
