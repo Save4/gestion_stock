@@ -36,6 +36,10 @@ class ProduitsController extends Controller
     public function create()
     {
         //
+        $unitemesures = Unitemesure::all();
+        return view('produits.create',[
+            'unitemesures' => $unitemesures
+        ]);
     }
 
     /**
@@ -47,6 +51,19 @@ class ProduitsController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate(['nomproduit' => 'required',
+        'unitemesure_id' => 'required',
+        'prixachat' => 'required',
+        'prixvente' => 'required'
+        ]);
+
+        $produit = new Produit();
+        $produit->nomproduit = $request->nomproduit;
+        $produit->unitemesure_id = $request->unitemesure_id;
+        $produit->prixachat = $request->prixachat;
+        $produit->prixvente = $request->prixvente;
+        $produit->save();
+        return redirect('produits');
     }
 
     /**
