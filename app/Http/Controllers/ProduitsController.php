@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Produit;
+use App\Unitemesure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProduitsController extends Controller
 {
@@ -15,6 +17,15 @@ class ProduitsController extends Controller
     public function index()
     {
         //
+        $produits = DB::table('produits')
+                   ->join('unitemesures','produits.unitemesure_id','unitemesures.id')
+                   ->select('unitemesures.*','produits.*')
+                   ->get();
+        $unitemesures = Unitemesure::all();
+        return view('produits.index',[
+            'produits' => $produits,
+            'unitemesures' => $unitemesures
+        ]);
     }
 
     /**
