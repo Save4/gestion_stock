@@ -15,7 +15,7 @@ class CreateMagasinsTable extends Migration
     {
         Schema::create('magasins', function (Blueprint $table) {
             $table->id();
-            $table->string('nommagasin', 50)->unique();
+            $table->string('nom_magasin', 50)->unique();
             $table->timestamps();
         });
     }
