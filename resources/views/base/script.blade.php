@@ -12,30 +12,19 @@
 <!-- Custom scripts -->
 <script src="{{ asset('assets/js/app-script.js')}}"></script>
 
-<!-- Vector map JavaScript -->
-<script src="{{ asset('assets/plugins/vectormap/jquery-jvectormap-2.0.2.min.js')}}"></script>
-<script src="{{ asset('assets/plugins/vectormap/jquery-jvectormap-world-mill-en.js')}}"></script>
-<!-- Sparkline JS -->
-<script src="{{ asset('assets/plugins/sparkline-charts/jquery.sparkline.min.js')}}"></script>
-<!-- Chart js -->
-<script src="{{ asset('assets/plugins/Chart.js/Chart.min.js')}}"></script>
-<!--notification js -->
-<script src="{{ asset('assets/plugins/notifications/js/lobibox.min.js')}}"></script>
-<script src="{{ asset('assets/plugins/notifications/js/notifications.min.js')}}"></script>
-<!-- Index js -->
-<script src="{{ asset('assets/js/index2.js')}}"></script>
+
 
   <!--Data Tables js-->
-  <script src="{{ asset('assets/plugins/bootstrap-datatable/js/jquery.dataTables.min.js')}}"></script>
-  <script src="{{ asset('assets/plugins/bootstrap-datatable/js/dataTables.bootstrap4.min.js')}}"></script>
-  <script src="{{ asset('assets/plugins/bootstrap-datatable/js/dataTables.buttons.min.js')}}"></script>
-  <script src="{{ asset('assets/plugins/bootstrap-datatable/js/buttons.bootstrap4.min.js')}}"></script>
-  <script src="{{ asset('assets/plugins/bootstrap-datatable/js/jszip.min.js')}}"></script>
-  <script src="{{ asset('assets/plugins/bootstrap-datatable/js/pdfmake.min.js')}}"></script>
-  <script src="{{ asset('assets/plugins/bootstrap-datatable/js/vfs_fonts.js')}}"></script>
-  <script src="{{ asset('assets/plugins/bootstrap-datatable/js/buttons.html5.min.js')}}"></script>
-  <script src="{{ asset('assets/plugins/bootstrap-datatable/js/buttons.print.min.js')}}"></script>
-  <script src="{{ asset('assets/plugins/bootstrap-datatable/js/buttons.colVis.min.js')}}"></script>
+  <script src="{{ asset('js/jquery.dataTables.min.js')}}"></script>
+  <script src="{{ asset('js/dataTables.bootstrap4.min.js')}}"></script>
+  <script src="{{ asset('js/dataTables.buttons.min.js')}}"></script>
+  <script src="{{ asset('js/buttons.bootstrap4.min.js')}}"></script>
+  <script src="{{ asset('js/jszip.min.js')}}"></script>
+  <script src="{{ asset('js/pdfmake.min.js')}}"></script>
+  <script src="{{ asset('js/vfs_fonts.js')}}"></script>
+  <script src="{{ asset('js/buttons.html5.min.js')}}"></script>
+  <script src="{{ asset('js/buttons.print.min.js')}}"></script>
+  <script src="{{ asset('js/buttons.colVis.min.js')}}"></script>
 
     <script>
      $(document).ready(function() {
@@ -54,3 +43,17 @@
       } );
 
     </script>
+
+
+<!-- Vector map JavaScript -->
+<script src="{{ asset('assets/plugins/vectormap/jquery-jvectormap-2.0.2.min.js')}}"></script>
+<script src="{{ asset('assets/plugins/vectormap/jquery-jvectormap-world-mill-en.js')}}"></script>
+<!-- Sparkline JS -->
+<script src="{{ asset('assets/plugins/sparkline-charts/jquery.sparkline.min.js')}}"></script>
+<!-- Chart js -->
+<script src="{{ asset('assets/plugins/Chart.js/Chart.min.js')}}"></script>
+<!--notification js -->
+<script src="{{ asset('assets/plugins/notifications/js/lobibox.min.js')}}"></script>
+<script src="{{ asset('assets/plugins/notifications/js/notifications.min.js')}}"></script>
+<!-- Index js -->
+<script src="{{ asset('assets/js/index2.js')}}"></script>
