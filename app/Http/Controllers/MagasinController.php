@@ -16,7 +16,7 @@ class MagasinController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -25,9 +25,9 @@ class MagasinController extends Controller
     public function index()
     {
         //
-        $typeentree = Magasin::all();
+        $magasin = Magasin::all();
 
-        return \view('typeentrees.index', compact('typeentree'));
+        return \view('magasins.index', compact('magasin'));
     }
 
     /**
@@ -50,16 +50,16 @@ class MagasinController extends Controller
     {
         //
         $request->validate([
-            'nomtype' => 'required'
+            'nom_magasin' => 'required'
         ]);
 
-        $typeentree = new Typeentree();
+        $magasin = new Magasin();
 
-        $typeentree->nomtype = $request->nomtype;
+        $magasin->nom_magasin = $request->nom_magasin;
 
-        $typeentree->save();
+        $magasin->save();
 
-        return redirect('typeentrees')->with('succes', 'Type ajouté !');
+        return redirect('magasins')->with('succes', 'Type ajouté !');
     }
 
     /**
@@ -82,9 +82,9 @@ class MagasinController extends Controller
     public function edit($id)
     {
         //
-        $typeentree = Magasin::find($id);
+        $magasin = Magasin::find($id);
 
-        return \view('typeentrees.edit', compact('typeentree'));
+        return \view('magasins.edit', compact('magasin'));
     }
 
     /**
@@ -97,13 +97,13 @@ class MagasinController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $typeentree = Magasin::find($id);
+        $magasin = Magasin::find($id);
 
-        $typeentree->nomtype = $request->get('nomtype');
+        $magasin->nom_magasin = $request->get('nom_magasin');
 
-        $typeentree->save();
+        $magasin->save();
 
-        return redirect('typeentrees')->with('succes', 'Type modifié !');
+        return redirect('magasins')->with('succes', 'Type modifié !');
     }
 
     /**
@@ -115,10 +115,10 @@ class MagasinController extends Controller
     public function destroy($id)
     {
         //
-        $typeentree = Magasin::find($id);
+        $magasin = Magasin::find($id);
 
-        $typeentree->delete();
+        $magasin->delete();
 
-        return redirect('typeentrees')->with('succes', 'Type supprimé !');
+        return redirect('magasins')->with('succes', 'Type supprimé !');
     }
 }
