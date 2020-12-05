@@ -49,3 +49,5 @@ Route::resource('fournisseurs','FournisseursController');
 
 
 Route::resource('entrees','EntreesController');
+
+Route::resource('detail_entrees','Detail_entreesController');
