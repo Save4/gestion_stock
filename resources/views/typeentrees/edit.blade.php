@@ -5,7 +5,7 @@
     <!-- Breadcrumb-->
     <div class="row pt-2 pb-2">
         <div class="col-sm-9">
-            <h4 class="page-title">Les unités de mesure</h4>
+            <h4 class="page-title">Les types des entrées</h4>
             {{-- <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="javaScript:void();">BangoDash</a></li>
                 <li class="breadcrumb-item"><a href="javaScript:void();">Tables</a></li>
@@ -29,7 +29,7 @@
             <hr>
             <div class="card">
                 <div class="card-body">
-                    <form action="{{ route('unitemesures.update', $unite->id) }}" method="POST">
+                    <form action="{{ route('typeentrees.update', $typeentree->id) }}" method="POST">
                         @csrf
                         @method('PATCH')
 
@@ -38,8 +38,8 @@
                             Editer
                         </h4>
                         <div class="form-group">
-                            <label for="input-22">Unité</label>
-                        <input type="text" name="nomunite" value="{{ $unite->nomunite }}" class="form-control form-control-square" id="input-22" required>
+                            <label for="input-22">Nom du type d'entre</label>
+                        <input type="text" name="nomtype" value="{{ $typeentree->nomtype }}" class="form-control form-control-square" id="input-22" required>
                         </div>
                         <div class="form-footer">
                             <button type="submit" class="btn btn-primary shadow-primary m-1"><i class="fa fa-times"></i>

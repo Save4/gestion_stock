@@ -58,6 +58,8 @@
 <!-- Index js -->
 <script src="{{ asset('assets/js/index2.js')}}"></script>
 
+
+
 <!--Switchery Js-->
 <script src="assets/plugins/switchery/js/switchery.min.js"></script>
 <script>
@@ -68,7 +70,7 @@
 </script>
 
 <!--Bootstrap Switch Buttons-->
-<script src=""{{ asset('assets/plugins/bootstrap-switch/bootstrap-switch.min.js')}}"></script>
+<script src="{{ asset('assets/plugins/bootstrap-switch/bootstrap-switch.min.js')}}"></script>
 <script>
 $(".bt-switch input[type='checkbox'], .bt-switch input[type='radio']").bootstrapSwitch();
 var radioswitch = function() {
