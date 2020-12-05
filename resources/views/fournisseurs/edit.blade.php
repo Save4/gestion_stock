@@ -90,7 +90,7 @@
                             <input {{ isset($fournisseur['assujetva']) && $fournisseur['assujetva']=='1' ?
                                             'checked' : ''}} type="checkbox"
                                 class="form-check" name="assujetva" id="assujetva" class="filled-in chk-col-primary">
-                            <label for="assujetva">Assujetva</label>
+                            <label for="assujetva">Assujet  la tva</label>
                         </div>
 
 
