@@ -17,7 +17,7 @@ class CreateEntreesTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('fournisseur_id');
             $table->unsignedBigInteger('magasin_id');
-           $table->unsignedBigInteger('type_entre_id');
+           $table->unsignedBigInteger('type_entree_id');
            $table->unsignedBigInteger('mode_paiement_id');
            $table->integer('montant');
            $table->date('date_entree');
@@ -28,7 +28,7 @@ class CreateEntreesTable extends Migration
                   ->on('fournisseurs')
                   ->onUpdate('cascade')
                   ->onDelete('cascade');
-           $table->foreign('nagasin_id')
+           $table->foreign('magasin_id')
                   ->references('id')
                   ->on('magasins')
                   ->onUpdate('cascade')
