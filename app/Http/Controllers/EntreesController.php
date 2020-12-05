@@ -114,12 +114,7 @@ class EntreesController extends Controller
             'date_entree' => 'required',
             'montant' => 'required',
         ]);
-        $fournisseurs = Fournisseur::all();
-        $magasins = Magasin::all();
-        $typeentrees = Typeentree::all();
-        $mode_paiements = Mode_paiement::all();
 
-        $entree = new Entree();
         $entree->fournisseur_id = $request->fournisseur_id;
         $entree->type_entree_id = $request->type_entree_id;
         $entree->magasin_id = $request->magasin_id;
@@ -135,7 +130,7 @@ class EntreesController extends Controller
     public function destroy(Entree $entree)
     {
 
-        $entree = Fournisseur::find($entree->id);
+        $entree = Entree::find($entree->id);
         $entree->delete();
         return redirect('entrees');
     }
