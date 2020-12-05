@@ -43,23 +43,12 @@ class EntreesController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+
         return view('entrees.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         //
@@ -82,47 +71,31 @@ class EntreesController extends Controller
         $entrees->type_entree_id = $request->type_entree_id;
         $entrees->magasin_id = $request->magasin_id;
         $entrees->mode_paiement_id = $request->mode_paiement_id;
-        $entrees->date_entree_id = $request->date_entree_id;
-        $entrees->montant_id = $request->montant_id;
+        $entrees->date_entree = $request->date_entree;
+        $entrees->montant = $request->montant;
         $entrees->etat_cloture = (isset($request->etat_cloture) && $request->etat_cloture == 'on') ? 1 : 0;
         $entrees->save();
         return redirect('entrees');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Fournisseur  $fournisseur
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(Fournisseur $fournisseur)
     {
-        //
+
 
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Fournisseur  $fournisseur
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit(Fournisseur $fournisseur)
     {
-        //
+
         $fournisseur = Fournisseur::find($fournisseur->id);
         return view('fournisseurs.edit', [
             'fournisseur' => $fournisseur
         ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Fournisseur  $fournisseur
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, Fournisseur $fournisseur)
     {
         //
@@ -146,15 +119,10 @@ class EntreesController extends Controller
         return redirect('fournisseurs');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Fournisseur  $fournisseur
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy(Fournisseur $fournisseur)
     {
-        //
+
         $fournisseur = Fournisseur::find($fournisseur->id);
         $fournisseur->delete();
         return redirect('fournisseurs');
