@@ -23,7 +23,7 @@ class EntreesController extends Controller
         $entrees= DB::table('entrees')
            ->join('fournisseurs', 'entrees.fournisseur_id', 'fournisseurs.id')
            ->join('magasins', 'entrees.magasin_id', 'magasins.id')
-           ->join('typeentrees', 'entrees.typeentree_id', 'typeentrees.id')
+           ->join('typeentrees', 'entrees.type_entree_id', 'typeentrees.id')
            ->join('mode_paiements', 'entrees.mode_paiement_id', 'mode_paiements.id')
            ->select('fournisseurs.*','magasins.*','typeentrees.*','mode_paiements.*','entrees.*')
            ->get();
