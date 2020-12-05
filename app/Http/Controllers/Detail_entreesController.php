@@ -37,15 +37,9 @@ class Detail_entreesController extends Controller
 
     public function create()
     {
-      $entrees = Entree::all();
-      $produits = Produit::all();
-        return view('detail_entrees.create', [
 
-            'entrees' => $entrees,
-            'produits' => $produits,
-            'detail_entrees' => $detail_entrees
-          ]);
-            
+        return view('detail_entrees.create');
+
     }
 
     public function store(Request $request)
