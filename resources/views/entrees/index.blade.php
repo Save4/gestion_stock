@@ -240,7 +240,7 @@
                                                     <td>{{ $entree->montant}}</td>
                                                     <td>{{ $entree->date_entree }}</td>
                                                     <td>{{ $entree->created_at }}</td>
-                                                    <td>{{ $entree->}updated_at}</td>
+                                                    <td>{{ $entree->updated_at}}</td>
                                                     <td>{{ $entree->etat_cloture == '0' ? 'No' : 'Yes' }}</td>
                                                     <td>
                                                         <a href="entrees/{{ $entree->id }}/edit"
@@ -260,7 +260,7 @@
                                                 </tr>
                                             @endforeach
                                         </tbody>
-                                       
+
                                     </table>
                                 </div>
                             </div>
