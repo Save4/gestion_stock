@@ -15,7 +15,7 @@
             </div>
             <div class="col-sm-3">
                 <div class="btn-group float-sm-right">
-                    <form role="form" action="{{ url('entres') }}" method="POST">
+                    <form role="form" action="{{ url('entrees') }}" method="POST">
                         @csrf
                         <button type="button" class="btn btn-primary m-1" data-toggle="modal"
                             data-target="#largesizemodal">Ajouter
@@ -43,27 +43,27 @@
                                                                 <div class="form-group row">
                                                                     <label for="input-23"
                                                                         class="col-sm-2 col-form-label">Fournisseur</label>
-                                                                    <div class="col-sm-4">
-                                                                        <select name="fournisseur_id" id=""
-                                                                            class="form-control">
-                                                                            <option value="0" disabled="true"
-                                                                                selected="true">Selectionner le fournisseur
-                                                                            </option>
-                                                                            @foreach ($fournisseurs as $fournisseur)
-                                                                                <option value="{{ $fournisseur->id }}">
-                                                                                    {{ $fournisseur->nom }}
+                                                                        <div class="col-sm-4">
+                                                                            <select name="fournisseur_id" id=""
+                                                                                class="form-control">
+                                                                                <option value="0" disabled="true"
+                                                                                    selected="true">Selectionner le fournisseur
                                                                                 </option>
-                                                                            @endforeach
-                                                                            @error('fournisseur_id')
+                                                                                @foreach ($fournisseurs as $fournisseur)
+                                                                                    <option value="{{ $fournisseur->id }}">
+                                                                                        {{ $fournisseur->name }}
+                                                                                    </option>
+                                                                                @endforeach
+                                                                                @error('fournisseur_id')
 
-                                                                                <div class="alert alert-danger">{{ $message }}
-                                                                                </div>
-                                                                            @enderror
+                                                                                    <div class="alert alert-danger">{{ $message }}
+                                                                                    </div>
+                                                                                @enderror
 
 
 
-                                                                        </select>
-                                                                    </div>
+                                                                            </select>
+                                                                        </div>
                                                                     <label for="input-23"
                                                                         class="col-sm-2 col-form-label">Type
                                                                         d'entree</label>
@@ -159,16 +159,13 @@
                                                                 </div>
                                                                 <!-- </div> -->
 
-                                                                <div class="mt-3">
-                                                                    <label for="assujetva">Etat de cloture</label>
+                                                                <div class="demo-checkbox">
 
-                                                                    <input type="checkbox" name="etat_cloture" checked
-                                                                        data-on-color="success" data-off-color="info"
-                                                                        data-on-text="Yes" data-off-text="No">
-                                                                    <input type="checkbox" name="etat_cloture" checked
-                                                                        data-on-color="info" data-off-color="success"
-                                                                        data-on-text="1" data-off-text="0">
+                                                                    <input type="checkbox" id="etat_cloture" name="etat_cloture"
+                                                                        class="filled-in chk-col-primary" checked="">
+                                                                    <label for="etat_cloture">Etat de cloture</label>
                                                                 </div>
+
 
 
                                                             </form>
@@ -216,7 +213,7 @@
                                         aria-describedby="example_info">
                                         <thead>
                                             <tr role="row">
-                                                <th >#</th>
+                                                <th>#</th>
                                                 <th>Fournisseur</th>
                                                 <th>Magasin</th>
                                                 <th>Type d'entree</th>
@@ -231,16 +228,16 @@
                                         </thead>
                                         <tbody>
                                             @foreach ($entrees as $entree)
-                                                <tr class="odd" role="row">
-                                                    <td class="sorting_1">{{ $entree->id }}</td>
-                                                    <td>{{ $entree->nom }}</td>
+                                                <tr>
+                                                    <td>{{ $entree->id }}</td>
+                                                    <td>{{ $entree->name }}</td>
                                                     <td>{{ $entree->nom_magasin }}</td>
                                                     <td>{{ $entree->nomtype }}</td>
                                                     <td>{{ $entree->nom_mode }}</td>
-                                                    <td>{{ $entree->montant}}</td>
+                                                    <td>{{ $entree->montant }}</td>
                                                     <td>{{ $entree->date_entree }}</td>
                                                     <td>{{ $entree->created_at }}</td>
-                                                    <td>{{ $entree->updated_at}}</td>
+                                                    <td>{{ $entree->updated_at }}</td>
                                                     <td>{{ $entree->etat_cloture == '0' ? 'No' : 'Yes' }}</td>
                                                     <td>
                                                         <a href="entrees/{{ $entree->id }}/edit"
