@@ -8,8 +8,8 @@
         <div class="col-sm-9">
             <h4 class="page-title">Tables Fournisseurs</h4>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="javaScript:void();">Home</a></li>
-                <li class="breadcrumb-item"><a href="javaScript:void();">Fournisseurs</a></li>
+                <li class="breadcrumb-item"><a href="{{url('/home')}}">Home</a></li>
+                <!-- <li class="breadcrumb-item"><a href="javaScript:void();">Fournisseurs</a></li> -->
                 <li class="breadcrumb-item active" aria-current="page">Table Fournisseurs</li>
             </ol>
         </div>
@@ -104,7 +104,9 @@
                                 <div class="modal-footer">
                                     <button class="btn btn-secondary" type="reset" data-dismiss="modal"><i
                                             class="fa fa-times"></i> Fermer</button>
-                                    <button class="btn btn-primary" type="submit"><i class="fa fa-check-square-o"></i>
+                                    <button class="btn btn-primary" type="submit"
+                                        onclick="return confirm('Voulez vous Enregistrer le fournisseur ?')">
+                                        <i class="fa fa-check-square-o"></i>
                                         Enregistrer</button>
                 </form>
             </div>
@@ -132,7 +134,7 @@
             <div class="card-body">
                 <div class="table-responsive">
                     <div class="dataTables_wrapper container-fluid dt-bootstrap4" id="example_wrapper">
-                        
+
                         <div class="row">
                             <div class="col-sm-12">
                                 <table class="table table-bordered dataTable" id="example" role="grid"
@@ -221,7 +223,7 @@
                                 </table>
                             </div>
                         </div>
-                       
+
                     </div>
                 </div>
             </div>
