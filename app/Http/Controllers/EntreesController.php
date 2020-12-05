@@ -66,65 +66,77 @@ class EntreesController extends Controller
         $typeentrees = Typeentree::all();
         $mode_paiements = Mode_paiement::all();
 
-        $entrees = new Entree();
-        $entrees->fournisseur_id = $request->fournisseur_id;
-        $entrees->type_entree_id = $request->type_entree_id;
-        $entrees->magasin_id = $request->magasin_id;
-        $entrees->mode_paiement_id = $request->mode_paiement_id;
-        $entrees->date_entree = $request->date_entree;
-        $entrees->montant = $request->montant;
-        $entrees->etat_cloture = (isset($request->etat_cloture) && $request->etat_cloture == 'on') ? 1 : 0;
-        $entrees->save();
+        $entree = new Entree();
+        $entree->fournisseur_id = $request->fournisseur_id;
+        $entree->type_entree_id = $request->type_entree_id;
+        $entree->magasin_id = $request->magasin_id;
+        $entree->mode_paiement_id = $request->mode_paiement_id;
+        $entree->date_entree = $request->date_entree;
+        $entree->montant = $request->montant;
+        $entree->etat_cloture = (isset($request->etat_cloture) && $request->etat_cloture == 'on') ? 1 : 0;
+        $entree->save();
         return redirect('entrees');
     }
 
 
-    public function show(Fournisseur $fournisseur)
+    public function show(Entree $entree)
     {
-
-
     }
 
 
-    public function edit(Fournisseur $fournisseur)
+    public function edit(Entree $entree)
     {
 
-        $fournisseur = Fournisseur::find($fournisseur->id);
-        return view('fournisseurs.edit', [
-            'fournisseur' => $fournisseur
+        $fournisseurs = Fournisseur::all();
+        $magasins = Magasin::all();
+        $typeentrees = Typeentree::all();
+        $mode_paiements = Mode_paiement::all();
+
+        $entree = Entree::find($entree->id);
+        return view('entrees.edit', [
+            'fournisseurs' => $fournisseurs,
+            'magasins' => $magasins,
+            'typeentrees' => $typeentrees,
+            'mode_paiements' => $mode_paiements,
+            'entree' => $entree
         ]);
     }
 
 
-    public function update(Request $request, Fournisseur $fournisseur)
+    public function update(Request $request, Entree $entree)
     {
         //
         $request->validate([
-            'name' => 'required',
-            'tel' => 'required',
-            'email' => 'required',
-            'nif' => 'required',
-            'rc' => 'required',
-            'adresse' => 'required',
+            'fournisseur_id' => 'required',
+            'type_entree_id' => 'required',
+            'magasin_id' => 'required',
+            'mode_paiement_id' => 'required',
+            'date_entree' => 'required',
+            'montant' => 'required',
         ]);
+        $fournisseurs = Fournisseur::all();
+        $magasins = Magasin::all();
+        $typeentrees = Typeentree::all();
+        $mode_paiements = Mode_paiement::all();
 
-        $fournisseur->name = $request->name;
-        $fournisseur->tel = $request->tel;
-        $fournisseur->email = $request->email;
-        $fournisseur->nif = $request->nif;
-        $fournisseur->rc = $request->rc;
-        $fournisseur->adresse = $request->adresse;
-        $fournisseur->assujetva = isset($request->assujetva) ? 1 : 0;
-        $fournisseur->save();
-        return redirect('fournisseurs');
+        $entree = new Entree();
+        $entree->fournisseur_id = $request->fournisseur_id;
+        $entree->type_entree_id = $request->type_entree_id;
+        $entree->magasin_id = $request->magasin_id;
+        $entree->mode_paiement_id = $request->mode_paiement_id;
+        $entree->date_entree = $request->date_entree;
+        $entree->montant = $request->montant;
+        $entree->etat_cloture = isset($request->etat_cloture) ? 1 : 0;
+        $entree->save();
+        return redirect('entrees');
     }
 
 
-    public function destroy(Fournisseur $fournisseur)
+    public function destroy(Entree $entree)
     {
 
-        $fournisseur = Fournisseur::find($fournisseur->id);
-        $fournisseur->delete();
-        return redirect('fournisseurs');
+        $entree = Fournisseur::find($entree->id);
+        $entree->delete();
+        return redirect('entrees');
     }
 }
