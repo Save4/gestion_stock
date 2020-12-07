@@ -25,7 +25,7 @@
     <div class="row">
         <div class="col-lg-12">
           <div class="card">
-            <div class="card-header"><i class="fa fa-table"></i> List des types d'entre</div>
+            <div class="card-header"><i class="fa fa-table"></i> Liste des types des entrees </div>
             <div class="card-body">
               <div class="table-responsive">
                 <table id="example" class="table table-bordered">
