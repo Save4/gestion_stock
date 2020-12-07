@@ -50,7 +50,7 @@ class MagasinController extends Controller
     {
         //
         $request->validate([
-            'nom_magasin' => 'required'
+            'nom_magasin' => ['required', 'string', 'max:255', 'unique:magasins']
         ]);
 
         $magasin = new Magasin();
@@ -97,6 +97,10 @@ class MagasinController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $request->validate([
+            'nom_magasin' => ['required', 'string', 'max:255', 'unique:magasins']
+        ]);
+        
         $magasin = Magasin::find($id);
 
         $magasin->nom_magasin = $request->get('nom_magasin');
