@@ -12,6 +12,39 @@
 <!-- Custom scripts -->
 <script src="{{ asset('assets/js/app-script.js')}}"></script>
 
+
+
+  <!--Data Tables js-->
+  <script src="{{ asset('js/jquery.dataTables.min.js')}}"></script>
+  <script src="{{ asset('js/dataTables.bootstrap4.min.js')}}"></script>
+  <script src="{{ asset('js/dataTables.buttons.min.js')}}"></script>
+  <script src="{{ asset('js/buttons.bootstrap4.min.js')}}"></script>
+  <script src="{{ asset('js/jszip.min.js')}}"></script>
+  <script src="{{ asset('js/pdfmake.min.js')}}"></script>
+  <script src="{{ asset('js/vfs_fonts.js')}}"></script>
+  <script src="{{ asset('js/buttons.html5.min.js')}}"></script>
+  <script src="{{ asset('js/buttons.print.min.js')}}"></script>
+  <script src="{{ asset('js/buttons.colVis.min.js')}}"></script>
+
+    <script>
+     $(document).ready(function() {
+      //Default data table
+       $('#default-datatable').DataTable();
+
+
+       var table = $('#example').DataTable( {
+        lengthChange: false,
+        buttons: [ 'copy', 'excel', 'pdf', 'print', 'colvis' ]
+      } );
+
+     table.buttons().container()
+        .appendTo( '#example_wrapper .col-md-6:eq(0)' );
+
+      } );
+
+    </script>
+
+
 <!-- Vector map JavaScript -->
 <script src="{{ asset('assets/plugins/vectormap/jquery-jvectormap-2.0.2.min.js')}}"></script>
 <script src="{{ asset('assets/plugins/vectormap/jquery-jvectormap-world-mill-en.js')}}"></script>

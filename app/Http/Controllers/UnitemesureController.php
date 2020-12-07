@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Magasin;
+use App\Unitemesure;
 use Illuminate\Http\Request;
 
-class MagasinController extends Controller
+class UnitemesureController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -25,9 +25,9 @@ class MagasinController extends Controller
     public function index()
     {
         //
-        $magasin = Magasin::all();
+        $unite = Unitemesure::all();
 
-        return \view('magasins.index', compact('magasin'));
+        return view('unitemesures.index', compact('unite'));
     }
 
     /**
@@ -48,18 +48,19 @@ class MagasinController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // validation
         $request->validate([
-            'nom_magasin' => 'required'
+            'nomunite' => 'required',
         ]);
 
-        $magasin = new Magasin();
+        $unitemesure = new Unitemesure();
 
-        $magasin->nom_magasin = $request->nom_magasin;
+        $unitemesure->nomunite = $request->nomunite;
 
-        $magasin->save();
+        $unitemesure->save();
 
-        return redirect('magasins')->with('succes', 'Type ajouté !');
+        return redirect('unitemesures')->with('succes', 'Nouvelle unité ajoutée !');
+
     }
 
     /**
@@ -82,9 +83,10 @@ class MagasinController extends Controller
     public function edit($id)
     {
         //
-        $magasin = Magasin::find($id);
+        $unite = Unitemesure::find($id);
 
-        return \view('magasins.edit', compact('magasin'));
+        return view('unitemesures.edit', compact('unite'));
+
     }
 
     /**
@@ -97,13 +99,15 @@ class MagasinController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $magasin = Magasin::find($id);
+        $unite = Unitemesure::find($id);
 
-        $magasin->nom_magasin = $request->get('nom_magasin');
+        $unite->nomunite = $request->get('nomunite');
 
-        $magasin->save();
+        $unite->save();
 
-        return redirect('magasins')->with('succes', 'Type modifié !');
+        return redirect('unitemesures')->with('succes', 'Unité modifiée !');
+
+
     }
 
     /**
@@ -115,10 +119,10 @@ class MagasinController extends Controller
     public function destroy($id)
     {
         //
-        $magasin = Magasin::find($id);
+        $unitemesure = Unitemesure::find($id);
 
-        $magasin->delete();
+        $unitemesure->delete();
 
-        return redirect('magasins')->with('succes', 'Type supprimé !');
+        return redirect('unitemesures')->with('succes', 'Nouvelle unité supprimée !');
     }
 }

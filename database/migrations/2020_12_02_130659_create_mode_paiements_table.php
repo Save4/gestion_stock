@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMagasinsTable extends Migration
+class CreateModePaiementsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateMagasinsTable extends Migration
      */
     public function up()
     {
-        Schema::create('magasins', function (Blueprint $table) {
-            $table->id();
-            $table->string('nom_magasin', 50)->unique();
-            $table->timestamps();
+        Schema::create('mode_paiements', function (Blueprint $table) {
+          $table->bigIncrements('id');
+       $table->string('nom_mode');
+       $table->timestamps();
         });
     }
 
@@ -27,6 +27,6 @@ class CreateMagasinsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('magasins');
+        Schema::dropIfExists('mode_paiements');
     }
 }
