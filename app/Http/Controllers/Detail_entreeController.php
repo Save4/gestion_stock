@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 
-class Detail_entreesController extends Controller
+class Detail_entreeController extends Controller
 {
 
     function __construct()
