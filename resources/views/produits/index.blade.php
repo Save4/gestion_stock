@@ -18,7 +18,7 @@
                 <form role="form" action="{{url('produits')}}" method="POST">
                     @csrf
                     <button type="button" class="btn btn-primary m-1" data-toggle="modal"
-                        data-target="#largesizemodal">Ajouter
+                        data-target="#largesizemodal"><i class="fa fa-plus"></i> Ajouter
                         Produit</button>
                     <div class="modal fade" id="largesizemodal" aria-hidden="true" style="display: none;">
                         <div class="modal-dialog modal-lg">
