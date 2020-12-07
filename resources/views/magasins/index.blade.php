@@ -8,9 +8,9 @@
             <div class="col-sm-9">
                 <h4 class="page-title">Table Magasins</h4>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="javaScript:void();">Home</a></li>
-                    <li class="breadcrumb-item"><a href="javaScript:void();">magasin</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Table magasin</li>
+                    <li class="breadcrumb-item"><a href="{{url('/home')}}">Home</a></li>
+                    <!-- <li class="breadcrumb-item"><a href="javaScript:void();">magasin</a></li> -->
+                    <li class="breadcrumb-item active" aria-current="page">Table Magasins</li>
                 </ol>
             </div>
             <div class="col-sm-3">
@@ -19,7 +19,7 @@
                         @csrf
                         @method('POST')
                         <button type="button" class="btn btn-primary m-1" data-toggle="modal"
-                            data-target="#largesizemodal">Ajouter
+                            data-target="#largesizemodal"><i class="fa fa-plus"></i> Ajouter
                             Magasin</button>
                         <div class="modal fade" id="largesizemodal" aria-hidden="true" style="display: none;">
                             <div class="modal-dialog modal-lg">
@@ -46,7 +46,7 @@
                                                                     <label for="input-10"
                                                                         class="col-sm-2 col-form-label">Nom
                                                                         Magasin</label>
-                                                                    <div class="col-sm-4">
+                                                                    <div class="col-sm-10">
                                                                         <input type="text" name="nom_magasin"
                                                                             class="form-control" id="input-10">
                                                                         @error('nom_magasin')

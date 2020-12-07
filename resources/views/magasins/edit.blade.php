@@ -58,14 +58,13 @@
 
 
                             <div class="form-footer">
-                                <a href="{{ route('magasins.index') }}"><button type="button"
-                                        class="btn btn-primary shadow-primary m-1"><i class="fa fa-times"></i>
-                                        Annuler</button></a>
+                                <a href="{{ route('magasins.index') }}"><button type="button" class="btn btn-primary shadow-primary m-1"><i class="fa fa-backward"></i>
+                                    Retour</button></a>
                                 <button type="reset" class="btn btn-dark shadow-dark m-1"><i class="fa fa-times"></i>
                                     Reinitialiser</button>
                                 <button type="submit" class="btn btn-success shadow-success m-1"><i
                                         class="fa fa-check-square-o"></i>
-                                    Enregistrer</button>
+                                    Modifier</button>
                         </form>
                     </div>
                 </div>
