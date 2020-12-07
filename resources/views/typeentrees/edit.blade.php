@@ -39,16 +39,20 @@
                         </h4>
                         <div class="form-group">
                             <label for="input-22">Nom du type d'entre</label>
-                        <input type="text" name="nomtype" value="{{ $typeentree->nomtype }}" class="form-control form-control-square" id="input-22" required>
+                            <input type="text" name="nomtype" value="{{ $typeentree->nomtype }}"
+                                class="form-control form-control-square" id="input-22" required>
+                            @error('nomtype')
+                                <code> {{ $message }}</code>
+                            @enderror
                         </div>
                         <div class="form-footer">
-                            <button type="submit" class="btn btn-primary shadow-primary m-1"><i class="fa fa-times"></i>
-                                ANNULER</button>
-                                <button type="reset" class="btn btn-dark shadow-dark m-1"><i class="fa fa-times"></i>
-                               REINITIALISER</button>
+                            <a href="{{ route('typeentrees.index') }}"></a><button type="button" class="btn btn-primary shadow-primary m-1"><i class="fa fa-times"></i>
+                                Annuler</button>
+                            <button type="reset" class="btn btn-dark shadow-dark m-1"><i class="fa fa-times"></i>
+                                REINITIALISER</button>
                             <button type="submit" class="btn btn-success shadow-success m-1"><i
                                     class="fa fa-check-square-o"></i>
-                                MODIFIER</button>
+                                Modifier</button>
                         </div>
                     </form>
                 </div>
