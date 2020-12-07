@@ -65,10 +65,10 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit( Category $categorie)
+    public function edit( $id)
     {
         //
-        $categorie = Category::find($categorie->id);
+        $categorie = Category::find($id);
         return view('categories.edit',[
             'categorie' => $categorie
         ]);
@@ -99,8 +99,11 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $categorie)
+    public function destroy( $id)
     {
         //
+        $categorie = Category::find($id);
+        $categorie->delete();
+        return redirect('categories');
     }
 }
