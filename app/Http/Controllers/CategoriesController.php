@@ -83,13 +83,15 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $categorie)
+    public function update(Request $request, $id)
     {
         //
-        $request->validate(['nom_categorie' => 'required']);
+        $categorie = Category::find($id);
 
-        $categorie->nom_categorie = $request->nom_categorie;
+        $categorie->nom_categorie = $request->get('nom_categorie');
+
         $categorie->save();
+
         return redirect('categories');
     }
 
