@@ -6,26 +6,26 @@
     <div class="row pt-2 pb-2">
         <div class="col-sm-9">
             <h4 class="page-title">Les types des entrées</h4>
-            {{-- <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="javaScript:void();">BangoDash</a></li>
-                <li class="breadcrumb-item"><a href="javaScript:void();">Tables</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Data Tables</li>
-            </ol> --}}
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ url('/home') }}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{ url('typeentrees') }}">Type Entrees</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Edit Typee Entrees</li>
+            </ol>
         </div>
-        {{-- <div class="col-sm-3">
+        <div class="col-sm-3">
             <div class="btn-group float-sm-right">
-                <button class="btn btn-outline-primary waves-effect waves-light" data-toggle="modal"
-                    data-target="#smallsizemodal"><i class="fa fa-cog mr-1"></i> Ajouter</button>
+                <button class="btn btn-primary " data-toggle="modal" data-target="#smallsizemodal"><i
+                        class="fa fa-plus"></i> Ajouter</button>
 
             </div>
-        </div> --}}
+        </div>
     </div>
     <!-- End Breadcrumb-->
 
     <div class="row">
         <div class="col-lg-6">
-            {{-- <h6 class="text-uppercase">Form with square input</h6>
-            --}}
+            <!-- {{-- <h6 class="text-uppercase">Form with square input</h6>
+                    --}} -->
             <hr>
             <div class="card">
                 <div class="card-body">
@@ -46,8 +46,12 @@
                             @enderror
                         </div>
                         <div class="form-footer">
-                            <a href="{{ route('typeentrees.index') }}"></a><button type="button" class="btn btn-primary shadow-primary m-1"><i class="fa fa-times"></i>
-                                Annuler</button>
+
+                            <a href="{{ route('typeentrees.index') }}"><button type="button"
+                                    class="btn btn-primary shadow-primary m-1"><i
+                                            class="fa fa-backward"></i>
+                                        RETOUR</button></a>
+
                             <button type="reset" class="btn btn-dark shadow-dark m-1"><i class="fa fa-times"></i>
                                 REINITIALISER</button>
                             <button type="submit" class="btn btn-success shadow-success m-1"><i

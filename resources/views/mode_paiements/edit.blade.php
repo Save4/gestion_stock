@@ -34,12 +34,13 @@
                         <input type="text" name="nom_mode" value="{{ $mode_paiement->nom_mode }}" class="form-control form-control-square" id="input-22" required>
                         </div>
                         <div class="form-footer">
-                            <button type="submit" class="btn btn-dark shadow-dark m-1"><i class="fa fa-times"></i>
-                                Annuler</button>
-                            <button type="reset" class="btn btn-dark shadow-dark m-1" class="d-inline"> <i class="fa fa-times"></i>
-                                Reinitialiser</button>
-                            <button type="submit" class="btn btn-success shadow-success m-1" class="d-inline"><i
-                                    class="fa fa-check-square-o"></i> Enregistrer</button>
+                           <button type="submit" class="btn btn-primary shadow-primary m-1"><i class="fa fa-times"></i>
+                                ANNULER</button>
+                                <button type="reset" class="btn btn-dark shadow-dark m-1"><i class="fa fa-times"></i>
+                               REINITIALISER</button>
+                            <button type="submit" class="btn btn-success shadow-success m-1"><i
+                                    class="fa fa-check-square-o"></i>
+                                MODIFIER</button>
                         </div>
                     </form>
                 </div>
