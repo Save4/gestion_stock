@@ -47,7 +47,7 @@
                                 <label for="input-1" class="col-sm-2 col-form-label">Nom Magasin</label>
                                 <div class="col-sm-10">
                                     <input type="text" name="nom_magasin" value="{{ $magasin->nom_magasin }}"
-                                        class="form-control" id="input-1">
+                                        class="form-control" id="input-1" required>
                                 </div>
                             </div>
 
