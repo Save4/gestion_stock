@@ -65,8 +65,7 @@
                                                                             </select>
                                                                         </div>
                                                                     <label for="input-23"
-                                                                        class="col-sm-2 col-form-label">Type
-                                                                        d'entree</label>
+                                                                        class="col-sm-2 col-form-label">Produit</label>
                                                                     <div class="col-sm-4">
                                                                         <select name="produit_id" id=""
                                                                             class="form-control">
@@ -75,7 +74,7 @@
                                                                             </option>
                                                                             @foreach ($produits as $produit)
                                                                                 <option value="{{ $produit->id }}">
-                                                                                    {{ $produit->nom_produit }}
+                                                                                    {{ $produit->nomproduit }}
                                                                                 </option>
                                                                             @endforeach
                                                                             @error('produit_id')
@@ -93,77 +92,30 @@
 
                                                                 <div class="form-group row">
                                                                     <label for="input-23"
-                                                                        class="col-sm-2 col-form-label">Mode de
-                                                                        paiement</label>
+                                                                        class="col-sm-2 col-form-label">Quantite</label>
                                                                     <div class="col-sm-4">
-                                                                        <select name="mode_paiement_id" id=""
-                                                                            class="form-control">
-                                                                            <option value="0" disabled="true"
-                                                                                selected="true">Selectionner le mode de
-                                                                                paiement
-                                                                            </option>
-                                                                            @foreach ($mode_paiements as $mode_paiement)
-                                                                                <option value="{{ $mode_paiement->id }}">
-                                                                                    {{ $mode_paiement->nom_mode }}
-                                                                                </option>
-                                                                            @endforeach
-                                                                            @error('mode_paiement_id')
-
-                                                                                <div class="alert alert-danger">{{ $message }}
-                                                                                </div>
-                                                                            @enderror
-
-
-
-                                                                        </select>
+                                                                        <input type="number" name="quantite"
+                                                                            class="form-control" id="input-12">
                                                                     </div>
                                                                     <label for="input-15"
-                                                                        class="col-sm-2 col-form-label">Magasin</label>
+                                                                        class="col-sm-2 col-form-label">Prix d'achat</label>
                                                                     <div class="col-sm-4">
-                                                                        <select name="magasin_id" id=""
-                                                                            class="form-control">
-                                                                            <option value="0" disabled="true"
-                                                                                selected="true">Selectionner le magasin
-                                                                            </option>
-                                                                            @foreach ($magasins as $magasin)
-                                                                                <option value="{{ $magasin->id }}">
-                                                                                    {{ $magasin->nom_magasin }}
-                                                                                </option>
-                                                                            @endforeach
-                                                                            @error('magasin_id')
-
-                                                                                <div class="alert alert-danger">{{ $message }}
-                                                                                </div>
-                                                                            @enderror
-
-
-
-                                                                        </select>
+                                                                        <input type="number" name="prix_achat"
+                                                                            class="form-control" id="input-12">
                                                                     </div>
                                                                 </div>
                                                                 <!-- <div class="form-group row"> -->
                                                                 <div class="form-group row">
                                                                     <label for="input-23"
-                                                                        class="col-sm-2 col-form-label">Montant</label>
+                                                                        class="col-sm-2 col-form-label">Prix de vente</label>
                                                                     <div class="col-sm-4">
-                                                                        <input type="number" name="montant"
+                                                                        <input type="number" name="prix_vente"
                                                                             class="form-control" id="input-12">
                                                                     </div>
-                                                                    <label for="input-23"
-                                                                        class="col-sm-2 col-form-label">Date d'entre</label>
-                                                                    <div class="col-sm-4">
-                                                                        <input type="date" name="date_entree"
-                                                                            class="form-control" id="input-12">
-                                                                    </div>
+
                                                                 </div>
                                                                 <!-- </div> -->
 
-                                                                <div class="demo-checkbox">
-
-                                                                    <input type="checkbox" id="etat_cloture" name="etat_cloture"
-                                                                        class="filled-in chk-col-primary" checked="">
-                                                                    <label for="etat_cloture">Etat de cloture</label>
-                                                                </div>
 
 
 
@@ -201,7 +153,7 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
-                <div class="card-header"><i class="fa fa-table"></i>Liste des entres</div>
+                <div class="card-header"><i class="fa fa-table"></i>Liste des entrees detail</div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <div class="dataTables_wrapper container-fluid dt-bootstrap4" id="example_wrapper">
@@ -214,36 +166,28 @@
                                             <tr role="row">
                                                 <th>#</th>
                                                 <th>entree</th>
-                                                <th>Magasin</th>
-                                                <th>Type d'entree</th>
-                                                <th>Mode de paiement</th>
-                                                <th>Montant</th>
-                                                <th>Date d'entree</th>
-                                                <th>Date de creation</th>
-                                                <th>Date de mise a jour</th>
-                                                <th>Etat de cloture</th>
+                                                <th>Produit</th>
+                                                <th>Quantite</th>
+                                                <th>Prix d'achat</th>
+                                                <th>Prix de vente</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($entrees as $entree)
+                                            @foreach ($detail_entrees as $detail_entree)
                                                 <tr>
-                                                    <td>{{ $entree->id }}</td>
-                                                    <td>{{ $entree->name }}</td>
-                                                    <td>{{ $entree->nom_magasin }}</td>
-                                                    <td>{{ $entree->nomtype }}</td>
-                                                    <td>{{ $entree->nom_mode }}</td>
-                                                    <td>{{ $entree->montant }}</td>
-                                                    <td>{{ $entree->date_entree }}</td>
-                                                    <td>{{ $entree->created_at }}</td>
-                                                    <td>{{ $entree->updated_at }}</td>
-                                                    <td>{{ $entree->etat_cloture == '0' ? 'No' : 'Yes' }}</td>
+                                                    <td>{{ $detail_entree->id }}</td>
+                                                    <td>{{ $detail_entree->entree_id }}</td>
+                                                    <td>{{ $detail_entree->nomproduit }}</td>
+                                                    <td>{{ $detail_entree->quantite }}</td>
+                                                    <td>{{ $detail_entree->prix_achat }}</td>
+                                                    <td>{{ $detail_entree->prix_vente }}</td>
                                                     <td>
-                                                        <a href="entrees/{{ $entree->id }}/edit"
+                                                        <a href="detail_entrees/{{ $detail_entree->id }}/edit"
                                                             class="btn btn-primary btn-sm" title="Edit">
                                                             <span class="fa fa-edit"></span></a>
 
-                                                        <form action="entrees/{{ $entree->id }} " method="POST"
+                                                        <form action="detail_entrees/{{ $detail_entree->id }} " method="POST"
                                                             class="d-inline">
                                                             @csrf
                                                             <button type="submit"
