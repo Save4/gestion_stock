@@ -50,7 +50,7 @@ class TypeentreeController extends Controller
     {
         //
         $request->validate([
-            'nomtype' => ['required', 'max:255', 'string', 'unique:typeentrees,nom_type']
+            'nomtype' => ['required', 'max:255', 'string', 'unique:typeentrees,nomtype']
         ]);
 
         $typeentree = new Typeentree();
@@ -98,9 +98,9 @@ class TypeentreeController extends Controller
     {
         //
         $request->validate([
-            'nomtype' => ['required', 'max:255', 'string', 'unique:typeentrees,nom_type']
+            'nomtype' => ['required', 'max:255', 'string', 'unique:typeentrees,nomtype']
         ]);
-        
+
         $typeentree = Typeentree::find($id);
 
         $typeentree->nomtype = $request->get('nomtype');
