@@ -87,6 +87,7 @@ class CategoriesController extends Controller
     {
         //
         $request->validate(['nom_categorie' => 'required']);
+        
         $categorie->nom_categorie = $request->nom_categorie;
         $categorie->save();
         return redirect('categories');
