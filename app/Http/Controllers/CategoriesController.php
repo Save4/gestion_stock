@@ -68,6 +68,12 @@ class CategoriesController extends Controller
     public function edit($id)
     {
         //
+        $categorie = Category::find($id);
+        return view('categories.edit',[
+            'categorie' => $categorie
+        ]);
+
+
     }
 
     /**
@@ -77,9 +83,13 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Category $categorie)
     {
         //
+        $request->validate(['nom_categorie' => 'required']);
+        $categorie->nom_categorie = $request->nom_categorie;
+        $categorie->save();
+        return redirect('categories');
     }
 
     /**
@@ -88,7 +98,7 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Category $categorie)
     {
         //
     }
