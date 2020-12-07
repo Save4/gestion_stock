@@ -54,7 +54,7 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Category $categorie)
     {
         //
     }
@@ -65,10 +65,10 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit( Category $categorie)
     {
         //
-        $categorie = Category::find($id);
+        $categorie = Category::find($categorie->id);
         return view('categories.edit',[
             'categorie' => $categorie
         ]);
@@ -87,7 +87,7 @@ class CategoriesController extends Controller
     {
         //
         $request->validate(['nom_categorie' => 'required']);
-        
+
         $categorie->nom_categorie = $request->nom_categorie;
         $categorie->save();
         return redirect('categories');
