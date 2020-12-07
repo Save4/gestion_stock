@@ -18,12 +18,15 @@ class ProduitsController extends Controller
     {
         //
         $produits = DB::table('produits')
+                   ->join('categories','produits.categorie_id','categories.id')
                    ->join('unitemesures','produits.unitemesure_id','unitemesures.id')
-                   ->select('unitemesures.*','produits.*')
+                   ->select('categories.*','unitemesures.*','produits.*')
                    ->get();
+        $categories = Category::all();
         $unitemesures = Unitemesure::all();
         return view('produits.index',[
             'produits' => $produits,
+            'categories' => $categories
             'unitemesures' => $unitemesures
         ]);
     }
