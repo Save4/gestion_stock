@@ -29,6 +29,7 @@ class CategoriesController extends Controller
     public function create()
     {
         //
+        return view('categories.create');
     }
 
     /**
@@ -40,6 +41,11 @@ class CategoriesController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate(['nom_categorie' => 'required']);
+        $categorie = new Category();
+        $categorie->nom_categorie = $request->nom_categorie;
+        $categorie->save();
+        return redirect('categories');
     }
 
     /**
