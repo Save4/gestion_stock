@@ -126,7 +126,7 @@
                                                             class="btn btn-primary btn-sm" title="Edit">
                                                             <span class="fa fa-edit"></span></a>
 
-                                                        <form action="{{ url('categories') }}"
+                                                        <form action="/categories/{{$categorie->id }}"
                                                             method="POST" class="d-inline">
                                                             @csrf
                                                             <button type="submit"
