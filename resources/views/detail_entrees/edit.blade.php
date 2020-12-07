@@ -73,12 +73,12 @@
                             <div class="form-group row col-sm-12">
                                 <label for="input-23" class="col-sm-2 col-form-label">Quantite</label>
                                 <div class="col-sm-4">
-                                    <input type="number" name="montant" value="{{ $entree->quantite }}" class="form-control"
+                                    <input type="number" name="montant" value="{{ $detail_entree->quantite }}" class="form-control"
                                         id="input-4">
                                 </div>
                                 <label for="input-15" class="col-sm-2 col-form-label">Prix d'achat</label>
                                 <div class="col-sm-4">
-                                    <input type="number" name="prix_achat" value="{{ $entree->prix_achat }}"
+                                    <input type="number" name="prix_achat" value="{{ $detail_entree->prix_achat }}"
                                         class="form-control" id="input-4">
                                 </div>
                             </div>
@@ -86,7 +86,7 @@
                             <div class="form-group row col-sm-12">
                                 <label for="input-4" class="col-sm-2 col-form-label">Prix de vente</label>
                                 <div class="col-sm-4">
-                                    <input type="number" name="prix_vente" value="{{ $entree->prix_vente }}"
+                                    <input type="number" name="prix_vente" value="{{ $detail_entree->prix_vente }}"
                                         class="form-control" id="input-4">
                                 </div>
 
