@@ -47,20 +47,20 @@
                                 <label for="input-1" class="col-sm-2 col-form-label">Nom Magasin</label>
                                 <div class="col-sm-10">
                                     <input type="text" name="nom_magasin" value="{{ $magasin->nom_magasin }}"
-                                        class="form-control" id="input-1">
+                                        class="form-control" id="input-1" required>
                                 </div>
                             </div>
 
 
 
                             <div class="form-footer">
-                                <button type="submit" class="btn btn-primary shadow-primary m-1"><i class="fa fa-times"></i>
-                                    Annuler</button>
+                                <button type="submit" class="btn btn-primary shadow-primary m-1"><i class="fa fa-backward"></i>
+                                    Retour</button>
                                 <button type="reset" class="btn btn-dark shadow-dark m-1"><i class="fa fa-times"></i>
                                     Reinitialiser</button>
                                 <button type="submit" class="btn btn-success shadow-success m-1"><i
                                         class="fa fa-check-square-o"></i>
-                                    Enregistrer</button>
+                                    Modifier</button>
                         </form>
                     </div>
                 </div>
