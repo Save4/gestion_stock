@@ -36,7 +36,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                        <form role="form" action="categories/{{$categorie->id }}" method="POST">
+                        <form role="form" action="/categories/{{$categorie->id }}" method="POST">
                             @csrf
                             @method('PUT')
                             <h4 class="form-header text-uppercase">
