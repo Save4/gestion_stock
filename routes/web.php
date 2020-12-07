@@ -42,7 +42,8 @@ Route::resource('fournisseurs', 'FournisseursController');
 Route::resource('mode_paiements', 'ModePaiementController');
 Route::resource('unitemesures', 'UnitemesureController');
 
-/* Magasins */
+Route::resource('produits','ProduitsController');
+
 Route::resource('magasins', 'MagasinController');
 
 Route::resource('fournisseurs','FournisseursController');
