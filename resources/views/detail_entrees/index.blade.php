@@ -1,6 +1,8 @@
 @extends('layouts.layout')
 
 @section('content')
+  @section('title','Detail des entres | '.config('app.name'))
+
 
   <div class="container-fluid">
         <!-- Breadcrumb-->
@@ -178,7 +180,7 @@
                             data-target="#largesizemodal">Ajouter
                             les entrees detaile</button>
 
-                            
+
                         <div class="modal fade" id="largesizemodal" aria-hidden="true" style="display: none;">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
@@ -200,7 +202,7 @@
                                                             </h4>
                                                             <form>
                                                                 <div class="form-group row">
-                                                                   
+
                                                                     <label for="input-23"
                                                                         class="col-sm-2 col-form-label">Produit</label>
                                                                     <div class="col-sm-4">
@@ -287,7 +289,7 @@
     </div>
     <!-- End Breadcrumb-->
 
-   
+
 
     <div class="row">
         <div class="col-lg-12">
