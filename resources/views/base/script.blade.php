@@ -57,5 +57,3 @@
 <script src="{{ asset('assets/plugins/notifications/js/notifications.min.js')}}"></script>
 <!-- Index js -->
 <script src="{{ asset('assets/js/index2.js')}}"></script>
-
-<script src="{{ asset('js/magasin.js')}}"></script>
