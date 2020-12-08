@@ -43,7 +43,7 @@
                                                             </h4>
                                                             <form>
                                                                 <div class="form-group row">
-                                                                    <label for="input-23"
+                                                                  <!--  <label for="input-23"
                                                                         class="col-sm-2 col-form-label">Entree</label>
                                                                         <div class="col-sm-4">
                                                                             <select name="entree_id" id=""
@@ -65,7 +65,7 @@
 
 
                                                                             </select>
-                                                                        </div>
+                                                                        </div>-->
                                                                     <label for="input-23"
                                                                         class="col-sm-2 col-form-label">Produit</label>
                                                                     <div class="col-sm-4">
