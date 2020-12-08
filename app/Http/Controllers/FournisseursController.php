@@ -41,9 +41,9 @@ class FournisseursController extends Controller
     public function store(Request $request)
     {
         //
-        $request->validate(['name' => 'required',
+        $request->validate(['name' => ['required', 'string', 'max:255', 'unique:fournisseurs,name'],
         'tel' => 'required',
-        'email' => 'required',
+        'email' => ['required', 'string', 'amail', 'max:255', 'unique:fournisseurs,email'],
         'nif' => 'required',
         'rc' => 'required',
         'adresse' => 'required',
@@ -98,9 +98,9 @@ class FournisseursController extends Controller
     public function update(Request $request, Fournisseur $fournisseur)
     {
         //
-        $request->validate(['name' => 'required',
+        $request->validate(['name' => ['required', 'string', 'max:255', 'unique:fournisseurs,name'],
         'tel' => 'required',
-        'email' => 'required',
+        'email' => ['required', 'string', 'email' ,'max:255', 'unique:fournisseurs,email'],
         'nif' => 'required',
         'rc' => 'required',
         'adresse' => 'required',
