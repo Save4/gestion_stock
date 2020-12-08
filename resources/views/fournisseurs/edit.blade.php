@@ -48,6 +48,9 @@
                             <div class="col-sm-10">
                                 <input type="text" name="name" value="{{$fournisseur->name}}" class="form-control"
                                     id="input-1">
+                                    @error('name')
+                                        <code> {{ $message }}</code>
+                                    @enderror
                             </div>
                         </div>
                         <div class="form-group row">
@@ -62,6 +65,9 @@
                             <div class="col-sm-10">
                                 <input type="email" name="email" value="{{$fournisseur->email}}" class="form-control"
                                     id="input-3">
+                                    @error('email')
+                                        <code> {{ $message }}</code>
+                                    @enderror
                             </div>
                         </div>
                         <div class="form-group row">
