@@ -1,7 +1,7 @@
 <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
     <div class="brand-logo">
 
-      <h5 class="logo-text"> @yield('title',config('app.name'))</h5>
+      <h5 class="logo-text"> @yield(config('app.name'))</h5>
 
     </div>
     <ul class="sidebar-menu do-nicescrol">
@@ -18,7 +18,9 @@
          <span>PRODUITS</span> <i class="fa fa-angle-left pull-right"></i>
        </a>
        <ul class="sidebar-submenu">
+
          <li><a href="{{url('unitemesures')}}"><i class="fa fa-circle-o"></i>UNITE DE MESURE</a></li>
+
          <li><a href="{{url('produits')}}"><i class="fa fa-circle-o"></i>PRODUIT</a></li>
 
        </ul>

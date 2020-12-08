@@ -35,10 +35,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:mana
 });
 
 
+Route::resource('fournisseurs','FournisseursController');
 
-/* TypeEntrees */
-
-Route::resource('typeentrees', 'TypeentreeController');
-Route::resource('fournisseurs', 'FournisseursController');
-Route::resource('mode_paiements', 'ModePaiementController');
-Route::resource('unitemesures', 'UnitemesureController');
+/*mode de paiement*/
+Route::resource('mode_paiements','ModePaiementController');

@@ -8,8 +8,8 @@
             <!-- <h4 class="page-title">Form Bordered</h4> -->
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{url('/home')}}">Home</a></li>
-                <li class="breadcrumb-item"><a href="{{url('fournisseurs')}}">Fournisseurs</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Edit Fournisseur</li>
+                <li class="breadcrumb-item"><a href="{{url('produits')}}">Produits</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Edit Produit</li>
             </ol>
         </div>
         <!-- <div class="col-sm-3">
@@ -36,70 +36,64 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
-                    <form role="form" action="/fournisseurs/{{$fournisseur->id}}" method="POST">
+                    <form role="form" action="/produits/{{$produit->id}}" method="POST">
                         @csrf
                         @method('PUT')
                         <h4 class="form-header text-uppercase">
                             <i class="fa fa-user-circle-o"></i>
-                            Mettre a jour les Infos du Fournisseur
+                            Modifier le produit
                         </h4>
                         <div class="form-group row">
-                            <label for="input-1" class="col-sm-2 col-form-label">Nom Fournisseur</label>
+                            <label for="input-1" class="col-sm-2 col-form-label">Nom Produit</label>
                             <div class="col-sm-10">
-                                <input type="text" name="name" value="{{$fournisseur->name}}" class="form-control"
+                                <input type="text" name="nomproduit" value="{{$produit->nomproduit}}" class="form-control"
                                     id="input-1">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="input-2" class="col-sm-2 col-form-label">Telephone</label>
+                        <label for="input-1" class="col-sm-2 col-form-label"> Categorie</label>
                             <div class="col-sm-10">
-                                <input type="text" name="tel" value="{{$fournisseur->tel}}" class="form-control"
-                                    id="input-2">
+                                <select class="form-control" name="categorie_id" id="categorie_id">
+                                    @foreach($categories as $categorie)
+                                    <option value="{{$categorie->id}}"{!! $produit->categorie_id==$categorie->id ? 'selected="selected"':'' !!}>
+                                        {{ $categorie->nom_categorie}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="input-3" class="col-sm-2 col-form-label">Email </label>
+                        <label for="input-1" class="col-sm-2 col-form-label"> Unite Mesure</label>
                             <div class="col-sm-10">
-                                <input type="email" name="email" value="{{$fournisseur->email}}" class="form-control"
+                                <select class="form-control" name="unitemesure_id" id="unitemesure_id">
+                                    @foreach($unitemesures as $unitemesure)
+                                    <option value="{{$unitemesure->id}}"{!! $produit->unitemesure_id==$unitemesure->id ? 'selected="selected"':'' !!}>
+                                        {{ $unitemesure->nomunite}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="input-3" class="col-sm-2 col-form-label">Prix Achat </label>
+                            <div class="col-sm-10">
+                                <input type="text" name="prixachat" value="{{$produit->prixachat}}" class="form-control"
                                     id="input-3">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="input-4" class="col-sm-2 col-form-label">Nif</label>
+                            <label for="input-4" class="col-sm-2 col-form-label">Prix Vente</label>
                             <div class="col-sm-10">
-                                <input type="text" name="nif" value="{{$fournisseur->nif}}" class="form-control"
+                                <input type="text" name="prixvente" value="{{$produit->prixvente}}" class="form-control"
                                     id="input-4">
                             </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="input-4" class="col-sm-2 col-form-label">Rc</label>
-                            <div class="col-sm-10">
-                                <input type="text" name="rc" value="{{$fournisseur->rc}}" class="form-control"
-                                    id="input-4">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="input-4" class="col-sm-2 col-form-label">Adresse</label>
-                            <div class="col-sm-10">
-                                <input type="text" name="adresse" value="{{$fournisseur->adresse}}" class="form-control"
-                                    id="input-4">
-                            </div>
-                        </div>
-                        <div class="demo-checkbox">
-                            <!-- <input type="hidden" value="0" name="assujetva"> -->
-                            <input {{ isset($fournisseur['assujetva']) && $fournisseur['assujetva']=='1' ?
-                                            'checked' : ''}} type="checkbox"
-                                class="form-check" name="assujetva" id="assujetva" class="filled-in chk-col-primary">
-                            <label for="assujetva">Assujet  la tva</label>
                         </div>
 
 
                         <div class="form-footer">
                             <button type="submit" class="btn btn-primary shadow-primary m-1"><i class="fa fa-backward"></i>
                                 RETOUR</button>
-                                <button type="reset" class="btn btn-dark shadow-dark m-1"><i class="fa fa-times"></i>
-                               REINITIALISER</button>
-                            <button type="submit" onclick="return confirm('Voulez vous modifier le fournisseur ?')"
+                            <button type="reset" class="btn btn-dark shadow-dark m-1"><i class="fa fa-times"></i>
+                                REINITIALISER</button>
+                            <button type="submit" onclick="return confirm('Voulez vous modifier le produit ?')" 
                              class="btn btn-success shadow-success m-1"><i
                                     class="fa fa-check-square-o"></i>
                                 MODIFIER</button>
