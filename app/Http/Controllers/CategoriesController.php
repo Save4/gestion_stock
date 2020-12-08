@@ -42,7 +42,7 @@ class CategoriesController extends Controller
     {
         //
         $request->validate([
-            'nom_categorie' => ['required', 'string', 'max:255', 'unique:categories,nom_categorie']
+            'nom_categorie' => ['required',  'max:255','string', 'unique:categories,nom_categorie']
             ]);
         $categorie = new Category();
         $categorie->nom_categorie = $request->nom_categorie;
@@ -88,7 +88,7 @@ class CategoriesController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $request->validate(['nom_categorie' => ['required', 'string', 'max:255', 'unique:categories,nom_categorie']
+        $request->validate(['nom_categorie' => ['required',  'max:255', 'string', 'unique:categories,nom_categorie']
         ]);
         $categorie = Category::find($id);
 
