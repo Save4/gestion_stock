@@ -47,6 +47,11 @@
                                                                 <div class="col-sm-4">
                                                                     <input type="text" name="name" class="form-control"
                                                                         id="input-10">
+                                                                        @error('name')
+                                                                            <span class="invalid-feedback" role="alert">
+                                                                                <strong>{{ $message }}</strong>
+                                                                            </span>
+                                                                        @enderror
                                                                 </div>
                                                                 <label for="input-11"
                                                                     class="col-sm-2 col-form-label">Telephone</label>
@@ -61,6 +66,11 @@
                                                                 <div class="col-sm-4">
                                                                     <input type="email" name="email"
                                                                         class="form-control" id="input-12">
+                                                                        @error('email')
+                                                                            <span class="invalid-feedback" role="alert">
+                                                                                <strong>{{ $message }}</strong>
+                                                                            </span>
+                                                                        @enderror
                                                                 </div>
                                                                 <label for="input-13"
                                                                     class="col-sm-2 col-form-label">NIF</label>
