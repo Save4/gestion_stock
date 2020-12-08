@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Produit;
+
+use App\Category;
+
 use App\Unitemesure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -18,12 +21,17 @@ class ProduitsController extends Controller
     {
         //
         $produits = DB::table('produits')
+
+                   ->join('categories','produits.categorie_id','categories.id')
                    ->join('unitemesures','produits.unitemesure_id','unitemesures.id')
-                   ->select('unitemesures.*','produits.*')
+                   ->select('categories.*','unitemesures.*','produits.*')
                    ->get();
+        $categories = Category::all();
         $unitemesures = Unitemesure::all();
         return view('produits.index',[
             'produits' => $produits,
+            'categories' => $categories,
+
             'unitemesures' => $unitemesures
         ]);
     }
@@ -36,8 +44,12 @@ class ProduitsController extends Controller
     public function create()
     {
         //
+
+        $categories = Category::all();
         $unitemesures = Unitemesure::all();
         return view('produits.create',[
+            'categories' => $categories,
+
             'unitemesures' => $unitemesures
         ]);
     }
@@ -52,6 +64,9 @@ class ProduitsController extends Controller
     {
         //
         $request->validate(['nomproduit' => 'required',
+
+        'categorie_id' => 'required',
+
         'unitemesure_id' => 'required',
         'prixachat' => 'required',
         'prixvente' => 'required'
@@ -59,6 +74,9 @@ class ProduitsController extends Controller
 
         $produit = new Produit();
         $produit->nomproduit = $request->nomproduit;
+
+        $produit->categorie_id = $request->categorie_id;
+
         $produit->unitemesure_id = $request->unitemesure_id;
         $produit->prixachat = $request->prixachat;
         $produit->prixvente = $request->prixvente;
@@ -86,10 +104,16 @@ class ProduitsController extends Controller
     public function edit(Produit $produit)
     {
         //
+
+        $categories = Category::all();
+
         $unitemesures = Unitemesure::all();
         $produit = Produit::find($produit->id);
         return view('produits.edit',[
             'produit' => $produit,
+
+            'categories' => $categories,
+
             'unitemesures' => $unitemesures
         ]);
     }
@@ -105,12 +129,18 @@ class ProduitsController extends Controller
     {
         //
         $request->validate(['nomproduit' => 'required',
+
+        'categorie_id' => 'required',
+
         'unitemesure_id' => 'required',
         'prixachat' => 'required',
         'prixvente' => 'required'
         ]);
 
         $produit->nomproduit = $request->nomproduit;
+
+        $produit->categorie_id = $request->categorie_id;
+
         $produit->unitemesure_id = $request->unitemesure_id;
         $produit->prixachat = $request->prixachat;
         $produit->prixvente = $request->prixvente;

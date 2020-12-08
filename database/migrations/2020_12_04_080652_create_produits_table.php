@@ -13,9 +13,12 @@ class CreateProduitsTable extends Migration
      */
     public function up()
     {
-        Schema::create('produits', function (Blueprint $table) {
+
+        if (!schema::hasTable('produits')){Schema::create('produits', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nomproduit');
+            $table->unsignedBigInteger('categorie_id');
+
             $table->unsignedBigInteger('unitemesure_id');
             $table->integer('prixachat');
             $table->integer('prixvente');
@@ -24,8 +27,15 @@ class CreateProduitsTable extends Migration
                   ->references('id')
                   ->on('unitemesures')
                   ->onDelete('cascade');
+
+           $table->foreign('categorie_id')
+                  ->references('id')
+                  ->on('categories')
+                  ->onDelete('cascade');
         });
     }
+    }
+
 
     /**
      * Reverse the migrations.

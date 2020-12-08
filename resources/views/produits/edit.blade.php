@@ -51,6 +51,20 @@
                             </div>
                         </div>
                         <div class="form-group row">
+<<<<<<< HEAD
+=======
+                        <label for="input-1" class="col-sm-2 col-form-label"> Categorie</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" name="categorie_id" id="categorie_id">
+                                    @foreach($categories as $categorie)
+                                    <option value="{{$categorie->id}}"{!! $produit->categorie_id==$categorie->id ? 'selected="selected"':'' !!}>
+                                        {{ $categorie->nom_categorie}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+>>>>>>> unitemesures
                         <label for="input-1" class="col-sm-2 col-form-label"> Unite Mesure</label>
                             <div class="col-sm-10">
                                 <select class="form-control" name="unitemesure_id" id="unitemesure_id">
