@@ -50,7 +50,7 @@ class MagasinController extends Controller
     {
         //
         $request->validate([
-            'nom_magasin' => ['required', 'string', 'max:255', 'unique:magasins']
+            'nom_magasin' => ['required', 'string', 'max:255', 'unique:magasins,nom_magasin']
         ]);
 
         $magasin = new Magasin();
