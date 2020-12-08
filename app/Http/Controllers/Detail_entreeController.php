@@ -5,6 +5,12 @@ namespace App\Http\Controllers;
 use App\Detail_entree;
 use App\Entree;
 use App\Produit;
+use App\Fournisseur;
+use App\Magasin;
+use App\Typeentree;
+use App\Mode_paiement;
+use App\Category;
+use App\Unitemesure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
