@@ -58,6 +58,11 @@
                                                                 <div class="col-sm-4">
                                                                     <input type="text" name="tel" class="form-control"
                                                                         id="input-11">
+                                                                        @error('telephone')
+                                                                            <span class="invalid-feedback" role="alert">
+                                                                                <strong>{{ $message }}</strong>
+                                                                            </span>
+                                                                        @enderror
                                                                 </div>
                                                             </div>
                                                             <div class="form-group row">
@@ -77,6 +82,11 @@
                                                                 <div class="col-sm-4">
                                                                     <input type="text" name="nif" class="form-control"
                                                                         id="input-13">
+                                                                        @error('nif')
+                                                                            <span class="invalid-feedback" role="alert">
+                                                                                <strong>{{ $message }}</strong>
+                                                                            </span>
+                                                                        @enderror
                                                                 </div>
                                                             </div>
 
@@ -86,12 +96,22 @@
                                                                 <div class="col-sm-4">
                                                                     <input type="text" name="rc" class="form-control"
                                                                         id="input-14">
+                                                                        @error('rc')
+                                                                            <span class="invalid-feedback" role="alert">
+                                                                                <strong>{{ $message }}</strong>
+                                                                            </span>
+                                                                        @enderror
                                                                 </div>
                                                                 <label for="input-15"
                                                                     class="col-sm-2 col-form-label">Adresse</label>
                                                                 <div class="col-sm-4">
                                                                     <input type="text" name="adresse"
                                                                         class="form-control" id="input-15">
+                                                                        @error('adresse')
+                                                                            <span class="invalid-feedback" role="alert">
+                                                                                <strong>{{ $message }}</strong>
+                                                                            </span>
+                                                                        @enderror
                                                                 </div>
                                                             </div>
                                                             <!-- <div class="form-group row"> -->
@@ -163,6 +183,14 @@
                         </div>
                     </div>
                 @enderror
+                <!-- <div class="col-xs-12">
+                    @if (session('status'))
+                    <div class="alert alert-success">
+                        {{ session('status') }}
+                    </div>
+                    
+                    @endif
+                </div> -->
             <div class="card-body">
                 <div class="table-responsive">
                     <div class="dataTables_wrapper container-fluid dt-bootstrap4" id="example_wrapper">
