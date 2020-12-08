@@ -178,7 +178,8 @@
                                     <div class="modal-footer">
                                         <button class="btn btn-secondary" type="reset" data-dismiss="modal"><i
                                                 class="fa fa-times"></i> Fermer</button>
-                                        <button class="btn btn-primary" type="submit"><i class="fa fa-check-square-o"></i>
+                                        <button class="btn btn-primary" type="submit" onclick="return confirm('Voulez vous enregistrer un entree ?')" >
+                                            <i class="fa fa-check-square-o"></i>
                                             Enregistrer</button>
                     </form>
                 </div>
@@ -248,7 +249,7 @@
                                                             class="d-inline">
                                                             @csrf
                                                             <button type="submit"
-                                                                onclick="return confirm('Voulez vous supprimer l\'entrees ?')"
+                                                            onclick="return confirm('Voulez vous supprimer un entree ?')"
                                                                 class="btn btn-danger btn-sm" title="Delete">
                                                                 <span class="fa fa-trash"></span></button>
                                                             @method('DELETE')
