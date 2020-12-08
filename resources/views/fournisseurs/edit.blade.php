@@ -1,6 +1,8 @@
 @extends('layouts.layout')
 
 @section('content')
+  @section('title','Fournisseur | '.config('app.name'))
+  
 <div class="container-fluid">
     <!-- Breadcrumb-->
     <div class="row pt-2 pb-2">
@@ -90,7 +92,7 @@
                             <input {{ isset($fournisseur['assujetva']) && $fournisseur['assujetva']=='1' ?
                                             'checked' : ''}} type="checkbox"
                                 class="form-check" name="assujetva" id="assujetva" class="filled-in chk-col-primary">
-                            <label for="assujetva">Assujetva</label>
+                            <label for="assujetva">Assujet  la tva</label>
                         </div>
 
 
