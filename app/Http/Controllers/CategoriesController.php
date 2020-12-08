@@ -47,7 +47,7 @@ class CategoriesController extends Controller
         $categorie = new Category();
         $categorie->nom_categorie = $request->nom_categorie;
         $categorie->save();
-        return redirect('categories');
+        return redirect('categories')->with('status','Enregistrement reussie avec succees!!!');
     }
 
     /**
@@ -96,7 +96,7 @@ class CategoriesController extends Controller
 
         $categorie->save();
 
-        return redirect('categories');
+        return redirect('categories')->with('status','Modification reussie avec succees!!!');
     }
 
     /**
@@ -110,6 +110,6 @@ class CategoriesController extends Controller
         //
         $categorie = Category::find($id);
         $categorie->delete();
-        return redirect('categories');
+        return redirect('categories')->with('status','Suppression reussie avec succees!!!');
     }
 }
