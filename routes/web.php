@@ -46,5 +46,6 @@ Route::resource('unitemesures', 'UnitemesureController');
 Route::resource('produits','ProduitsController');
 
 Route::resource('categories','CategoriesController');
+Route::resource('detail_entrees','Detail_entreeController');
 
 Route::get('detail_entrees/index/{Entree}','EntreesController@detail');
