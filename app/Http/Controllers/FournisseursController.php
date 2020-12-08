@@ -43,7 +43,7 @@ class FournisseursController extends Controller
         //
         $request->validate(['name' => ['required', 'string', 'max:255', 'unique:fournisseurs,name'],
         'tel' => 'required',
-        'email' => ['required', 'string', 'amail', 'max:255', 'unique:fournisseurs,email'],
+        'email' => ['required', 'string', 'email', 'max:255', 'unique:fournisseurs,email'],
         'nif' => 'required',
         'rc' => 'required',
         'adresse' => 'required',
