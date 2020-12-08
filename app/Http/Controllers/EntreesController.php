@@ -138,17 +138,16 @@ class EntreesController extends Controller
     public function detail(Entree $entree)
     {
 
-        $fournisseurs = Fournisseur::all();
-        $magasins = Magasin::all();
-        $typeentrees = Typeentree::all();
-        $mode_paiements = Mode_paiement::all();
-
-        $entree = Entree::find($entree->id);
+      $entrees = DB::table('entrees')
+          ->join('fournisseurs', 'entrees.fournisseur_id', 'fournisseurs.id')
+          ->join('magasins', 'entrees.magasin_id', 'magasins.id')
+          ->join('typeentrees', 'entrees.type_entree_id', 'typeentrees.id')
+          ->join('mode_paiements', 'entrees.mode_paiement_id', 'mode_paiements.id')
+          ->where('entrees.id', $entree->id)
+          ->select('fournisseurs.*', 'magasins.*', 'typeentrees.*', 'mode_paiements.*', 'entrees.*')
+          ->get();
+          
         return view('entrees.edit', [
-            'fournisseurs' => $fournisseurs,
-            'magasins' => $magasins,
-            'typeentrees' => $typeentrees,
-            'mode_paiements' => $mode_paiements,
             'entree' => $entree
         ]);
     }
