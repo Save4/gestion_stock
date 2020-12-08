@@ -1,6 +1,8 @@
 @extends('layouts.layout')
 
 @section('content')
+  @section('title','Entres | '.config('app.name'))
+
 
     <div class="container-fluid">
         <!-- Breadcrumb-->
