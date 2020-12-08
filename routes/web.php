@@ -49,7 +49,6 @@ Route::resource('magasins', 'MagasinController');
 Route::resource('fournisseurs','FournisseursController');
 
 Route::resource('entrees','EntreesController');
-Route::get('detail_entrees/index/{Entree}','EntreesController@detail');
 
 
 
