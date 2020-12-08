@@ -7,8 +7,8 @@
         <div class="col-sm-9">
             <!-- <h4 class="page-title">Form Bordered</h4> -->
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{url('/homr')}}">Home</a></li>
-                <li class="breadcrumb-item"><a href="{{url('fournisseurs')}}">Fournisseur</a></li>
+                <li class="breadcrumb-item"><a href="{{url('/home')}}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{url('fournisseurs')}}">Fournisseurs</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Edit Fournisseur</li>
             </ol>
         </div>
@@ -90,16 +90,17 @@
                             <input {{ isset($fournisseur['assujetva']) && $fournisseur['assujetva']=='1' ?
                                             'checked' : ''}} type="checkbox"
                                 class="form-check" name="assujetva" id="assujetva" class="filled-in chk-col-primary">
-                            <label for="assujetva">Assujetva</label>
+                            <label for="assujetva">Assujet  la tva</label>
                         </div>
 
 
                         <div class="form-footer">
-                            <button type="submit" class="btn btn-primary shadow-primary m-1"><i class="fa fa-times"></i>
-                                ANNULER</button>
+                            <button type="submit" class="btn btn-primary shadow-primary m-1"><i class="fa fa-backward"></i>
+                                RETOUR</button>
                                 <button type="reset" class="btn btn-dark shadow-dark m-1"><i class="fa fa-times"></i>
                                REINITIALISER</button>
-                            <button type="submit" class="btn btn-success shadow-success m-1"><i
+                            <button type="submit" onclick="return confirm('Voulez vous modifier le fournisseur ?')"
+                             class="btn btn-success shadow-success m-1"><i
                                     class="fa fa-check-square-o"></i>
                                 MODIFIER</button>
                     </form>
