@@ -111,7 +111,8 @@
                                     </div>
 
 
-                                    <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Enregistrer</button>
+                                    <button type="submit" class="btn btn-primary" onclick="return confirm('Voulez vous enregistrer le type entree ?')">
+                                        <i class="fa fa-save"></i> Enregistrer</button>
                                 </form>
                             </div>
                         </div>
