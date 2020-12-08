@@ -1,6 +1,8 @@
 @extends('layouts.layout')
 
 @section('content')
+  @section('title','Produit | '.config('app.name'))
+
 
 <div class="container-fluid">
     <!-- Breadcrumb-->
@@ -81,7 +83,7 @@
                                                                     <input type="text" name="prixachat" class="form-control"
                                                                         id="input-10" placeholder="Taper le prix d'achat ici">
                                                                 </div>
-                                                            </div> 
+                                                            </div>
                                                             <div class="form-group row">
                                                                 <label for="input-10"
                                                                     class="col-sm-2 col-form-label">Prix Vente</label>
