@@ -146,7 +146,7 @@
                                         RETOUR</button>
                                     <button type="reset" class="btn btn-dark shadow-dark m-1"><i class="fa fa-times"></i>
                                         REINITIALISER</button>
-                                        <button type="submit" onclick="return confirm('Voulez vous modifier le fournisseur ?')"
+                                        <button type="submit" onclick="return confirm('Voulez vous modifier un entree ?')"
                                         class="btn btn-success shadow-success m-1"><i
                                                class="fa fa-check-square-o"></i>
                                            MODIFIER</button>
