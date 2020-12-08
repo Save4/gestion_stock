@@ -20,6 +20,8 @@
   <!--Data Tables -->
   <link href="{{ asset('assets/plugins/bootstrap-datatable/css/dataTables.bootstrap4.min.css')}}" rel="stylesheet" type="text/css">
   <link href="{{ asset('assets/plugins/bootstrap-datatable/css/buttons.bootstrap4.min.css')}}" rel="stylesheet" type="text/css">
+  <!--Switchery-->
+  <link href="{{ asset('assets/plugins/switchery/css/switchery.min.css')}}" rel="stylesheet" />
   <!-- animate CSS-->
   <link href="{{ asset('assets/css/animate.css')}}" rel="stylesheet" type="text/css"/>
   <!-- Icons CSS-->
