@@ -141,7 +141,7 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header"><i class="fa fa-table"></i>Liste des fournisseurs</div>
-            @error('nom')
+            @error('name')
                     <div class="alert alert-light-danger alert-dismissible" role="alert">
                         <button type="button" class="close" data-dismiss="alert">×</button>
                         <div class="alert-icon">
