@@ -13,6 +13,7 @@ class CreateProduitsTable extends Migration
      */
     public function up()
     {
+
         if (!schema::hasTable('produits')){Schema::create('produits', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nomproduit');
@@ -25,13 +26,15 @@ class CreateProduitsTable extends Migration
                   ->references('id')
                   ->on('unitemesures')
                   ->onDelete('cascade');
+
            $table->foreign('categorie_id')
                   ->references('id')
                   ->on('categories')
-                  ->onDelete('cascade');      
+                  ->onDelete('cascade');
         });
     }
     }
+
 
     /**
      * Reverse the migrations.

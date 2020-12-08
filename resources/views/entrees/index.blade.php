@@ -1,6 +1,8 @@
 @extends('layouts.layout')
 
 @section('content')
+  @section('title','Entres | '.config('app.name'))
+
 
     <div class="container-fluid">
         <!-- Breadcrumb-->
@@ -240,7 +242,7 @@
                                                     <td>{{ $entree->updated_at }}</td>
                                                     <td>{{ $entree->etat_cloture == '0' ? 'No' : 'Yes' }}</td>
                                                     <td>
-                                                        <a href="detail_entrees/index/{{ $entree->id }}"
+                                                        <a href="entrees/{{ $entree->id }}"
                                                             class="btn btn-primary btn-sm" title="Edit">
                                                             <span class="fa fa-edit"></span></a>
 

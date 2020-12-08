@@ -59,37 +59,4 @@
 <script src="{{ asset('assets/js/index2.js')}}"></script>
 
 
-
-<!--Switchery Js-->
-<script src="assets/plugins/switchery/js/switchery.min.js"></script>
-<script>
-  var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
-  $('.js-switch').each(function() {
-        new Switchery($(this)[0], $(this).data());
-   });
-</script>
-
-<!--Bootstrap Switch Buttons-->
-<script src="{{ asset('assets/plugins/bootstrap-switch/bootstrap-switch.min.js')}}"></script>
-<script>
-$(".bt-switch input[type='checkbox'], .bt-switch input[type='radio']").bootstrapSwitch();
-var radioswitch = function() {
-    var bt = function() {
-        $(".radio-switch").on("switch-change", function() {
-            $(".radio-switch").bootstrapSwitch("toggleRadioState")
-        }), $(".radio-switch").on("switch-change", function() {
-            $(".radio-switch").bootstrapSwitch("toggleRadioStateAllowUncheck")
-        }), $(".radio-switch").on("switch-change", function() {
-            $(".radio-switch").bootstrapSwitch("toggleRadioStateAllowUncheck", !1)
-        })
-    };
-    return {
-        init: function() {
-            bt()
-        }
-    }
-}();
-$(document).ready(function() {
-    radioswitch.init()
-});
-</script>
+<script src="{{ asset('js/magasin.js')}}"></script>

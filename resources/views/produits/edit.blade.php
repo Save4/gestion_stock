@@ -2,7 +2,7 @@
 
 @section('content')
   @section('title','Produit | '.config('app.name'))
-  
+
 <div class="container-fluid">
     <!-- Breadcrumb-->
     <div class="row pt-2 pb-2">
@@ -53,6 +53,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
+
                         <label for="input-1" class="col-sm-2 col-form-label"> Categorie</label>
                             <div class="col-sm-10">
                                 <select class="form-control" name="categorie_id" id="categorie_id">
@@ -64,6 +65,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
+
                         <label for="input-1" class="col-sm-2 col-form-label"> Unite Mesure</label>
                             <div class="col-sm-10">
                                 <select class="form-control" name="unitemesure_id" id="unitemesure_id">

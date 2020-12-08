@@ -1,6 +1,8 @@
 @extends('layouts.layout')
 
 @section('content')
+  @section('title','Magasin | '.config('app.name'))
+
 
     <div class="container-fluid">
         <!-- Breadcrumb-->
@@ -8,9 +10,9 @@
             <div class="col-sm-9">
                 <h4 class="page-title">Table Magasins</h4>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="javaScript:void();">Home</a></li>
-                    <li class="breadcrumb-item"><a href="javaScript:void();">magasin</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Table magasin</li>
+                    <li class="breadcrumb-item"><a href="{{url('/home')}}">Home</a></li>
+                    <!-- <li class="breadcrumb-item"><a href="javaScript:void();">magasin</a></li> -->
+                    <li class="breadcrumb-item active" aria-current="page">Table Magasins</li>
                 </ol>
             </div>
             <div class="col-sm-3">
@@ -19,7 +21,7 @@
                         @csrf
                         @method('POST')
                         <button type="button" class="btn btn-primary m-1" data-toggle="modal"
-                            data-target="#largesizemodal">Ajouter
+                            data-target="#largesizemodal"><i class="fa fa-plus"></i> Ajouter
                             Magasin</button>
                         <div class="modal fade" id="largesizemodal" aria-hidden="true" style="display: none;">
                             <div class="modal-dialog modal-lg">
@@ -46,15 +48,18 @@
                                                                     <label for="input-10"
                                                                         class="col-sm-2 col-form-label">Nom
                                                                         Magasin</label>
-                                                                    <div class="col-sm-4">
+                                                                    <div class="col-sm-10">
                                                                         <input type="text" name="nom_magasin"
                                                                             class="form-control" id="input-10">
+                                                                        @error('nom_magasin')
+                                                                            <span class="invalid-feedback" role="alert">
+                                                                                <strong>{{ $message }}</strong>
+                                                                            </span>
+                                                                        @enderror
                                                                     </div>
 
                                                                 </div>
                                                                 <!-- <div class="form-group row"> -->
-
-
 
                                                             </form>
                                                     </div>
@@ -66,7 +71,8 @@
                                     <div class="modal-footer">
                                         <button class="btn btn-secondary" type="reset" data-dismiss="modal"><i
                                                 class="fa fa-times"></i> Fermer</button>
-                                        <button class="btn btn-primary" type="submit"><i class="fa fa-check-square-o"></i>
+                                        <button class="btn btn-primary" type="submit" onclick="return confirm('Voulez vous enregistrer le magasin ?')">
+                                            <i class="fa fa-check-square-o"></i>
                                             Enregistrer</button>
                     </form>
                 </div>
@@ -91,6 +97,18 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header"><i class="fa fa-table"></i>Liste des magasins</div>
+                @error('nom_magasin')
+                    <div class="alert alert-light-danger alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+                        <div class="alert-icon">
+                            <i class="icon-close"></i>
+                        </div>
+                        <div class="alert-message">
+                            <span> {{ $message }}</span>
+                        </div>
+                    </div>
+                @enderror
+
                 <div class="card-body">
                     <div class="table-responsive">
                         <div class="dataTables_wrapper container-fluid dt-bootstrap4" id="example_wrapper">
