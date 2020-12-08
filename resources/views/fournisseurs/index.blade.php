@@ -131,6 +131,17 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header"><i class="fa fa-table"></i>Liste des fournisseurs</div>
+            @error('nom_categorie')
+                    <div class="alert alert-light-danger alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+                        <div class="alert-icon">
+                            <i class="icon-close"></i>
+                        </div>
+                        <div class="alert-message">
+                            <span> {{ $message }}</span>
+                        </div>
+                    </div>
+                @enderror
             <div class="card-body">
                 <div class="table-responsive">
                     <div class="dataTables_wrapper container-fluid dt-bootstrap4" id="example_wrapper">
