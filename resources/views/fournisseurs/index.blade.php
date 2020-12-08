@@ -45,7 +45,7 @@
                                                                     class="col-sm-2 col-form-label">Nom
                                                                     Fournisseur</label>
                                                                 <div class="col-sm-4">
-                                                                    <input type="text" name="name" class="form-control"
+                                                                    <input type="text" name="name" class="form-control @error('name') is-danger @enderror"
                                                                         id="input-10">
                                                                         @error('name')
                                                                             <span class="invalid-feedback" role="alert">
@@ -56,9 +56,9 @@
                                                                 <label for="input-11"
                                                                     class="col-sm-2 col-form-label">Telephone</label>
                                                                 <div class="col-sm-4">
-                                                                    <input type="text" name="tel" class="form-control"
+                                                                    <input type="text" name="tel" class="form-control @error('tel') is-danger @enderror"
                                                                         id="input-11">
-                                                                        @error('telephone')
+                                                                        @error('tel')
                                                                             <span class="invalid-feedback" role="alert">
                                                                                 <strong>{{ $message }}</strong>
                                                                             </span>
@@ -70,7 +70,7 @@
                                                                     class="col-sm-2 col-form-label">Email</label>
                                                                 <div class="col-sm-4">
                                                                     <input type="email" name="email"
-                                                                        class="form-control" id="input-12">
+                                                                        class="form-control @error('email') is-danger @enderror" id="input-12">
                                                                         @error('email')
                                                                             <span class="invalid-feedback" role="alert">
                                                                                 <strong>{{ $message }}</strong>
@@ -80,7 +80,7 @@
                                                                 <label for="input-13"
                                                                     class="col-sm-2 col-form-label">NIF</label>
                                                                 <div class="col-sm-4">
-                                                                    <input type="text" name="nif" class="form-control"
+                                                                    <input type="text" name="nif" class="form-control @error('nif') is-danger @enderror"
                                                                         id="input-13">
                                                                         @error('nif')
                                                                             <span class="invalid-feedback" role="alert">
@@ -94,7 +94,7 @@
                                                                 <label for="input-14"
                                                                     class="col-sm-2 col-form-label">RC</label>
                                                                 <div class="col-sm-4">
-                                                                    <input type="text" name="rc" class="form-control"
+                                                                    <input type="text" name="rc" class="form-control @error('rc') is-danger @enderror"
                                                                         id="input-14">
                                                                         @error('rc')
                                                                             <span class="invalid-feedback" role="alert">
@@ -106,7 +106,7 @@
                                                                     class="col-sm-2 col-form-label">Adresse</label>
                                                                 <div class="col-sm-4">
                                                                     <input type="text" name="adresse"
-                                                                        class="form-control" id="input-15">
+                                                                        class="form-control @error('adresse') is-danger @enderror" id="input-15">
                                                                         @error('adresse')
                                                                             <span class="invalid-feedback" role="alert">
                                                                                 <strong>{{ $message }}</strong>
