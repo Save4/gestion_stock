@@ -49,6 +49,11 @@
                                                                     <div class="col-sm-10">
                                                                         <input type="text" name="nom_categorie"
                                                                             class="form-control" id="input-10">
+                                                                            @error('nom_categorie')
+                                                                            <span class="invalid-feedback" role="alert">
+                                                                                <strong>{{ $message }}</strong>
+                                                                            </span>
+                                                                        @enderror
                                                                     </div>
 
                                                                 </div>
@@ -92,7 +97,7 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header"><i class="fa fa-table"></i>Liste des Categories</div>
-                @error('nom_magasin')
+                @error('nom_categorie')
                     <div class="alert alert-light-danger alert-dismissible" role="alert">
                         <button type="button" class="close" data-dismiss="alert">×</button>
                         <div class="alert-icon">
