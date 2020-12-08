@@ -62,7 +62,8 @@
                                     Retour</button></a>
                                 <button type="reset" class="btn btn-dark shadow-dark m-1"><i class="fa fa-times"></i>
                                     Reinitialiser</button>
-                                <button type="submit" class="btn btn-success shadow-success m-1"><i
+                                <button type="submit" onclick="return confirm('Voulez vous modifier le magasin ?')"
+                                 class="btn btn-success shadow-success m-1"><i
                                         class="fa fa-check-square-o"></i>
                                     Modifier</button>
                         </form>
