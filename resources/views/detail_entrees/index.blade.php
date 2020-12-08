@@ -22,7 +22,7 @@
                     <div class="card-body">
                         <form role="form" action="/entrees/{{ $entree->id }}" method="POST">
                             @csrf
-                            @method('PUT')
+                            @method('GET')
                             <h4 class="form-header text-uppercase">
                                 <i class="fa fa-user-circle-o"></i>
                                 Mettre a jour les Infos du l'entree
