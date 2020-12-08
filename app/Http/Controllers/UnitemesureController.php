@@ -50,7 +50,7 @@ class UnitemesureController extends Controller
     {
         // validation
         $request->validate([
-            'nomunite' => 'required',
+            'nomunite' => ['required','max:255','string','unique:unitemesures,nomunite']
         ]);
 
         $unitemesure = new Unitemesure();
@@ -59,7 +59,7 @@ class UnitemesureController extends Controller
 
         $unitemesure->save();
 
-        return redirect('unitemesures')->with('succes', 'Nouvelle unité ajoutée !');
+        return redirect('unitemesures')->with('status', 'Enregistrement reussie avec succees!!');
 
     }
 
@@ -99,13 +99,16 @@ class UnitemesureController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $request->validate(
+        ['nomunite' =>['required','max:255','string','unique:unitemesures,nomunite']
+        ]);
         $unite = Unitemesure::find($id);
 
         $unite->nomunite = $request->get('nomunite');
 
         $unite->save();
 
-        return redirect('unitemesures')->with('succes', 'Unité modifiée !');
+        return redirect('unitemesures')->with('status', 'Modification reussie avec succees !!');
 
 
     }
@@ -123,6 +126,6 @@ class UnitemesureController extends Controller
 
         $unitemesure->delete();
 
-        return redirect('unitemesures')->with('succes', 'Nouvelle unité supprimée !');
+        return redirect('unitemesures')->with('status', 'Suppression reussie avec succees!!');
     }
 }
