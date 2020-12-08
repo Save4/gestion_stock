@@ -58,7 +58,7 @@ class FournisseursController extends Controller
         $fournisseur->adresse = $request->adresse;
         $fournisseur->assujetva = (isset($request->assujetva) && $request->assujetva == 'on') ? 1 : 0;
         $fournisseur->save();
-        return redirect('fournisseurs');
+        return redirect('fournisseurs')->with('status','Enregistrement reussie avec succees!!!');
     }
 
     /**
@@ -114,7 +114,7 @@ class FournisseursController extends Controller
         $fournisseur->adresse = $request->adresse;
         $fournisseur->assujetva = isset($request->assujetva) ? 1 : 0;
         $fournisseur->save();
-        return redirect('fournisseurs');
+        return redirect('fournisseurs')->with('status','Modification reussie avec succees!!!');
     }
 
     /**
@@ -128,6 +128,6 @@ class FournisseursController extends Controller
         //
         $fournisseur = Fournisseur::find($fournisseur->id);
         $fournisseur->delete();
-        return redirect('fournisseurs');
+        return redirect('fournisseurs')->with('status','Suppression reussie avec succees!!!');
     }
 }
