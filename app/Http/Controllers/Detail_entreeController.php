@@ -27,7 +27,7 @@ class Detail_entreeController extends Controller
             ->join('mode_paiements', 'entrees.mode_paiement_id', 'mode_paiements.id')
             ->join('categories','produits.categorie_id','categories.id')
             ->join('unitemesures','produits.unitemesure_id','unitemesures.id')
-            ->select('categories.*','unitemesures.*','fournisseurs.*', 'magasins.*', 'typeentrees.*', 'mode_paiements.*','entrees.*', 'produits.*', 'detail_entrees.*')
+            ->select('produits.*','categories.*','unitemesures.*','fournisseurs.*', 'magasins.*', 'typeentrees.*', 'mode_paiements.*','entrees.*',  'detail_entrees.*')
             ->get();
         $entrees = Entree::all();
          $fournisseurs = Fournisseur::all();
@@ -49,7 +49,7 @@ class Detail_entreeController extends Controller
             'mode_paiements' => $mode_paiements,
             'produits' => $produits,
             'categories' => $categories,
-            'unitemesures' => $unitemesures
+            'unitemesures' => $unitemesures,
 
             'detail_entrees' => $detail_entrees
         ]);
