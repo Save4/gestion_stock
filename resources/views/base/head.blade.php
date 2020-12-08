@@ -30,4 +30,11 @@
   <link href="{{ asset('assets/css/app-style.css')}}" rel="stylesheet"/>
 
 
+
+  <!--Data Tables -->
+  <link href="{{ asset('css/dataTables.bootstrap4.min.css')}}" rel="stylesheet" type="text/css">
+  <link href="{{ asset('css/buttons.bootstrap4.min.css')}}" rel="stylesheet" type="text/css">
+  
+
+
 </head>
