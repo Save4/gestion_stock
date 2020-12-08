@@ -20,8 +20,6 @@
        <ul class="sidebar-submenu">
          <li><a href="{{url('unitemesures')}}"><i class="fa fa-circle-o"></i>UNITE DE MESURE</a></li>
 
-         <li><a href="{{url('categories')}}"><i class="fa fa-circle-o"></i>CATEGORIE</a></li>
-
          <li><a href="{{url('produits')}}"><i class="fa fa-circle-o"></i>PRODUIT</a></li>
 
        </ul>
@@ -58,7 +56,9 @@
        <ul class="sidebar-submenu">
          <li><a href="{{url('magasins')}}"><i class="fa fa-circle-o"></i>MAGASIN</a></li>
          <li><a href="{{url('typeentrees')}}"><i class="fa fa-circle-o"></i>TYPE D'ENTRE</a></li>
+
          <li><a href="{{url('entrees')}}"><i class="fa fa-circle-o"></i> LES ENTRES</a></li>
+
          <!--<li><a href="{{url('entre_details')}}"><i class="fa fa-circle-o"></i>ENTRES DETAILS</a></li>-->
 
        </ul>
