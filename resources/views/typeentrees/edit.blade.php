@@ -12,13 +12,13 @@
                 <li class="breadcrumb-item active" aria-current="page">Edit Typee Entrees</li>
             </ol>
         </div>
-        <div class="col-sm-3">
+        <!-- <div class="col-sm-3">
             <div class="btn-group float-sm-right">
                 <button class="btn btn-primary " data-toggle="modal" data-target="#smallsizemodal"><i
                         class="fa fa-plus"></i> Ajouter</button>
 
             </div>
-        </div>
+        </div> -->
     </div>
     <!-- End Breadcrumb-->
 
@@ -54,7 +54,7 @@
 
                             <button type="reset" class="btn btn-dark shadow-dark m-1"><i class="fa fa-times"></i>
                                 REINITIALISER</button>
-                            <button type="submit" class="btn btn-success shadow-success m-1"><i
+                            <button type="submit"  class="btn btn-success shadow-success m-1" onclick="return confirm('Voulez vous modifier le type entree ?')"><i
                                     class="fa fa-check-square-o"></i>
                                 Modifier</button>
                         </div>
