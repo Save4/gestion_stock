@@ -48,6 +48,9 @@
                                 <div class="col-sm-10">
                                     <input type="text" name="nom_categorie" value="{{ $categorie->nom_categorie }}"
                                         class="form-control" id="input-1" required>
+                                        @error('nom_categorie')
+                                        <code> {{ $message }}</code>
+                                    @enderror
                                 </div>
                             </div>
 
