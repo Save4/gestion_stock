@@ -59,7 +59,7 @@ class TypeentreeController extends Controller
 
         $typeentree->save();
 
-        return redirect('typeentrees')->with('succes', 'Type ajouté !');
+        return redirect('typeentrees')->with('status', 'Enregistrement reussie avec succees !');
     }
 
     /**
@@ -107,7 +107,7 @@ class TypeentreeController extends Controller
 
         $typeentree->save();
 
-        return redirect('typeentrees')->with('succes', 'Type modifié !');
+        return redirect('typeentrees')->with('status', 'Modification reussie avec succees');
     }
 
     /**
@@ -123,6 +123,6 @@ class TypeentreeController extends Controller
 
         $typeentree->delete();
 
-        return redirect('typeentrees')->with('succes', 'Type supprimé !');
+        return redirect('typeentrees')->with('status', 'Suppression reussie avec succees');
     }
 }
