@@ -146,8 +146,18 @@ class EntreesController extends Controller
           ->where('entrees.id', $entree->id)
           ->select('fournisseurs.*', 'magasins.*', 'typeentrees.*', 'mode_paiements.*', 'entrees.*')
           ->get();
+
+          $fournisseurs = Fournisseur::all();
+        $magasins = Magasin::all();
+        $typeentrees = Typeentree::all();
+        $mode_paiements = Mode_paiement::all();
           
-        return view('entrees.edit', [
+        return view('detail_entrees.index', [
+            
+            'fournisseurs' => $fournisseurs,
+            'magasins' => $magasins,
+            'typeentrees' => $typeentrees,
+            'mode_paiements' => $mode_paiements,
             'entree' => $entree
         ]);
     }
