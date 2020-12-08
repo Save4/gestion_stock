@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
   <meta name="description" content=""/>
   <meta name="author" content=""/>
-  <title>@yield('title',config('app.name'))</title>
+  <title>@yield(config('app.name'))</title>
   <!--favicon-->
   <link rel="icon" href="{{ asset('assets/images/favicon.ico')}}" type="image/x-icon">
   <!-- notifications css -->
@@ -34,7 +34,7 @@
   <!--Data Tables -->
   <link href="{{ asset('css/dataTables.bootstrap4.min.css')}}" rel="stylesheet" type="text/css">
   <link href="{{ asset('css/buttons.bootstrap4.min.css')}}" rel="stylesheet" type="text/css">
-  
+
 
 
 </head>
