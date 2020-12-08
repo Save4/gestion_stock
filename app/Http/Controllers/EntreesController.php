@@ -134,4 +134,22 @@ class EntreesController extends Controller
         $entree->delete();
         return redirect('entrees');
     }
+
+    public function detail(Entree $entree)
+    {
+
+        $fournisseurs = Fournisseur::all();
+        $magasins = Magasin::all();
+        $typeentrees = Typeentree::all();
+        $mode_paiements = Mode_paiement::all();
+
+        $entree = Entree::find($entree->id);
+        return view('entrees.edit', [
+            'fournisseurs' => $fournisseurs,
+            'magasins' => $magasins,
+            'typeentrees' => $typeentrees,
+            'mode_paiements' => $mode_paiements,
+            'entree' => $entree
+        ]);
+    }
 }
