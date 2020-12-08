@@ -18,7 +18,7 @@
                 <form role="form" action="{{url('fournisseurs')}}" method="POST">
                     @csrf
                     <button type="button" class="btn btn-primary m-1" data-toggle="modal"
-                        data-target="#largesizemodal">Ajouter
+                        data-target="#largesizemodal"><i class="fa fa-plus"></i> Ajouter
                         Fournisseur</button>
                     <div class="modal fade" id="largesizemodal" aria-hidden="true" style="display: none;">
                         <div class="modal-dialog modal-lg">
