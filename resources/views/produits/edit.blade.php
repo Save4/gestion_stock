@@ -1,6 +1,8 @@
 @extends('layouts.layout')
 
 @section('content')
+  @section('title','Produit | '.config('app.name'))
+  
 <div class="container-fluid">
     <!-- Breadcrumb-->
     <div class="row pt-2 pb-2">
@@ -93,7 +95,7 @@
                                 RETOUR</button>
                             <button type="reset" class="btn btn-dark shadow-dark m-1"><i class="fa fa-times"></i>
                                 REINITIALISER</button>
-                            <button type="submit" onclick="return confirm('Voulez vous modifier le produit ?')" 
+                            <button type="submit" onclick="return confirm('Voulez vous modifier le produit ?')"
                              class="btn btn-success shadow-success m-1"><i
                                     class="fa fa-check-square-o"></i>
                                 MODIFIER</button>

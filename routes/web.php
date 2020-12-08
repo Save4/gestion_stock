@@ -35,6 +35,8 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:mana
 });
 
 
+
+
 /* TypeEntrees */
 
 Route::resource('typeentrees', 'TypeentreeController');
@@ -46,6 +48,3 @@ Route::resource('unitemesures', 'UnitemesureController');
 Route::resource('produits','ProduitsController');
 
 Route::resource('categories','CategoriesController');
-Route::resource('detail_entrees','Detail_entreeController');
-
-Route::get('detail_entrees/index/{Entree}','EntreesController@detail');

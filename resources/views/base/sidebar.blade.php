@@ -19,7 +19,9 @@
        </a>
        <ul class="sidebar-submenu">
          <li><a href="{{url('unitemesures')}}"><i class="fa fa-circle-o"></i>UNITE DE MESURE</a></li>
+
          <li><a href="{{url('categories')}}"><i class="fa fa-circle-o"></i>CATEGORIE</a></li>
+
          <li><a href="{{url('produits')}}"><i class="fa fa-circle-o"></i>PRODUIT</a></li>
 
        </ul>

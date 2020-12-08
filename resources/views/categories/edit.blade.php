@@ -1,6 +1,7 @@
 @extends('layouts.layout')
 
 @section('content')
+  @section('title','Categorie | '.config('app.name'))
     <div class="container-fluid">
         <!-- Breadcrumb-->
         <div class="row pt-2 pb-2">
@@ -58,7 +59,7 @@
                                     Retour</button>
                                 <button type="reset" class="btn btn-dark shadow-dark m-1"><i class="fa fa-times"></i>
                                     Reinitialiser</button>
-                                <button type="submit" class="btn btn-success shadow-success m-1"><i
+                                <button type="submit" onclick="return confirm('Voulez vous modifier le categorie ?')" class="btn btn-success shadow-success m-1"><i
                                         class="fa fa-check-square-o"></i>
                                     Modifier</button>
                         </form>
