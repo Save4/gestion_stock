@@ -240,8 +240,12 @@
                                                     <td>{{ $entree->updated_at }}</td>
                                                     <td>{{ $entree->etat_cloture == '0' ? 'No' : 'Yes' }}</td>
                                                     <td>
-                                                        <a href="entrees/{{ $entree->id }}/edit"
+                                                        <a href="detail_entrees/index/{{ $entree->id }}"
                                                             class="btn btn-primary btn-sm" title="Edit">
+                                                            <span class="fa fa-edit"></span></a>
+
+                                                        <a href="entrees/{{ $entree->id }}/edit"
+                                                            class="btn btn-primary btn-sm" title="Edit" class="d-inline">
                                                             <span class="fa fa-edit"></span></a>
 
                                                         <form action="entrees/{{ $entree->id }} " method="POST"
