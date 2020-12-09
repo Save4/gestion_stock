@@ -1,6 +1,8 @@
 @extends('layouts.layout')
 
 @section('content')
+  @section('title','Categories | '.config('app.name'))
+
 
 <div class="container-fluid">
     <!-- Breadcrumb-->
@@ -108,11 +110,11 @@
                 </div>
             </div>
             @enderror
-            
+
             <div class="col-xs-12">
                 @if (session('status'))
                 <div class="alert alert-success">
-                   {{ session('status') }} 
+                   {{ session('status') }}
                 </div>
                 @endif
             </div>
