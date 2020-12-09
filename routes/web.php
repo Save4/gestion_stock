@@ -44,7 +44,6 @@ Route::resource('categories','CategoriesController');
 
 Route::resource('detail_entrees','Detail_entreeController');
 
-Route::get('entrees/details_entrees/{entree}','EntreesController@details_entrees');
 Route::resource('entrees','EntreesController');
 
 Route::resource('fournisseurs','FournisseursController');
