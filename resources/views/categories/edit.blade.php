@@ -48,14 +48,17 @@
                                 <div class="col-sm-10">
                                     <input type="text" name="nom_categorie" value="{{ $categorie->nom_categorie }}"
                                         class="form-control" id="input-1" required>
+                                        @error('nom_categorie')
+                                        <code> {{ $message }}</code>
+                                    @enderror
                                 </div>
                             </div>
 
 
 
                             <div class="form-footer">
-                                <button type="submit" class="btn btn-primary shadow-primary m-1"><i class="fa fa-backward"></i>
-                                    Retour</button>
+                               <a href="{{url('categories')}}"> <button type="button" class="btn btn-primary shadow-primary m-1"><i class="fa fa-backward"></i>
+                                    Retour</button></a>
                                 <button type="reset" class="btn btn-dark shadow-dark m-1"><i class="fa fa-times"></i>
                                     Reinitialiser</button>
                                 <button type="submit" onclick="return confirm('Voulez vous modifier le categorie ?')" class="btn btn-success shadow-success m-1"><i
