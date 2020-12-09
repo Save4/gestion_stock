@@ -26,9 +26,8 @@
                 <input type="date" name="" value="{{ $entree->date_entree }}" class="form-control" id="input-10" readonly>
             </div>
             <label for="input-10" class="col-sm-1 col-form-label">Fournisseur</label>
-               <input type="text" value=" {{ $entree->name }}" class="form-control" id="input-10" readonly>
             <div class="col-sm-3">
-
+            <input type="text" value=" {{ $entree->name }}" class="form-control" id="input-10" readonly>
             </div>
         </div>
 
