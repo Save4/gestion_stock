@@ -1,6 +1,8 @@
 @extends('layouts.layout')
 
 @section('content')
+  @section('title','Produits | '.config('app.name'))
+
 
 <div class="container-fluid">
     <!-- Breadcrumb-->
@@ -48,6 +50,8 @@
                                                                     <input type="text" name="nomproduit" class="form-control"
                                                                         id="input-10" placeholder="Taper le nom du produit ici">
                                                                 </div>
+                                                            </div>
+                                                            <div class="form-group row">
                                                                 <label for="nomunite"
                                                                     class="col-sm-2 col-form-label">Categorie</label>
                                                                 <div class="col-sm-10">
@@ -58,7 +62,8 @@
                                                                         @endforeach
                                                                     </select>
                                                                 </div>
-
+                                                            </div>
+                                                            <div class="form-group row">
                                                                 <label for="nomunite"
                                                                     class="col-sm-2 col-form-label">Unite Mesure</label>
                                                                 <div class="col-sm-10">
@@ -78,7 +83,8 @@
                                                                     <input type="text" name="prixachat" class="form-control"
                                                                         id="input-10" placeholder="Taper le prix d'achat ici">
                                                                 </div>
-
+                                                            </div>
+                                                            <div class="form-group row">
                                                                 <label for="input-10"
                                                                     class="col-sm-2 col-form-label">Prix Vente</label>
                                                                 <div class="col-sm-10">
