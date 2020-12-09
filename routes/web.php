@@ -39,3 +39,27 @@ Route::resource('fournisseurs','FournisseursController');
 
 /*mode de paiement*/
 Route::resource('mode_paiements','ModePaiementController');
+
+Route::resource('categories','CategoriesController');
+
+Route::resource('detail_entrees','Detail_entreeController');
+
+Route::resource('entrees','EntreesController');
+
+Route::resource('fournisseurs','FournisseursController');
+
+Route::resource('magasins','MagasinController');
+
+Route::resource('produits','ProduitsController');
+
+Route::resource('typeentrees','TypeentreeController');
+
+Route::resource('unitemesures','UnitemesureController');
+
+
+
+
+
+
+
+
