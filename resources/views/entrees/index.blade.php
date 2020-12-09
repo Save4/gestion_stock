@@ -259,7 +259,7 @@
                                                             @method('DELETE')
                                                         </form>
                                                     </td>
-                                                    <th><a href="entrees/details_entrees/{{$entree->id}}" 
+                                                    <th><a href="/detail_entrees/{{$entree->id}}"
                                                     class="btn btn-secondary btn-sm" title="Voir"><i class="fa fa-eye">Voir Details</i></a></th>
                                                 </tr>
                                             @endforeach
