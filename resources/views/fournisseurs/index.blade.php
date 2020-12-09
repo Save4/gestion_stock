@@ -1,6 +1,8 @@
 @extends('layouts.layout')
 
 @section('content')
+  @section('title','Fournisseurs | '.config('app.name'))
+
 
 <div class="container-fluid">
     <!-- Breadcrumb-->
@@ -45,14 +47,22 @@
                                                                     class="col-sm-2 col-form-label">Nom
                                                                     Fournisseur</label>
                                                                 <div class="col-sm-4">
-                                                                    <input type="text" name="name" class="form-control"
+                                                                    <input type="text" name="name"
+                                                                        class="form-control @error('name') is-danger @enderror"
                                                                         id="input-10">
+                                                                    @error('name')
+                                                                    <div class="alert alert-danger">{{$message}}</div>
+                                                                    @enderror
                                                                 </div>
                                                                 <label for="input-11"
                                                                     class="col-sm-2 col-form-label">Telephone</label>
                                                                 <div class="col-sm-4">
-                                                                    <input type="text" name="tel" class="form-control"
+                                                                    <input type="text" name="tel"
+                                                                        class="form-control @error('tel') is-danger @enderror"
                                                                         id="input-11">
+                                                                    @error('tel')
+                                                                    <div class="alert alert-danger">{{$message}}</div>
+                                                                    @enderror
                                                                 </div>
                                                             </div>
                                                             <div class="form-group row">
@@ -60,13 +70,21 @@
                                                                     class="col-sm-2 col-form-label">Email</label>
                                                                 <div class="col-sm-4">
                                                                     <input type="email" name="email"
-                                                                        class="form-control" id="input-12">
+                                                                        class="form-control @error('email') is-danger @enderror"
+                                                                        id="input-12">
+                                                                    @error('email')
+                                                                    <div class="alert alert-danger">{{$message}}</div>
+                                                                    @enderror
                                                                 </div>
                                                                 <label for="input-13"
                                                                     class="col-sm-2 col-form-label">NIF</label>
                                                                 <div class="col-sm-4">
-                                                                    <input type="text" name="nif" class="form-control"
+                                                                    <input type="text" name="nif"
+                                                                        class="form-control @error('nif') is-danger @enderror"
                                                                         id="input-13">
+                                                                    @error('nif')
+                                                                    <div class="alert alert-danger">{{$message}}</div>
+                                                                    @enderror
                                                                 </div>
                                                             </div>
 
@@ -74,14 +92,22 @@
                                                                 <label for="input-14"
                                                                     class="col-sm-2 col-form-label">RC</label>
                                                                 <div class="col-sm-4">
-                                                                    <input type="text" name="rc" class="form-control"
+                                                                    <input type="text" name="rc"
+                                                                        class="form-control @error('rc') is-danger @enderror"
                                                                         id="input-14">
+                                                                    @error('rc')
+                                                                    <div class="alert alert-danger">{{$message}}</div>
+                                                                    @enderror
                                                                 </div>
                                                                 <label for="input-15"
                                                                     class="col-sm-2 col-form-label">Adresse</label>
                                                                 <div class="col-sm-4">
                                                                     <input type="text" name="adresse"
-                                                                        class="form-control" id="input-15">
+                                                                        class="form-control @error('adresse') is-danger @enderror"
+                                                                        id="input-15">
+                                                                    @error('adresse')
+                                                                    <div class="alert alert-danger">{{$message}}</div>
+                                                                    @enderror
                                                                 </div>
                                                             </div>
                                                             <!-- <div class="form-group row"> -->
@@ -131,6 +157,36 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header"><i class="fa fa-table"></i>Liste des fournisseurs</div>
+            @error('name')
+            <div class="alert alert-light-danger alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <div class="alert-icon">
+                    <i class="icon-close"></i>
+                </div>
+                <div class="alert-message">
+                    <span> {{ $message }}</span>
+                </div>
+            </div>
+            @enderror
+            @error('email')
+            <div class="alert alert-light-danger alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <div class="alert-icon">
+                    <i class="icon-close"></i>
+                </div>
+                <div class="alert-message">
+                    <span> {{ $message }}</span>
+                </div>
+            </div>
+            @enderror
+            <div class="col-xs-12">
+                @if (session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
+                </div>
+
+                @endif
+            </div>
             <div class="card-body">
                 <div class="table-responsive">
                     <div class="dataTables_wrapper container-fluid dt-bootstrap4" id="example_wrapper">

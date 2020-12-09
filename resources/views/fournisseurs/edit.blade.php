@@ -1,6 +1,8 @@
 @extends('layouts.layout')
 
 @section('content')
+  @section('title','Fournisseurs | '.config('app.name'))
+  
 <div class="container-fluid">
     <!-- Breadcrumb-->
     <div class="row pt-2 pb-2">
@@ -48,6 +50,9 @@
                             <div class="col-sm-10">
                                 <input type="text" name="name" value="{{$fournisseur->name}}" class="form-control"
                                     id="input-1">
+                                    @error('name')
+                                        <code> {{ $message }}</code>
+                                    @enderror
                             </div>
                         </div>
                         <div class="form-group row">
@@ -62,6 +67,9 @@
                             <div class="col-sm-10">
                                 <input type="email" name="email" value="{{$fournisseur->email}}" class="form-control"
                                     id="input-3">
+                                    @error('email')
+                                        <code> {{ $message }}</code>
+                                    @enderror
                             </div>
                         </div>
                         <div class="form-group row">
@@ -95,8 +103,9 @@
 
 
                         <div class="form-footer">
-                            <button type="submit" class="btn btn-primary shadow-primary m-1"><i class="fa fa-backward"></i>
-                                RETOUR</button>
+                            <a href="{{url('fournisseurs')}}"><button type="button" class="btn btn-primary shadow-primary m-1">
+                                <i class="fa fa-backward"></i>
+                                RETOUR</button></a>
                                 <button type="reset" class="btn btn-dark shadow-dark m-1"><i class="fa fa-times"></i>
                                REINITIALISER</button>
                             <button type="submit" onclick="return confirm('Voulez vous modifier le fournisseur ?')"
