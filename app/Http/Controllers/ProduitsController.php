@@ -57,7 +57,7 @@ class ProduitsController extends Controller
     public function store(Request $request)
     {
         //
-        $request->validate(['nomproduit' => 'required',
+        $request->validate(['nomproduit' => ['required','string','max:255','unique:produits,nomproduit'],
         'categorie_id' => 'required',
         'unitemesure_id' => 'required',
         'prixachat' => 'required',
@@ -71,7 +71,7 @@ class ProduitsController extends Controller
         $produit->prixachat = $request->prixachat;
         $produit->prixvente = $request->prixvente;
         $produit->save();
-        return redirect('produits');
+        return redirect('produits')->with('status','Enregistrement reussie avec succees!!');
     }
 
     /**
@@ -127,7 +127,7 @@ class ProduitsController extends Controller
         $produit->prixachat = $request->prixachat;
         $produit->prixvente = $request->prixvente;
         $produit->save();
-        return redirect('produits');
+        return redirect('produits')->with('status','Modification reussie avec succees!!');
     }
 
     /**
@@ -141,6 +141,6 @@ class ProduitsController extends Controller
         //
         $produit = Produit::find($produit->id);
         $produit->delete();
-        return redirect('produits');
+        return redirect('produits')->with('status','Suppression reussie avec succees!!');
     }
 }
