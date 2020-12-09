@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Detail_entree;
 use App\Entree;
+use App\Magasin;
 use App\Produit;
+use App\Typeentree;
+use App\Fournisseur;
+use App\Detail_entree;
+use App\Mode_paiement;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -67,8 +71,30 @@ class Detail_entreeController extends Controller
     }
 
 
-    public function show(Detail_entree $detail_entree)
+    public function show( $entree)
     {
+        $fournisseurs = Fournisseur::all();
+        $magasins = Magasin::all();
+        $typeentrees = Typeentree::all();
+        $mode_paiements = Mode_paiement::all();
+        $entree = DB::table('entrees')
+                    ->select(DB::raw('entrees.*, entrees.id,entrees.date_entree,entrees.fournisseur_id, name,nom_magasin
+                    ,nomtype,nom_mode'))
+                    ->join('fournisseurs', 'fournisseurs.id', 'entrees.fournisseur_id')
+                    ->join('magasins', 'magasins.id', 'entrees.magasin_id')
+                    ->join('typeentrees', 'typeentrees.id', 'entrees.type_entree_id')
+                    ->join('mode_paiements', 'mode_paiements.id', 'entrees.mode_paiement_id')
+                    ->first();
+        if(!isset($entree->id))
+        return redirect('404');
+        return view('detail_entrees.show', [
+
+            'fournisseurs' => $fournisseurs,
+            'magasins' => $magasins,
+            'typeentrees' => $typeentrees,
+            'mode_paiements' => $mode_paiements,
+            'entree' => $entree
+            ]);
     }
 
 
