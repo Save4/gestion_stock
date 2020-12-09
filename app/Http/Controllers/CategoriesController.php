@@ -2,21 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Magasin;
+use App\Category;
 use Illuminate\Http\Request;
 
-class MagasinController extends Controller
+class CategoriesController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -25,9 +15,10 @@ class MagasinController extends Controller
     public function index()
     {
         //
-        $magasin = Magasin::all();
-
-        return \view('magasins.index', compact('magasin'));
+        $categories = Category::all();
+        return view('categories.index',[
+            'categories' => $categories
+        ]);
     }
 
     /**
@@ -38,6 +29,7 @@ class MagasinController extends Controller
     public function create()
     {
         //
+        return view('categories.create');
     }
 
     /**
@@ -49,17 +41,11 @@ class MagasinController extends Controller
     public function store(Request $request)
     {
         //
-        $request->validate([
-            'nom_magasin' => ['required', 'string', 'max:255', 'unique:magasins,nom_magasin']
-        ]);
-
-        $magasin = new Magasin();
-
-        $magasin->nom_magasin = $request->nom_magasin;
-
-        $magasin->save();
-
-        return redirect('magasins')->with('succes', 'Type ajouté !');
+        $request->validate(['nom_categorie' => 'required']);
+        $categorie = new Category();
+        $categorie->nom_categorie = $request->nom_categorie;
+        $categorie->save();
+        return redirect('categories');
     }
 
     /**
@@ -68,7 +54,7 @@ class MagasinController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Category $categorie)
     {
         //
     }
@@ -79,12 +65,15 @@ class MagasinController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit( $id)
     {
         //
-        $magasin = Magasin::find($id);
+        $categorie = Category::find($id);
+        return view('categories.edit',[
+            'categorie' => $categorie
+        ]);
 
-        return \view('magasins.edit', compact('magasin'));
+
     }
 
     /**
@@ -97,17 +86,13 @@ class MagasinController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $request->validate([
-            'nom_magasin' => ['required', 'string', 'max:255', 'unique:magasins']
-        ]);
-        
-        $magasin = Magasin::find($id);
+        $categorie = Category::find($id);
 
-        $magasin->nom_magasin = $request->get('nom_magasin');
+        $categorie->nom_categorie = $request->get('nom_categorie');
 
-        $magasin->save();
+        $categorie->save();
 
-        return redirect('magasins')->with('succes', 'Type modifié !');
+        return redirect('categories');
     }
 
     /**
@@ -116,13 +101,11 @@ class MagasinController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy( $id)
     {
         //
-        $magasin = Magasin::find($id);
-
-        $magasin->delete();
-
-        return redirect('magasins')->with('succes', 'Type supprimé !');
+        $categorie = Category::find($id);
+        $categorie->delete();
+        return redirect('categories');
     }
 }

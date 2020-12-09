@@ -35,20 +35,17 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:mana
 });
 
 
-/* TypeEntrees */
-
-Route::resource('typeentrees', 'TypeentreeController');
-Route::resource('fournisseurs', 'FournisseursController');
-Route::resource('mode_paiements', 'ModePaiementController');
-Route::resource('unitemesures', 'UnitemesureController');
-
-Route::resource('produits','ProduitsController');
-
-Route::resource('magasins', 'MagasinController');
 
 Route::resource('fournisseurs','FournisseursController');
 
-
-Route::resource('entrees','EntreesController');
-
+/*mode de paiement*/
+Route::resource('mode_paiements','ModePaiementController');
+Route::resource('fournisseurs','FournisseursController');
+Route::resource('unitemesures','UnitemesureController');
+Route::resource('categories','CategoriesController');
 Route::resource('detail_entrees','Detail_entreeController');
+Route::resource('entrees','EntreesController');
+Route::resource('magasins','MagasinController');
+Route::resource('mode_paiements','ModePaiementController');
+Route::resource('produits','ProduitsController');
+Route::resource('typeentrees','TypeentreeController');
