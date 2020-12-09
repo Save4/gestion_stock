@@ -1,6 +1,8 @@
 @extends('layouts.layout')
 
 @section('content')
+  @section('title','Type d\'entre | '.config('app.name'))
+
 
     <!-- Breadcrumb-->
     <div class="row pt-2 pb-2">
