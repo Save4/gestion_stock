@@ -1,6 +1,7 @@
 
 <?php
 
+use App\Typeentree;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,4 +33,16 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:mana
 	Route::resource('users', 'UsersController');
 
 });
+
+
+
+
+/* TypeEntrees */
+
+Route::resource('typeentrees', 'TypeentreeController');
+Route::resource('fournisseurs', 'FournisseursController');
+Route::resource('mode_paiements', 'ModePaiementController');
+Route::resource('unitemesures', 'UnitemesureController');
+Route::resource('produits','ProduitsController');
 Route::resource('categories','CategoriesController');
+
