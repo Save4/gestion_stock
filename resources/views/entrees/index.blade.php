@@ -227,6 +227,7 @@
                                                 <th>Date de mise a jour</th>
                                                 <th>Etat de cloture</th>
                                                 <th>Action</th>
+                                                <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -243,9 +244,6 @@
                                                     <td>{{ $entree->updated_at }}</td>
                                                     <td>{{ $entree->etat_cloture == '0' ? 'No' : 'Yes' }}</td>
                                                     <td>
-                                                        <a href="entrees/{{ $entree->id }}"
-                                                            class="btn btn-primary btn-sm" title="Edit">
-                                                            <span class="fa fa-edit"></span></a>
 
                                                         <a href="entrees/{{ $entree->id }}/edit"
                                                             class="btn btn-primary btn-sm" title="Edit" class="d-inline">
@@ -261,6 +259,8 @@
                                                             @method('DELETE')
                                                         </form>
                                                     </td>
+                                                    <th><a href="entrees/details_entrees/{{$entree->id}}" 
+                                                    class="btn btn-secondary btn-sm" title="Voir"><i class="fa fa-eye">Voir Details</i></a></th>
                                                 </tr>
                                             @endforeach
                                         </tbody>
