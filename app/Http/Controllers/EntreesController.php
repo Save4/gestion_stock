@@ -90,7 +90,7 @@ class EntreesController extends Controller
                 ->join('mode_paiements', 'entrees.mode_paiement_id', 'mode_paiements.id')
                 ->where('entrees.id', $entree->id)
                 ->select('fournisseurs.*', 'magasins.*', 'typeentrees.*', 'mode_paiements.*', 'entrees.*')
-                ->get();
+                ->first();
 
                 $fournisseurs = Fournisseur::all();
               $magasins = Magasin::all();
@@ -103,7 +103,9 @@ class EntreesController extends Controller
                   'magasins' => $magasins,
                   'typeentrees' => $typeentrees,
                   'mode_paiements' => $mode_paiements,
-                  'entree' => $entree
+                  'entree' => $entree,
+                  'entrees' => $entrees
+
               ]);
 
     }
