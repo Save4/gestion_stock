@@ -82,31 +82,31 @@ class EntreesController extends Controller
     public function show(Entree $entree)
     {
       
-            $entrees = DB::table('entrees')
-                ->join('fournisseurs', 'entrees.fournisseur_id', 'fournisseurs.id')
-                ->join('magasins', 'entrees.magasin_id', 'magasins.id')
-                ->join('typeentrees', 'entrees.type_entree_id', 'typeentrees.id')
-                ->join('mode_paiements', 'entrees.mode_paiement_id', 'mode_paiements.id')
-                ->join('mode_paiements', 'entrees.mode_paiement_id', 'mode_paiements.id')
-                ->where('entrees.id', $entree->id)
-                ->select('fournisseurs.*', 'magasins.*', 'typeentrees.*', 'mode_paiements.*', 'entrees.*')
-                ->first();
+            // $entrees = DB::table('entrees')
+            //     ->join('fournisseurs', 'entrees.fournisseur_id', 'fournisseurs.id')
+            //     ->join('magasins', 'entrees.magasin_id', 'magasins.id')
+            //     ->join('typeentrees', 'entrees.type_entree_id', 'typeentrees.id')
+            //     ->join('mode_paiements', 'entrees.mode_paiement_id', 'mode_paiements.id')
+            //     ->join('mode_paiements', 'entrees.mode_paiement_id', 'mode_paiements.id')
+            //     ->where('entrees.id', $entree->id)
+            //     ->select('fournisseurs.*', 'magasins.*', 'typeentrees.*', 'mode_paiements.*', 'entrees.*')
+            //     ->first();
 
-                $fournisseurs = Fournisseur::all();
-              $magasins = Magasin::all();
-              $typeentrees = Typeentree::all();
-              $mode_paiements = Mode_paiement::all();
+            //     $fournisseurs = Fournisseur::all();
+            //   $magasins = Magasin::all();
+            //   $typeentrees = Typeentree::all();
+            //   $mode_paiements = Mode_paiement::all();
 
-              return view('detail_entrees.index', [
+            //   return view('detail_entrees.index', [
 
-                  'fournisseurs' => $fournisseurs,
-                  'magasins' => $magasins,
-                  'typeentrees' => $typeentrees,
-                  'mode_paiements' => $mode_paiements,
-                  'entree' => $entree,
-                  'entrees' => $entrees
+            //       'fournisseurs' => $fournisseurs,
+            //       'magasins' => $magasins,
+            //       'typeentrees' => $typeentrees,
+            //       'mode_paiements' => $mode_paiements,
+            //       'entree' => $entree,
+            //       'entrees' => $entrees
 
-              ]);
+            //   ]);
 
     }
 
@@ -160,6 +160,34 @@ class EntreesController extends Controller
         $entree = Entree::find($entree->id);
         $entree->delete();
         return redirect('entrees');
+    }
+
+    public function details_entrees(Entree $entree)
+    {
+        // $entrees = DB::table('entrees')
+        // ->join('fournisseurs', 'entrees.fournisseur_id', 'fournisseurs.id')
+        // ->join('magasins', 'entrees.magasin_id', 'magasins.id')
+        // ->join('typeentrees', 'entrees.type_entree_id', 'typeentrees.id')
+        // ->join('mode_paiements', 'entrees.mode_paiement_id', 'mode_paiements.id')
+        // ->where('entrees.id', $entree->id)
+        // ->select('fournisseurs.*', 'magasins.*', 'typeentrees.*', 'mode_paiements.*', 'entrees.*')
+        // ->first();
+
+        $fournisseurs = Fournisseur::all();
+      $magasins = Magasin::all();
+      $typeentrees = Typeentree::all();
+      $mode_paiements = Mode_paiement::all();
+      
+      $entree = Entree::find($entree->id);
+      return view('entrees.details_entrees', [
+
+          'fournisseurs' => $fournisseurs,
+          'magasins' => $magasins,
+          'typeentrees' => $typeentrees,
+          'mode_paiements' => $mode_paiements,
+          'entree' => $entree
+          ]);
+
     }
 
 }
