@@ -2,6 +2,7 @@
 
 @section('content')
 
+
     <div class="container-fluid">
         <!-- Breadcrumb-->
         <div class="row pt-2 pb-2">
@@ -49,6 +50,11 @@
                                                                     <div class="col-sm-10">
                                                                         <input type="text" name="nom_categorie"
                                                                             class="form-control" id="input-10">
+                                                                            @error('nom_categorie')
+                                                                            <span class="invalid-feedback" role="alert">
+                                                                                <strong>{{ $message }}</strong>
+                                                                            </span>
+                                                                        @enderror
                                                                     </div>
 
                                                                 </div>
@@ -92,6 +98,17 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header"><i class="fa fa-table"></i>Liste des Categories</div>
+                @error('nom_categorie')
+                    <div class="alert alert-light-danger alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+                        <div class="alert-icon">
+                            <i class="icon-close"></i>
+                        </div>
+                        <div class="alert-message">
+                            <span> {{ $message }}</span>
+                        </div>
+                    </div>
+                @enderror
                 <div class="card-body">
                     <div class="table-responsive">
                         <div class="dataTables_wrapper container-fluid dt-bootstrap4" id="example_wrapper">
@@ -152,10 +169,13 @@
                             </div>
 
                         </div>
+
                     </div>
                 </div>
             </div>
         </div>
 
+
     </div>
+
 @endsection
