@@ -1,6 +1,8 @@
 @extends('layouts.layout')
 
 @section('content')
+  @section('title','Unite de mesure | '.config('app.name'))
+
 
 <!-- Breadcrumb-->
 <div class="row pt-2 pb-2">

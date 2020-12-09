@@ -1,6 +1,8 @@
 @extends('layouts.layout')
 
 @section('content')
+  @section('title','Unite de mesure | '.config('app.name'))
+
 
 <!-- Breadcrumb-->
 <div class="row pt-2 pb-2">
@@ -40,7 +42,7 @@
             <div class="col-xs-12">
                 @if (session('status'))
                 <div class="alert alert-success">
-                   {{ session('status') }} 
+                   {{ session('status') }}
                 </div>
                 @endif
             </div>
