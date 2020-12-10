@@ -47,6 +47,3 @@
   	<link href="{{ asset('detail/css/theme/default.css')}}" rel="stylesheet" id="theme" />
   	<!-- ================== END BASE CSS STYLE ================== -->
     <link rel="stylesheet" href="{{ asset('detail/css/bootstrap-select.css')}}">
-
-
-

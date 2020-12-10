@@ -43,7 +43,7 @@
 
       <li>
         <a href="javaScript:void();" class="waves-effect">
-          <i class="icon-note"></i> <span>MODE DE PAIEMENT</span>
+          <i class="icon-note"></i> <span>PAIEMENT</span>
           <i class="fa fa-angle-left pull-right"></i>
         </a>
         <ul class="sidebar-submenu">
