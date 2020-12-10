@@ -44,9 +44,9 @@
                         <div class="col-sm-3">
                             <select name="entree_id" id="entree_id" class="form-control">
                                 <option value="">select code entree</option>
-                                @foreach($entree as $entree)
-                                <option value="{{$entree->id}}">{{$entree->entree_id}}</option>
-                                @endforeach
+                                {{-- @foreach($entree as $entree) --}}
+                                <option value="{{$entree->id}}">{{$entree->id}}</option>
+                                {{-- @endforeach --}}
                             </select>
                         </div>
 
@@ -54,8 +54,8 @@
                         <div class="col-sm-3">
                             <select name="produit_id" id="produit_id" class="form-control">
                                 <option value="">Select produit</option>
-                                @foreach($produits as $produit)
-                                <option value="{{$produit->id}}">{{$produit->nomproduit}}</option>
+                                @foreach($produit as $produit)
+                                <option value="{{$produit->id}}">{{$produit->id}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -111,11 +111,11 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach($detail_entrees as $detail_entree)
+                                            @foreach($detail_entree as $detail_entree)
                                             <tr>
                                                 <td>{{$detail_entree->id}}</td>
                                                 <td>{{$detail_entree->entree_id}}</td>
-                                                <td>{{$detail_entree->nomproduit}}</td>
+                                                <td>{{$detail_entree->produit_id}}</td>
                                                 <td>{{$detail_entree->quantite}}</td>
                                                 <td>{{$detail_entree->prix_achat}}</td>
                                                 <td>{{$detail_entree->prix_vente}}</td>
