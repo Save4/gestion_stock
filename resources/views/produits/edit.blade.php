@@ -1,6 +1,8 @@
 @extends('layouts.layout')
 
 @section('content')
+  @section('title','Produit | '.config('app.name'))
+
 <div class="container-fluid">
     <!-- Breadcrumb-->
     <div class="row pt-2 pb-2">
@@ -51,8 +53,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-<<<<<<< HEAD
-=======
+
                         <label for="input-1" class="col-sm-2 col-form-label"> Categorie</label>
                             <div class="col-sm-10">
                                 <select class="form-control" name="categorie_id" id="categorie_id">
@@ -64,7 +65,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
->>>>>>> unitemesures
+
                         <label for="input-1" class="col-sm-2 col-form-label"> Unite Mesure</label>
                             <div class="col-sm-10">
                                 <select class="form-control" name="unitemesure_id" id="unitemesure_id">
@@ -96,7 +97,7 @@
                                 RETOUR</button>
                             <button type="reset" class="btn btn-dark shadow-dark m-1"><i class="fa fa-times"></i>
                                 REINITIALISER</button>
-                            <button type="submit" onclick="return confirm('Voulez vous modifier le produit ?')" 
+                            <button type="submit" onclick="return confirm('Voulez vous modifier le produit ?')"
                              class="btn btn-success shadow-success m-1"><i
                                     class="fa fa-check-square-o"></i>
                                 MODIFIER</button>

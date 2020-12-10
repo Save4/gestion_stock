@@ -1,6 +1,7 @@
 @extends('layouts.layout')
 
 @section('content')
+  @section('title','Categorie | '.config('app.name'))
 
     <div class="container-fluid">
         <!-- Breadcrumb-->
@@ -66,7 +67,8 @@
                                     <div class="modal-footer">
                                         <button class="btn btn-secondary" type="reset" data-dismiss="modal"><i
                                                 class="fa fa-times"></i> Fermer</button>
-                                        <button class="btn btn-primary" type="submit"><i class="fa fa-check-square-o"></i>
+                                        <button class="btn btn-primary" type="submit" onclick="return confirm('Voulez vous enregistrer le categorie ?')">
+                                            <i class="fa fa-check-square-o"></i>
                                             Enregistrer</button>
                     </form>
                 </div>
