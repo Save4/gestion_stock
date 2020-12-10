@@ -36,9 +36,8 @@
             <fieldset>
                 <legend>Details Entrees</legend>
 
-                <form role="form" action="{{url('detail_entrees')}}" method="POST">
+                <form role="form" action="#" method="POST">
                     @csrf
-                    @method('POST')
                     <div class="form-group row">
 
                         <label for="input-23" class="col-sm-1 col-form-label">Code Entree</label>
