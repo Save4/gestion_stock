@@ -107,7 +107,7 @@ class Detail_entreeController extends Controller
         $typeentrees = Typeentree::all();
         $mode_paiements = Mode_paiement::all();
         $entree = DB::table('entrees')
-                    ->select(DB::raw('entrees.*, entrees.id,entrees.date_entree,entrees.fournisseur_id, name,nom_magasin
+                    ->select(DB::raw('entrees.*, entrees.id,date_entree,entrees.fournisseur_id, name,nom_magasin
                     ,nomtype,nom_mode'))
                     ->join('fournisseurs', 'fournisseurs.id', 'entrees.fournisseur_id')
                     ->join('magasins', 'magasins.id', 'entrees.magasin_id')
