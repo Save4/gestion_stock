@@ -1,6 +1,8 @@
 @extends('layouts.layout')
 
 @section('content')
+  @section('title','Unite de mesure | '.config('app.name'))
+  
 
     <!-- Breadcrumb-->
     <div class="row pt-2 pb-2">
@@ -10,7 +12,7 @@
                 <li class="breadcrumb-item"><a href="{{url('/home')}}">Home</a></li>
                 <li class="breadcrumb-item"><a href="{{url('unitemesures')}}">Unitemesures</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Edit Unite Mesure</li>
-            </ol> 
+            </ol>
         </div>
         <!-- <div class="col-sm-3">
             <div class="btn-group float-sm-right">
@@ -25,7 +27,7 @@
     <div class="row">
         <div class="col-lg-6">
              <!-- <h6 class="text-uppercase">Form with square input</h6> -->
-            
+
             <hr>
             <div class="card">
                 <div class="card-body">

@@ -1,6 +1,8 @@
 @extends('layouts.layout')
 
 @section('content')
+  @section('title','Entres | '.config('app.name'))
+
 
     <div class="container-fluid">
         <!-- Breadcrumb-->
@@ -8,17 +10,17 @@
             <div class="col-sm-9">
                 <h4 class="page-title">Table des entrees</h4>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="javaScript:void();">Home</a></li>
-                    <li class="breadcrumb-item"><a href="javaScript:void();">Entrees</a></li>
+                    <li class="breadcrumb-item"><a href="{{url('/home')}}">Home</a></li>
+                    <!-- <li class="breadcrumb-item"><a href="javaScript:void();">Entrees</a></li> -->
                     <li class="breadcrumb-item active" aria-current="page">Table des entrees</li>
                 </ol>
             </div>
             <div class="col-sm-3">
                 <div class="btn-group float-sm-right">
-                    <form role="form" action="{{ url('entres') }}" method="POST">
+                    <form role="form" action="{{ url('entrees') }}" method="POST">
                         @csrf
                         <button type="button" class="btn btn-primary m-1" data-toggle="modal"
-                            data-target="#largesizemodal">Ajouter
+                            data-target="#largesizemodal"><i class="fa fa-plus"></i> Ajouter
                             les entrees</button>
                         <div class="modal fade" id="largesizemodal" aria-hidden="true" style="display: none;">
                             <div class="modal-dialog modal-lg">
@@ -43,27 +45,27 @@
                                                                 <div class="form-group row">
                                                                     <label for="input-23"
                                                                         class="col-sm-2 col-form-label">Fournisseur</label>
-                                                                    <div class="col-sm-4">
-                                                                        <select name="fournisseur_id" id=""
-                                                                            class="form-control">
-                                                                            <option value="0" disabled="true"
-                                                                                selected="true">Selectionner le fournisseur
-                                                                            </option>
-                                                                            @foreach ($fournisseurs as $fournisseur)
-                                                                                <option value="{{ $fournisseur->id }}">
-                                                                                    {{ $fournisseur->nom }}
+                                                                        <div class="col-sm-4">
+                                                                            <select name="fournisseur_id" id=""
+                                                                                class="form-control">
+                                                                                <option value="0" disabled="true"
+                                                                                    selected="true">Selectionner le fournisseur
                                                                                 </option>
-                                                                            @endforeach
-                                                                            @error('fournisseur_id')
+                                                                                @foreach ($fournisseurs as $fournisseur)
+                                                                                    <option value="{{ $fournisseur->id }}">
+                                                                                        {{ $fournisseur->name }}
+                                                                                    </option>
+                                                                                @endforeach
+                                                                                @error('fournisseur_id')
 
-                                                                                <div class="alert alert-danger">{{ $message }}
-                                                                                </div>
-                                                                            @enderror
+                                                                                    <div class="alert alert-danger">{{ $message }}
+                                                                                    </div>
+                                                                                @enderror
 
 
 
-                                                                        </select>
-                                                                    </div>
+                                                                            </select>
+                                                                        </div>
                                                                     <label for="input-23"
                                                                         class="col-sm-2 col-form-label">Type
                                                                         d'entree</label>
@@ -159,16 +161,13 @@
                                                                 </div>
                                                                 <!-- </div> -->
 
-                                                                <div class="mt-3">
-                                                                    <label for="assujetva">Etat de cloture</label>
+                                                                <div class="demo-checkbox">
 
-                                                                    <input type="checkbox" name="etat_cloture" checked
-                                                                        data-on-color="success" data-off-color="info"
-                                                                        data-on-text="Yes" data-off-text="No">
-                                                                    <input type="checkbox" name="etat_cloture" checked
-                                                                        data-on-color="info" data-off-color="success"
-                                                                        data-on-text="1" data-off-text="0">
+                                                                    <input type="checkbox" id="etat_cloture" name="etat_cloture"
+                                                                        class="filled-in chk-col-primary" checked="">
+                                                                    <label for="etat_cloture">Etat de cloture</label>
                                                                 </div>
+
 
 
                                                             </form>
@@ -181,7 +180,8 @@
                                     <div class="modal-footer">
                                         <button class="btn btn-secondary" type="reset" data-dismiss="modal"><i
                                                 class="fa fa-times"></i> Fermer</button>
-                                        <button class="btn btn-primary" type="submit"><i class="fa fa-check-square-o"></i>
+                                        <button class="btn btn-primary" type="submit" onclick="return confirm('Voulez vous enregistrer un entree ?')" >
+                                            <i class="fa fa-check-square-o"></i>
                                             Enregistrer</button>
                     </form>
                 </div>
@@ -216,7 +216,7 @@
                                         aria-describedby="example_info">
                                         <thead>
                                             <tr role="row">
-                                                <th >#</th>
+                                                <th>#</th>
                                                 <th>Fournisseur</th>
                                                 <th>Magasin</th>
                                                 <th>Type d'entree</th>
@@ -227,36 +227,40 @@
                                                 <th>Date de mise a jour</th>
                                                 <th>Etat de cloture</th>
                                                 <th>Action</th>
+                                                <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             @foreach ($entrees as $entree)
-                                                <tr class="odd" role="row">
-                                                    <td class="sorting_1">{{ $entree->id }}</td>
-                                                    <td>{{ $entree->nom }}</td>
+                                                <tr>
+                                                    <td>{{ $entree->id }}</td>
+                                                    <td>{{ $entree->name }}</td>
                                                     <td>{{ $entree->nom_magasin }}</td>
                                                     <td>{{ $entree->nomtype }}</td>
                                                     <td>{{ $entree->nom_mode }}</td>
-                                                    <td>{{ $entree->montant}}</td>
+                                                    <td>{{ $entree->montant }}</td>
                                                     <td>{{ $entree->date_entree }}</td>
                                                     <td>{{ $entree->created_at }}</td>
-                                                    <td>{{ $entree->updated_at}}</td>
+                                                    <td>{{ $entree->updated_at }}</td>
                                                     <td>{{ $entree->etat_cloture == '0' ? 'No' : 'Yes' }}</td>
                                                     <td>
+
                                                         <a href="entrees/{{ $entree->id }}/edit"
-                                                            class="btn btn-primary btn-sm" title="Edit">
+                                                            class="btn btn-primary btn-sm" title="Edit" class="d-inline">
                                                             <span class="fa fa-edit"></span></a>
 
                                                         <form action="entrees/{{ $entree->id }} " method="POST"
                                                             class="d-inline">
                                                             @csrf
                                                             <button type="submit"
-                                                                onclick="return confirm('Voulez vous supprimer l'entrees ?')"
+                                                            onclick="return confirm('Voulez vous supprimer un entree ?')"
                                                                 class="btn btn-danger btn-sm" title="Delete">
                                                                 <span class="fa fa-trash"></span></button>
                                                             @method('DELETE')
                                                         </form>
                                                     </td>
+                                                    <th><a href="/detail_entrees/{{$entree->id}}"
+                                                    class="btn btn-secondary btn-sm" title="Voir"><i class="fa fa-eye">Voir Details</i></a></th>
                                                 </tr>
                                             @endforeach
                                         </tbody>

@@ -1,7 +1,9 @@
 @extends('layouts.layout')
 
 @section('content')
+
   @section('title','Produits | '.config('app.name'))
+
 
 
 <div class="container-fluid">
@@ -53,6 +55,7 @@
                                                             </div>
                                                             <div class="form-group row">
                                                                 <label for="nomunite"
+
                                                                     class="col-sm-2 col-form-label">Categorie</label>
                                                                 <div class="col-sm-10">
                                                                     <select class="form-control" name="categorie_id" id="categorie_id">
@@ -65,7 +68,8 @@
                                                             </div>
                                                             <div class="form-group row">
                                                                 <label for="nomunite"
-                                                                    class="col-sm-2 col-form-label">Unite Mesure</label>
+
+                                                  class="col-sm-2 col-form-label">Unite Mesure</label>
                                                                 <div class="col-sm-10">
                                                                     <select class="form-control" name="unitemesure_id" id="unitemesure_id">
                                                                         <option>Select Unite Mesure</option>
@@ -147,10 +151,13 @@
                                                 style="width: 131px;"
                                                 aria-label="Name: activate to sort column descending"
                                                 aria-sort="ascending" rowspan="1" colspan="1">Nom Produit</th>
+
                                                 <th tabindex="0" class="sorting" aria-controls="example"
                                                 style="width: 215px;"
                                                 aria-label="Position: activate to sort column ascending" rowspan="1"
                                                 colspan="1">Categorie</th>
+
+
                                             <th tabindex="0" class="sorting" aria-controls="example"
                                                 style="width: 215px;"
                                                 aria-label="Position: activate to sort column ascending" rowspan="1"
@@ -173,7 +180,11 @@
                                         <tr class="odd" role="row">
                                             <td class="sorting_1">{{$produit->id}}</td>
                                             <td>{{$produit->nomproduit}}</td>
+
+
                                             <td>{{$produit->nom_categorie}}</td>
+
+
                                             <td>{{$produit->nomunite}}</td>
                                             <td>{{$produit->prixachat}}</td>
                                             <td>{{$produit->prixvente}}</td>
@@ -199,7 +210,10 @@
                                         <tr>
                                             <th rowspan="1" colspan="1">#</th>
                                             <th rowspan="1" colspan="1">Nom Produit</th>
+
                                             <th rowspan="1" colspan="1">Nom Categorie</th>
+
+
                                             <th rowspan="1" colspan="1">Unite Mesure</th>
                                             <th rowspan="1" colspan="1">Prix Achat</th>
                                             <th rowspan="1" colspan="1">Prix Vente</th>
