@@ -35,11 +35,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:mana
 });
 
 
-
-Route::resource('fournisseurs','FournisseursController');
-
 /*mode de paiement*/
-Route::resource('mode_paiements','ModePaiementController');
 Route::resource('fournisseurs','FournisseursController');
 Route::resource('unitemesures','UnitemesureController');
 Route::resource('categories','CategoriesController');
