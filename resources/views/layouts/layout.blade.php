@@ -98,10 +98,13 @@
 
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
 
 <!-- Mirrored from kvthemes.com/bangodash/color-version/index2.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 06 Jul 2019 23:40:04 GMT -->
 <!-- head -->
 @include('base.head')
+</head>
+
 
 <body onload="info_noti()">
 
