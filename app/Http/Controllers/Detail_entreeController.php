@@ -22,7 +22,7 @@ class Detail_entreeController extends Controller
     {
         $this->middleware('auth');
     }
-    public function index()
+    /* public function index()
     {
         $detail_entrees = DB::table('detail_entrees')
             ->join('entrees', 'detail_entrees.entree_id', 'entrees.id')
@@ -60,7 +60,7 @@ class Detail_entreeController extends Controller
             'detail_entrees' => $detail_entrees
         ]);
     }
-
+ */
     public function create()
     {
 
@@ -93,20 +93,31 @@ class Detail_entreeController extends Controller
     }
 
 
-    public function show( $entree)
+    public function show( $entree )
     {
+        // $detail_entree = Detail_entree::find($detail_entree->id);
+
         $fournisseurs = Fournisseur::all();
         $magasins = Magasin::all();
         $typeentrees = Typeentree::all();
         $mode_paiements = Mode_paiement::all();
+        // $entree = Entree::all();
         $entree = DB::table('entrees')
-                    ->select(DB::raw('entrees.*, entrees.id,date_entree,entrees.fournisseur_id, name,nom_magasin
-                    ,nomtype,nom_mode'))
-                    ->join('fournisseurs', 'fournisseurs.id', 'entrees.fournisseur_id')
-                    ->join('magasins', 'magasins.id', 'entrees.magasin_id')
-                    ->join('typeentrees', 'typeentrees.id', 'entrees.type_entree_id')
-                    ->join('mode_paiements', 'mode_paiements.id', 'entrees.mode_paiement_id')
+                    ->join('fournisseurs', 'entrees.fournisseur_id', 'fournisseurs.id')
+                    ->join('magasins', 'entrees.magasin_id', 'magasins.id')
+                    ->join('typeentrees', 'entrees.type_entree_id', 'typeentrees.id')
+                    ->join('mode_paiements', 'entrees.mode_paiement_id', 'mode_paiements.id')
+                    ->where('entrees.id','=',$entree)
+                    // ->select(DB::raw('entrees.*, entrees.id,date_entree, entrees.fournisseur_id, name,nom_magasin
+                    // ,nomtype, nom_mode'))
+                    ->select('fournisseurs.*','magasins.*','typeentrees.*','mode_paiements.*','entrees.*')
                     ->first();
+        // $detail_entree = DB::table('detail_entrees')
+        //                 ->join('entrees', 'detail_entrees.entree_id', 'entrees.id')
+        //                 ->select('entrees.*', 'detail_entrees.*')
+        //                 ->get();
+       
+    //    dd($entree->id);
         if(!isset($entree->id))
         return redirect('404');
         return view('detail_entrees.show', [
@@ -115,7 +126,9 @@ class Detail_entreeController extends Controller
             'magasins' => $magasins,
             'typeentrees' => $typeentrees,
             'mode_paiements' => $mode_paiements,
-            'entree' => $entree
+            'entree' => $entree,
+            // 'detail_entree' => $detail_entree
+
             ]);
     }
 
