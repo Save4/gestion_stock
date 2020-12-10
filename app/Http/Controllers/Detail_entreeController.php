@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Detail_entree;
 use App\Entree;
-use App\Produit;
-use App\Fournisseur;
 use App\Magasin;
+use App\Produit;
 use App\Typeentree;
+use App\Fournisseur;
+use App\Detail_entree;
 use App\Mode_paiement;
 use App\Category;
 use App\Unitemesure;
@@ -22,7 +22,7 @@ class Detail_entreeController extends Controller
     {
         $this->middleware('auth');
     }
-    public function index()
+    /* public function index()
     {
         $detail_entrees = DB::table('detail_entrees')
             ->join('entrees', 'detail_entrees.entree_id', 'entrees.id')
@@ -60,7 +60,7 @@ class Detail_entreeController extends Controller
             'detail_entrees' => $detail_entrees
         ]);
     }
-
+ */
     public function create()
     {
 
@@ -81,7 +81,7 @@ class Detail_entreeController extends Controller
 
         $entrees = Entree::all();
         $produits = Produit::all();
-
+       
         $detail_entree = new Detail_entree();
         $detail_entree->entree_id = $request->entree_id;
         $detail_entree->produit_id = $request->produit_id;
@@ -89,12 +89,50 @@ class Detail_entreeController extends Controller
         $detail_entree->prix_achat = $request->prix_achat;
         $detail_entree->prix_vente = $request->prix_vente;
         $detail_entree->save();
-        return redirect('detail_entrees');
+        return redirect('detail_entrees/{detail_entree} ');
     }
 
 
-    public function show(Detail_entree $detail_entree)
+    public function show( $entree )
     {
+        // $detail_entree = Detail_entree::find($detail_entree->id);
+
+        $fournisseurs = Fournisseur::all();
+        $magasins = Magasin::all();
+        $typeentrees = Typeentree::all();
+        $mode_paiements = Mode_paiement::all();
+        $produit = Produit::all();
+        // $entree = Entree::all();
+        $entree = DB::table('entrees')
+                    ->join('fournisseurs', 'entrees.fournisseur_id', 'fournisseurs.id')
+                    ->join('magasins', 'entrees.magasin_id', 'magasins.id')
+                    ->join('typeentrees', 'entrees.type_entree_id', 'typeentrees.id')
+                    ->join('mode_paiements', 'entrees.mode_paiement_id', 'mode_paiements.id')
+                    ->where('entrees.id','=',$entree)
+                    // ->select(DB::raw('entrees.*, entrees.id,date_entree, entrees.fournisseur_id, name,nom_magasin
+                    // ,nomtype, nom_mode'))
+                    ->select('fournisseurs.*','magasins.*','typeentrees.*','mode_paiements.*','entrees.*')
+                    ->first();
+        $detail_entree = DB::table('detail_entrees')
+                        ->join('entrees', 'detail_entrees.entree_id', 'entrees.id')
+                        ->join('produits', 'detail_entrees.produit_id', 'produits.id')
+                        ->select('entrees.*','produits.*', 'detail_entrees.*')
+                        ->get();
+       
+    //    dd($entree);
+        if(!isset($entree->id))
+        return redirect('404');
+        return view('detail_entrees.show', [
+
+            'fournisseurs' => $fournisseurs,
+            'magasins' => $magasins,
+            'typeentrees' => $typeentrees,
+            'mode_paiements' => $mode_paiements,
+            'produit' => $produit,
+            'entree' => $entree,
+            'detail_entree' => $detail_entree
+
+            ]);
     }
 
 

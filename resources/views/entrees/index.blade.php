@@ -10,8 +10,8 @@
             <div class="col-sm-9">
                 <h4 class="page-title">Table des entrees</h4>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="javaScript:void();">Home</a></li>
-                    <li class="breadcrumb-item"><a href="javaScript:void();">Entrees</a></li>
+                    <li class="breadcrumb-item"><a href="{{url('/home')}}">Home</a></li>
+                    <!-- <li class="breadcrumb-item"><a href="javaScript:void();">Entrees</a></li> -->
                     <li class="breadcrumb-item active" aria-current="page">Table des entrees</li>
                 </ol>
             </div>
@@ -20,7 +20,7 @@
                     <form role="form" action="{{ url('entrees') }}" method="POST">
                         @csrf
                         <button type="button" class="btn btn-primary m-1" data-toggle="modal"
-                            data-target="#largesizemodal">Ajouter
+                            data-target="#largesizemodal"><i class="fa fa-plus"></i> Ajouter
                             les entrees</button>
                         <div class="modal fade" id="largesizemodal" aria-hidden="true" style="display: none;">
                             <div class="modal-dialog modal-lg">
@@ -180,7 +180,8 @@
                                     <div class="modal-footer">
                                         <button class="btn btn-secondary" type="reset" data-dismiss="modal"><i
                                                 class="fa fa-times"></i> Fermer</button>
-                                        <button class="btn btn-primary" type="submit"><i class="fa fa-check-square-o"></i>
+                                        <button class="btn btn-primary" type="submit" onclick="return confirm('Voulez vous enregistrer un entree ?')" >
+                                            <i class="fa fa-check-square-o"></i>
                                             Enregistrer</button>
                     </form>
                 </div>
@@ -226,6 +227,7 @@
                                                 <th>Date de mise a jour</th>
                                                 <th>Etat de cloture</th>
                                                 <th>Action</th>
+                                                <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -242,9 +244,6 @@
                                                     <td>{{ $entree->updated_at }}</td>
                                                     <td>{{ $entree->etat_cloture == '0' ? 'No' : 'Yes' }}</td>
                                                     <td>
-                                                        <a href="entrees/{{ $entree->id }}"
-                                                            class="btn btn-primary btn-sm" title="Edit">
-                                                            <span class="fa fa-edit"></span></a>
 
                                                         <a href="entrees/{{ $entree->id }}/edit"
                                                             class="btn btn-primary btn-sm" title="Edit" class="d-inline">
@@ -254,12 +253,14 @@
                                                             class="d-inline">
                                                             @csrf
                                                             <button type="submit"
-                                                                onclick="return confirm('Voulez vous supprimer l'entrees ?')"
+                                                            onclick="return confirm('Voulez vous supprimer un entree ?')"
                                                                 class="btn btn-danger btn-sm" title="Delete">
                                                                 <span class="fa fa-trash"></span></button>
                                                             @method('DELETE')
                                                         </form>
                                                     </td>
+                                                    <th><a href="/detail_entrees/{{$entree->id}}"
+                                                    class="btn btn-secondary btn-sm" title="Voir"><i class="fa fa-eye">Voir Details</i></a></th>
                                                 </tr>
                                             @endforeach
                                         </tbody>
