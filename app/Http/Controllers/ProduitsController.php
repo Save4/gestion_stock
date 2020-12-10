@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Produit;
 
+
 use App\Category;
+
 
 use App\Unitemesure;
 use Illuminate\Http\Request;
@@ -75,6 +77,7 @@ class ProduitsController extends Controller
         $produit = new Produit();
         $produit->nomproduit = $request->nomproduit;
 
+
         $produit->categorie_id = $request->categorie_id;
 
         $produit->unitemesure_id = $request->unitemesure_id;
@@ -105,12 +108,15 @@ class ProduitsController extends Controller
     {
         //
 
+
         $categories = Category::all();
+
 
         $unitemesures = Unitemesure::all();
         $produit = Produit::find($produit->id);
         return view('produits.edit',[
             'produit' => $produit,
+
 
             'categories' => $categories,
 
@@ -129,6 +135,7 @@ class ProduitsController extends Controller
     {
         //
         $request->validate(['nomproduit' => 'required',
+
 
         'categorie_id' => 'required',
 

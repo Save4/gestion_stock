@@ -5,10 +5,19 @@ namespace App\Http\Controllers;
 use App\Entree;
 use App\Magasin;
 use App\Produit;
+<<<<<<< HEAD
 use App\Typeentree;
 use App\Fournisseur;
 use App\Detail_entree;
 use App\Mode_paiement;
+=======
+use App\Fournisseur;
+use App\Magasin;
+use App\Typeentree;
+use App\Mode_paiement;
+use App\Category;
+use App\Unitemesure;
+>>>>>>> detail_entree
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -25,16 +34,36 @@ class Detail_entreeController extends Controller
         $detail_entrees = DB::table('detail_entrees')
             ->join('entrees', 'detail_entrees.entree_id', 'entrees.id')
             ->join('produits', 'detail_entrees.produit_id', 'produits.id')
-            ->select('entrees.*', 'produits.*', 'detail_entrees.*')
+            ->join('fournisseurs', 'entrees.fournisseur_id', 'fournisseurs.id')
+            ->join('magasins', 'entrees.magasin_id', 'magasins.id')
+            ->join('typeentrees', 'entrees.type_entree_id', 'typeentrees.id')
+            ->join('mode_paiements', 'entrees.mode_paiement_id', 'mode_paiements.id')
+            ->join('categories','produits.categorie_id','categories.id')
+            ->join('unitemesures','produits.unitemesure_id','unitemesures.id')
+            ->select('produits.*','categories.*','unitemesures.*','fournisseurs.*', 'magasins.*', 'typeentrees.*', 'mode_paiements.*','entrees.*',  'detail_entrees.*')
             ->get();
         $entrees = Entree::all();
+         $fournisseurs = Fournisseur::all();
+        $magasins = Magasin::all();
+        $typeentrees = Typeentree::all();
+        $mode_paiements = Mode_paiement::all();
         $produits = Produit::all();
+         $categories = Category::all();
+        $unitemesures = Unitemesure::all();
 
 
         return view('detail_entrees/index', [
 
             'entrees' => $entrees,
+
+            'fournisseurs' => $fournisseurs,
+            'magasins' => $magasins,
+            'typeentrees' => $typeentrees,
+            'mode_paiements' => $mode_paiements,
             'produits' => $produits,
+            'categories' => $categories,
+            'unitemesures' => $unitemesures,
+
             'detail_entrees' => $detail_entrees
         ]);
     }

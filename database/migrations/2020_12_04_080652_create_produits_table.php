@@ -18,7 +18,6 @@ class CreateProduitsTable extends Migration
             $table->bigIncrements('id');
             $table->string('nomproduit');
             $table->unsignedBigInteger('categorie_id');
-
             $table->unsignedBigInteger('unitemesure_id');
             $table->integer('prixachat');
             $table->integer('prixvente');
