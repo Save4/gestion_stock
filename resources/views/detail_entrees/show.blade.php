@@ -36,7 +36,7 @@
             <fieldset>
                 <legend>Details Entrees</legend>
 
-                <form role="form" action="#" method="POST">
+                <form role="form" action="{{route('detail_entrees.store')}}" method="POST">
                     @csrf
                     <div class="form-group row">
 
@@ -55,7 +55,7 @@
                             <select name="produit_id" id="produit_id" class="form-control">
                                 <option value="">Select produit</option>
                                 @foreach($produit as $produit)
-                                <option value="{{$produit->id}}">{{$produit->id}}</option>
+                                <option value="{{$produit->id}}">{{$produit->nomproduit}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -115,7 +115,7 @@
                                             <tr>
                                                 <td>{{$detail_entree->id}}</td>
                                                 <td>{{$detail_entree->entree_id}}</td>
-                                                <td>{{$detail_entree->produit_id}}</td>
+                                                <td>{{$detail_entree->nomproduit}}</td>
                                                 <td>{{$detail_entree->quantite}}</td>
                                                 <td>{{$detail_entree->prix_achat}}</td>
                                                 <td>{{$detail_entree->prix_vente}}</td>
