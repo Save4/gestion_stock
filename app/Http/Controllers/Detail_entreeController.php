@@ -68,7 +68,7 @@ class Detail_entreeController extends Controller
 
     }
 
-    public function store(Request $request,Entree $entree)
+    public function store(Request $request)
     {
         //
         $request->validate([
@@ -81,14 +81,7 @@ class Detail_entreeController extends Controller
 
         $entrees = Entree::all();
         $produits = Produit::all();
-        $detail_entree = DB::table('detail_entrees')
-                        ->join('entrees', 'detail_entrees.entree_id', 'entrees.id')
-                        ->join('produits','detail_entrees.produit_id','produits.id')
-                        ->where('detail_entrees','=',$detail_entree)
-                        ->select('entrees.*', 'detail_entrees.*')
-                        ->get();
        
-
         $detail_entree = new Detail_entree();
         $detail_entree->entree_id = $request->entree_id;
         $detail_entree->produit_id = $request->produit_id;
@@ -96,7 +89,7 @@ class Detail_entreeController extends Controller
         $detail_entree->prix_achat = $request->prix_achat;
         $detail_entree->prix_vente = $request->prix_vente;
         $detail_entree->save();
-        return redirect('detail_entrees');
+        return redirect('detail_entrees/{detail_entree} ');
     }
 
 
@@ -122,10 +115,11 @@ class Detail_entreeController extends Controller
                     ->first();
         $detail_entree = DB::table('detail_entrees')
                         ->join('entrees', 'detail_entrees.entree_id', 'entrees.id')
-                        ->select('entrees.*', 'detail_entrees.*')
+                        ->join('produits', 'detail_entrees.produit_id', 'produits.id')
+                        ->select('entrees.*','produits.*', 'detail_entrees.*')
                         ->get();
        
-    //    dd($entree->id);
+    //    dd($entree);
         if(!isset($entree->id))
         return redirect('404');
         return view('detail_entrees.show', [
