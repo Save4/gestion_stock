@@ -83,6 +83,7 @@ class Detail_entreeController extends Controller
         $produits = Produit::all();
         $detail_entree = DB::table('detail_entrees')
                         ->join('entrees', 'detail_entrees.entree_id', 'entrees.id')
+                        ->join('produits','detail_entrees.produit_id','produits.id')
                         ->where('detail_entrees','=',$detail_entree)
                         ->select('entrees.*', 'detail_entrees.*')
                         ->get();
@@ -107,6 +108,7 @@ class Detail_entreeController extends Controller
         $magasins = Magasin::all();
         $typeentrees = Typeentree::all();
         $mode_paiements = Mode_paiement::all();
+        $produit = Produit::all();
         // $entree = Entree::all();
         $entree = DB::table('entrees')
                     ->join('fournisseurs', 'entrees.fournisseur_id', 'fournisseurs.id')
@@ -118,10 +120,10 @@ class Detail_entreeController extends Controller
                     // ,nomtype, nom_mode'))
                     ->select('fournisseurs.*','magasins.*','typeentrees.*','mode_paiements.*','entrees.*')
                     ->first();
-        // $detail_entree = DB::table('detail_entrees')
-        //                 ->join('entrees', 'detail_entrees.entree_id', 'entrees.id')
-        //                 ->select('entrees.*', 'detail_entrees.*')
-        //                 ->get();
+        $detail_entree = DB::table('detail_entrees')
+                        ->join('entrees', 'detail_entrees.entree_id', 'entrees.id')
+                        ->select('entrees.*', 'detail_entrees.*')
+                        ->get();
        
     //    dd($entree->id);
         if(!isset($entree->id))
@@ -132,8 +134,9 @@ class Detail_entreeController extends Controller
             'magasins' => $magasins,
             'typeentrees' => $typeentrees,
             'mode_paiements' => $mode_paiements,
+            'produit' => $produit,
             'entree' => $entree,
-            // 'detail_entree' => $detail_entree
+            'detail_entree' => $detail_entree
 
             ]);
     }
