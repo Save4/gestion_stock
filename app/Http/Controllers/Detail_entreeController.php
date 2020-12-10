@@ -68,7 +68,7 @@ class Detail_entreeController extends Controller
 
     }
 
-    public function store(Request $request)
+    public function store(Request $request,Entree $entree)
     {
         //
         $request->validate([
@@ -81,6 +81,12 @@ class Detail_entreeController extends Controller
 
         $entrees = Entree::all();
         $produits = Produit::all();
+        $detail_entree = DB::table('detail_entrees')
+                        ->join('entrees', 'detail_entrees.entree_id', 'entrees.id')
+                        ->where('detail_entrees','=',$detail_entree)
+                        ->select('entrees.*', 'detail_entrees.*')
+                        ->get();
+       
 
         $detail_entree = new Detail_entree();
         $detail_entree->entree_id = $request->entree_id;
