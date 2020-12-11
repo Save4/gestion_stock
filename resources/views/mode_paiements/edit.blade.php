@@ -36,6 +36,9 @@
                         <div class="form-group">
                             <label for="input-22">Mode de paiement</label>
                         <input type="text" name="nom_mode" value="{{ $mode_paiement->nom_mode }}" class="form-control form-control-square" id="input-22" required>
+                        @error('nom_categorie')
+                        <code> {{ $message }}</code>
+                         @enderror
                         </div>
                         <div class="form-footer">
                            <button type="submit" class="btn btn-primary shadow-primary m-1"><i class="fa fa-backward"></i>
