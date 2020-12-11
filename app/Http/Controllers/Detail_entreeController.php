@@ -93,7 +93,7 @@ class Detail_entreeController extends Controller
     }
 
 
-    public function show( $entree )
+    public function show( $entre )
     {
         // $detail_entree = Detail_entree::find($detail_entree->id);
 
@@ -108,7 +108,7 @@ class Detail_entreeController extends Controller
                     ->join('magasins', 'entrees.magasin_id', 'magasins.id')
                     ->join('typeentrees', 'entrees.type_entree_id', 'typeentrees.id')
                     ->join('mode_paiements', 'entrees.mode_paiement_id', 'mode_paiements.id')
-                    ->where('entrees.id','=',$entree)
+                    ->where('entrees.id','=',$entre)
                     // ->select(DB::raw('entrees.*, entrees.id,date_entree, entrees.fournisseur_id, name,nom_magasin
                     // ,nomtype, nom_mode'))
                     ->select('fournisseurs.*','magasins.*','typeentrees.*','mode_paiements.*','entrees.*')
@@ -117,6 +117,7 @@ class Detail_entreeController extends Controller
                         ->join('entrees', 'detail_entrees.entree_id', 'entrees.id')
                         ->join('produits', 'detail_entrees.produit_id', 'produits.id')
                         ->select('entrees.*','produits.*', 'detail_entrees.*')
+                        ->where('detail_entrees.entree_id', $entre)
                         ->get();
        
     //    dd($entree);
@@ -173,13 +174,11 @@ class Detail_entreeController extends Controller
 
 
     public function destroy(Detail_entree $detail_entree)
-    {
-
-        $entree = Entree::all();
-        $produit = Produit::all();
-
+    { 
+        
         $detail_entree = Detail_entree::find($detail_entree->id);
+        $entree = $detail_entree->entree_id; 
         $detail_entree->delete();
-        return redirect()->route('detail_entrees.show', $detail_entree->id);
+        return redirect()->route('detail_entrees.show', $entree);
     }
 }
