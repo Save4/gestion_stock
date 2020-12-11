@@ -1,7 +1,7 @@
 <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
     <div class="brand-logo">
 
-      <h5 class="logo-text"> @yield('title',config('app.name'))</h5>
+      <h5 class="logo-text"> @yield('',config('app.name'))</h5>
 
     </div>
     <ul class="sidebar-menu do-nicescrol">
