@@ -50,7 +50,7 @@ class TypeentreeController extends Controller
     {
         //
         $request->validate([
-            'nomtype' => 'required'
+            'nomtype' => ['required', 'max:255', 'string', 'unique:typeentrees,nomtype']
         ]);
 
         $typeentree = new Typeentree();
@@ -59,7 +59,7 @@ class TypeentreeController extends Controller
 
         $typeentree->save();
 
-        return redirect('typeentrees')->with('succes', 'Type ajouté !');
+        return redirect('typeentrees')->with('status', 'Enregistrement reussie avec succees !');
     }
 
     /**
@@ -97,13 +97,17 @@ class TypeentreeController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $request->validate([
+            'nomtype' => ['required', 'max:255', 'string', 'unique:typeentrees,nomtype']
+        ]);
+
         $typeentree = Typeentree::find($id);
 
         $typeentree->nomtype = $request->get('nomtype');
 
         $typeentree->save();
 
-        return redirect('typeentrees')->with('succes', 'Type modifié !');
+        return redirect('typeentrees')->with('status', 'Modification reussie avec succees');
     }
 
     /**
@@ -119,6 +123,6 @@ class TypeentreeController extends Controller
 
         $typeentree->delete();
 
-        return redirect('typeentrees')->with('succes', 'Type supprimé !');
+        return redirect('typeentrees')->with('status', 'Suppression reussie avec succees');
     }
 }
