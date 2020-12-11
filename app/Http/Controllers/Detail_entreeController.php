@@ -89,7 +89,7 @@ class Detail_entreeController extends Controller
         $detail_entree->prix_achat = $request->prix_achat;
         $detail_entree->prix_vente = $request->prix_vente;
         $detail_entree->save();
-        return redirect('detail_entrees/{detail_entree} ');
+        return redirect()->route('detail_entrees.show', $detail_entree->entree_id);
     }
 
 
@@ -120,8 +120,8 @@ class Detail_entreeController extends Controller
                         ->get();
        
     //    dd($entree);
-        if(!isset($entree->id))
-        return redirect('404');
+         if(!isset($entree->id))
+         return redirect('404');
         return view('detail_entrees.show', [
 
             'fournisseurs' => $fournisseurs,
@@ -175,8 +175,11 @@ class Detail_entreeController extends Controller
     public function destroy(Detail_entree $detail_entree)
     {
 
+        $entree = Entree::all();
+        $produit = Produit::all();
+
         $detail_entree = Detail_entree::find($detail_entree->id);
         $detail_entree->delete();
-        return redirect('detail_entrees');
+        return redirect()->route('detail_entrees.show', $detail_entree->id);
     }
 }
