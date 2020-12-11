@@ -59,7 +59,7 @@ class MagasinController extends Controller
 
         $magasin->save();
 
-        return redirect('magasins')->with('succes', 'Type ajouté !');
+        return redirect('magasins')->with('status', 'Enregistrement reussie avec succees !');
     }
 
     /**
@@ -107,7 +107,7 @@ class MagasinController extends Controller
 
         $magasin->save();
 
-        return redirect('magasins')->with('succes', 'Type modifié !');
+        return redirect('magasins')->with('status', 'Modification reussie avec succees !');
     }
 
     /**
@@ -123,6 +123,6 @@ class MagasinController extends Controller
 
         $magasin->delete();
 
-        return redirect('magasins')->with('succes', 'Type supprimé !');
+        return redirect('magasins')->with('status', 'Suppression reussie avec succees !');
     }
 }
