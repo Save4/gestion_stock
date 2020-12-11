@@ -1,6 +1,7 @@
 @extends('layouts.layout')
 
 @section('content')
+  @section('title','Categorie | '.config('app.name'))
 
 
     <div class="container-fluid">

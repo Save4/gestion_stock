@@ -1,8 +1,10 @@
 @extends('layouts.layout')
 
 @section('content')
+
   @section('title','Fournisseurs | '.config('app.name'))
-  
+
+
 <div class="container-fluid">
     <!-- Breadcrumb-->
     <div class="row pt-2 pb-2">
