@@ -44,9 +44,7 @@
                     <div class="col-sm-3">
                         <select name="entree_id" id="entree_id" class="form-control">
                             <option value="">select code entree</option>
-                            {{-- @foreach($entree as $entree) --}}
                             <option value="{{$entree->id}}">{{$entree->id}}</option>
-                            {{-- @endforeach --}}
                         </select>
                     </div>
 
@@ -122,7 +120,7 @@
                                             <td>{{$detail_entree->prix_vente}}</td>
                                             <td>
 
-                                                <a href="detail_entrees/{{$detail_entree->id}}/edit"
+                                                <a href="/detail_entrees/{{$detail_entree->id}}/edit"
                                                     class="btn btn-primary btn-sm" title="Edit" class="d-inline">
                                                     <span class="fa fa-edit"></span></a>
 
