@@ -10,7 +10,7 @@
                 <!-- <h4 class="page-title">Form Bordered</h4> -->
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ url('/home') }}">Home</a></li>
-                    <li class="breadcrumb-item"><a href="{{ url('detail_entrees') }}">Detail des entrees</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('detail_entrees.show',$detail_entree->entree_id) }}">Detail des entrees</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Edit le detail des entrees</li>
                 </ol>
             </div>
@@ -35,7 +35,7 @@
                                     <div class="col-sm-4">
                                         <select name="entree_id" class="form-control">
                                             @foreach ($entrees as $entree)
-                                                <option value="{{ $entree->id }}" {!! $entree->entree_id == $entree->id ?
+                                                <option value="{{ $entree->id }}" {!! $detail_entree->entree_id == $entree->id ?
                                                     'selected="selected"' : '' !!}>{{ $entree->id }}
                                                 </option>
 
@@ -54,7 +54,7 @@
                                     <div class="col-sm-4">
                                         <select name="produit_id" class="form-control">
                                             @foreach ($produits as $produit)
-                                                <option value="{{ $produit->id }}" {!! $entree->produit_id == $produit->id ?
+                                                <option value="{{ $produit->id }}" {!! $detail_entree->produit_id == $produit->id ?
                                                     'selected="selected"' : '' !!}>{{ $produit->nomproduit }}
                                                 </option>
 
@@ -75,7 +75,7 @@
                             <div class="form-group row col-sm-12">
                                 <label for="input-23" class="col-sm-2 col-form-label">Quantite</label>
                                 <div class="col-sm-4">
-                                    <input type="number" name="montant" value="{{ $detail_entree->quantite }}" class="form-control"
+                                    <input type="number" name="quantite" value="{{ $detail_entree->quantite }}" class="form-control"
                                         id="input-4">
                                 </div>
                                 <label for="input-15" class="col-sm-2 col-form-label">Prix d'achat</label>
@@ -99,11 +99,11 @@
 
 
                             <div class="form-footer">
-                                <button type="submit" class="btn btn-primary shadow-primary m-1"><i class="fa fa-times"></i>
-                                    ANNULER</button>
+                                <a href="{{route('detail_entrees.show',$detail_entree->entree_id)}}"><button type="button" class="btn btn-primary shadow-primary m-1"><i class="fa fa-backward"></i>
+                                    RETOUR</button></a>
                                 <button type="reset" class="btn btn-dark shadow-dark m-1"><i class="fa fa-times"></i>
                                     REINITIALISER</button>
-                                <button type="submit" onclick="return confirm('Voulez vous modifier le fournisseur ?')"
+                                <button type="submit" onclick="return confirm('Voulez vous modifier le detail_entree ?')"
                                     class="btn btn-success shadow-success m-1"><i class="fa fa-check-square-o"></i>
                                     MODIFIER</button>
                         </form>
