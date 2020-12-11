@@ -68,7 +68,7 @@ class Detail_entreeController extends Controller
 
     }
 
-    public function store(Request $request)
+    public function store(Request $request,Entree $entree)
     {
         //
         $request->validate([
@@ -81,7 +81,14 @@ class Detail_entreeController extends Controller
 
         $entrees = Entree::all();
         $produits = Produit::all();
-       
+        $detail_entree = DB::table('detail_entrees')
+                        ->join('entrees', 'detail_entrees.entree_id', 'entrees.id')
+                        ->join('produits','detail_entrees.produit_id','produits.id')
+                        ->where('detail_entrees','=',$detail_entree)
+                        ->select('entrees.*', 'detail_entrees.*')
+                        ->get();
+
+
         $detail_entree = new Detail_entree();
         $detail_entree->entree_id = $request->entree_id;
         $detail_entree->produit_id = $request->produit_id;
@@ -89,7 +96,11 @@ class Detail_entreeController extends Controller
         $detail_entree->prix_achat = $request->prix_achat;
         $detail_entree->prix_vente = $request->prix_vente;
         $detail_entree->save();
+<<<<<<< HEAD
         return redirect()->route('detail_entrees.show', $detail_entree->entree_id);
+=======
+        return redirect('detail_entrees');
+>>>>>>> 4a56a6692fce101d19b211a5cb8feb1dba8ae308
     }
 
 
