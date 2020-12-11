@@ -42,9 +42,9 @@
 
                     <label for="input-23" class="col-sm-1 col-form-label">Code Entree</label>
                     <div class="col-sm-3">
-                        <select name="entree_id" id="entree_id" class="form-control">
+                        <select name="entree_id" id="entree_id" class="form-control" >
                             <option value="">select code entree</option>
-                            <option value="{{$entree->id}}">{{$entree->id}}</option>
+                            <option value="{{$entree->id}}">{{$entree->id}} </option>
                         </select>
                     </div>
 
@@ -78,7 +78,7 @@
                                 class="fa fa-backward"></i>
                             Retour</button></a>
                     <button class="btn btn-primary" type="submit"
-                        onclick="return confirm('Voulez vous enregistrer un entree ?')">
+                        onclick="return confirm('Voulez vous enregistrer un detail_entree ?')">
                         <i class="fa fa-check-square-o"></i>
                         Enregistrer</button>
             </form>
