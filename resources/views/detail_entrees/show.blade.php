@@ -124,7 +124,7 @@
                                                     class="btn btn-primary btn-sm" title="Edit" class="d-inline">
                                                     <span class="fa fa-edit"></span></a>
 
-                                                <form action="detail_entrees/{{$detail_entree->id}}" method="POST"
+                                                <form action="/detail_entrees/{{$detail_entree->id}}" method="POST"
                                                     class="d-inline">
                                                     @csrf
                                                     @method('DELETE')
