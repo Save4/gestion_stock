@@ -28,7 +28,7 @@
 
 
 	<!-- ================== BEGIN BASE JS ================== -->
-@include('base.script')
+@include('base_login.script')
 	<!-- ================== END BASE JS ================== -->
 
 	<!-- ================== BEGIN PAGE LEVEL JS ================== -->
