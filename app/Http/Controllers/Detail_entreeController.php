@@ -160,7 +160,7 @@ class Detail_entreeController extends Controller
 
 
     // public function update(Request $request, Detail_entree $detail_entree)
-    public function update(Request $request, Entree $entree)
+    public function update(Request $request, Detail_entree $detail_entree)
     {
         //
         
@@ -177,7 +177,9 @@ class Detail_entreeController extends Controller
         $detail_entree->quantite = $request->get('quantite');
         $detail_entree->prix_achat = $request->get('prix_achat');
         $detail_entree->prix_vente = $request->get('prix_vente');
+        
         $detail_entree->save();
+
         return redirect()->route('detail_entrees.show',$detail_entree->entree_id);
     }
 
