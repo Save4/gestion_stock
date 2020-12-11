@@ -152,6 +152,7 @@ class Detail_entreeController extends Controller
         $detail_entree = Detail_entree::find($detail_entree->id);
         return view('detail_entrees.edit', [
             'entrees' => $entrees,
+            'entree' => $detail_entree,
             'produits' => $produits,
             'detail_entree' => $detail_entree
         ]);
@@ -159,11 +160,10 @@ class Detail_entreeController extends Controller
 
 
     // public function update(Request $request, Detail_entree $detail_entree)
-    public function update(Request $request, Entree $entree)
+    public function update(Request $request, Detail_entree $detail_entree)
     {
         //
-        // $detail_entree = Detail_entree::find($id);
-        echo ('Enregistrement termine');
+        
         $request->validate([
             'entree_id' => 'required',
             'produit_id' => 'required',
@@ -177,9 +177,10 @@ class Detail_entreeController extends Controller
         $detail_entree->quantite = $request->get('quantite');
         $detail_entree->prix_achat = $request->get('prix_achat');
         $detail_entree->prix_vente = $request->get('prix_vente');
+        
         $detail_entree->save();
-       
-        return redirect('detail_entrees.show', $detail_entree->$entree_id);
+
+        return redirect()->route('detail_entrees.show',$detail_entree->entree_id);
     }
 
 
