@@ -49,8 +49,13 @@
                                                                     class="col-sm-2 col-form-label">Nom
                                                                     Produits</label>
                                                                 <div class="col-sm-10">
-                                                                    <input type="text" name="nomproduit" class="form-control"
-                                                                        id="input-10" placeholder="Taper le nom du produit ici">
+                                                                    <input type="text" name="nomproduit"
+                                                                        class="form-control @error('nomproduit') is-danger @enderror" id="input-10"
+                                                                        placeholder="Taper le nom du produit ici">
+                                                                        @error('nomproduit')
+                                                                        <div class="alert alert-danger">{{$message}}
+                                                                        </div>
+                                                                        @enderror
                                                                 </div>
                                                             </div>
                                                             <div class="form-group row">
@@ -58,11 +63,18 @@
 
                                                                     class="col-sm-2 col-form-label">Categorie</label>
                                                                 <div class="col-sm-10">
-                                                                    <select class="form-control" name="categorie_id" id="categorie_id">
+                                                                    <select
+                                                                        class="form-control @error('nom_categorie') is-danger @enderror"
+                                                                        name="categorie_id" id="categorie_id">
                                                                         <option>Select Category</option>
                                                                         @foreach($categories as $categorie)
-                                                                        <option value="{{$categorie->id}}">{{$categorie->nom_categorie}}</option>
+                                                                        <option value="{{$categorie->id}}">
+                                                                            {{$categorie->nom_categorie}}</option>
                                                                         @endforeach
+                                                                        @error('categorie_id')
+                                                                        <div class="alert alert-danger">{{$message}}
+                                                                        </div>
+                                                                        @enderror
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -71,11 +83,17 @@
 
                                                   class="col-sm-2 col-form-label">Unite Mesure</label>
                                                                 <div class="col-sm-10">
-                                                                    <select class="form-control" name="unitemesure_id" id="unitemesure_id">
+                                                                    <select class="form-control @error('nomunite') is-danger @enderror" name="unitemesure_id"
+                                                                        id="unitemesure_id">
                                                                         <option>Select Unite Mesure</option>
                                                                         @foreach($unitemesures as $unitemesure)
-                                                                        <option value="{{$unitemesure->id}}">{{$unitemesure->nomunite}}</option>
+                                                                        <option value="{{$unitemesure->id}}">
+                                                                            {{$unitemesure->nomunite}}</option>
                                                                         @endforeach
+                                                                        @error('unitemesure_id')
+                                                                        <div class="alert alert-danger">{{$message}}
+                                                                        </div>
+                                                                        @enderror
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -84,16 +102,26 @@
                                                                 <label for="input-10"
                                                                     class="col-sm-2 col-form-label">Prix Achat</label>
                                                                 <div class="col-sm-10">
-                                                                    <input type="text" name="prixachat" class="form-control"
-                                                                        id="input-10" placeholder="Taper le prix d'achat ici">
+                                                                    <input type="text" name="prixachat"
+                                                                        class="form-control @error('prixachat') is-danger @enderror" id="input-10"
+                                                                        placeholder="Taper le prix d'achat ici">
+                                                                        @error('prixachat')
+                                                                        <div class="alert alert-danger">{{$message}}
+                                                                        </div>
+                                                                        @enderror
                                                                 </div>
                                                             </div>
                                                             <div class="form-group row">
                                                                 <label for="input-10"
                                                                     class="col-sm-2 col-form-label">Prix Vente</label>
                                                                 <div class="col-sm-10">
-                                                                    <input type="text" name="prixvente" class="form-control"
-                                                                        id="input-10" placeholder="Taper le prix de vente ici">
+                                                                    <input type="text" name="prixvente"
+                                                                        class="form-control @error('prixvente') is-danger @enderror" id="input-10"
+                                                                        placeholder="Taper le prix de vente ici">
+                                                                        @error('prixvente')
+                                                                        <div class="alert alert-danger">{{$message}}
+                                                                        </div>
+                                                                        @enderror
                                                                 </div>
                                                             </div>
 
@@ -107,8 +135,9 @@
                                 <div class="modal-footer">
                                     <button class="btn btn-secondary" type="reset" data-dismiss="modal"><i
                                             class="fa fa-times"></i> Fermer</button>
-                                    <button class="btn btn-primary" type="submit" onclick="return confirm('Voulez vous Enregistrer le produit ?')">
-                                    <i class="fa fa-check-square-o"></i>
+                                    <button class="btn btn-primary" type="submit"
+                                        onclick="return confirm('Voulez vous Enregistrer le produit ?')">
+                                        <i class="fa fa-check-square-o"></i>
                                         Enregistrer</button>
                 </form>
             </div>
@@ -133,6 +162,24 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header"><i class="fa fa-table"></i>Liste des Produits</div>
+            @error('nomproduit')
+            <div class="alert alert-light-danger alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <div class="alert-icon">
+                    <i class="icon-close"></i>
+                </div>
+                <div class="alert-message">
+                    <span> {{ $message }}</span>
+                </div>
+            </div>
+            @enderror
+            <div class="col-xs-12">
+                @if (session('status'))
+                <div class="alert alert-success">
+                   {{ session('status') }} 
+                </div>
+                @endif
+            </div>
             <div class="card-body">
                 <div class="table-responsive">
                     <div class="dataTables_wrapper container-fluid dt-bootstrap4" id="example_wrapper">
@@ -189,8 +236,8 @@
                                             <td>{{$produit->prixachat}}</td>
                                             <td>{{$produit->prixvente}}</td>
                                             <td>
-                                                <a href="produits/{{$produit->id}}/edit"
-                                                    class="btn btn-primary btn-sm" title="Edit">
+                                                <a href="produits/{{$produit->id}}/edit" class="btn btn-primary btn-sm"
+                                                    title="Edit">
                                                     <span class="fa fa-edit"></span></a>
 
                                                 <form action="produits/{{$produit->id}} " method="POST"

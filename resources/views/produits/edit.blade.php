@@ -52,6 +52,9 @@
                             <div class="col-sm-10">
                                 <input type="text" name="nomproduit" value="{{$produit->nomproduit}}" class="form-control"
                                     id="input-1">
+                                    @error('nomproduit')
+                                        <code> {{ $message }}</code>
+                                    @enderror
                             </div>
                         </div>
                         <div class="form-group row">
@@ -63,6 +66,9 @@
                                     <option value="{{$categorie->id}}"{!! $produit->categorie_id==$categorie->id ? 'selected="selected"':'' !!}>
                                         {{ $categorie->nom_categorie}}</option>
                                     @endforeach
+                                    @error('categorie_id')
+                                        <code> {{ $message }}</code>
+                                    @enderror
                                 </select>
                             </div>
                         </div>
@@ -75,6 +81,9 @@
                                     <option value="{{$unitemesure->id}}"{!! $produit->unitemesure_id==$unitemesure->id ? 'selected="selected"':'' !!}>
                                         {{ $unitemesure->nomunite}}</option>
                                     @endforeach
+                                    @error('unitemesure_id')
+                                        <code> {{ $message }}</code>
+                                    @enderror
                                 </select>
                             </div>
                         </div>
@@ -83,6 +92,9 @@
                             <div class="col-sm-10">
                                 <input type="text" name="prixachat" value="{{$produit->prixachat}}" class="form-control"
                                     id="input-3">
+                                    @error('prixachat')
+                                        <code> {{ $message }}</code>
+                                    @enderror
                             </div>
                         </div>
                         <div class="form-group row">
@@ -90,6 +102,9 @@
                             <div class="col-sm-10">
                                 <input type="text" name="prixvente" value="{{$produit->prixvente}}" class="form-control"
                                     id="input-4">
+                                    @error('prixvente')
+                                        <code> {{ $message }}</code>
+                                    @enderror
                             </div>
                         </div>
 

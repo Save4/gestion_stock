@@ -27,7 +27,14 @@
    <div class="row">
        <div class="col-lg-12">
            <div class="card">
-               <div class="card-header"><i class="fa fa-table"></i> Mode de paiement</div>
+               <div class="card-header"><i class="fa fa-table"></i> Liste Mode de paiement</div>
+               <div class="col-xs-12">
+                @if (session('status'))
+                <div class="alert alert-success">
+                   {{ session('status') }} 
+                </div>
+                @endif
+            </div>
                <div class="card-body">
                    <div class="table-responsive">
                        <table id="example" class="table table-bordered">
