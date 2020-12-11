@@ -36,6 +36,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:mana
 
 
 
+
 /*mode de paiement*/
 Route::resource('mode_paiements','ModePaiementController');
 
