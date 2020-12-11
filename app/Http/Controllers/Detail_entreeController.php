@@ -96,11 +96,7 @@ class Detail_entreeController extends Controller
         $detail_entree->prix_achat = $request->prix_achat;
         $detail_entree->prix_vente = $request->prix_vente;
         $detail_entree->save();
-<<<<<<< HEAD
         return redirect()->route('detail_entrees.show', $detail_entree->entree_id);
-=======
-        return redirect('detail_entrees');
->>>>>>> 4a56a6692fce101d19b211a5cb8feb1dba8ae308
     }
 
 
