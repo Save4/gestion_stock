@@ -96,11 +96,11 @@ class Detail_entreeController extends Controller
         $detail_entree->prix_achat = $request->prix_achat;
         $detail_entree->prix_vente = $request->prix_vente;
         $detail_entree->save();
-        return redirect('detail_entrees');
+        return redirect()->route('detail_entrees.show', $detail_entree->entree_id);
     }
 
 
-    public function show( $entree )
+    public function show( $entre )
     {
         // $detail_entree = Detail_entree::find($detail_entree->id);
 
@@ -115,19 +115,21 @@ class Detail_entreeController extends Controller
                     ->join('magasins', 'entrees.magasin_id', 'magasins.id')
                     ->join('typeentrees', 'entrees.type_entree_id', 'typeentrees.id')
                     ->join('mode_paiements', 'entrees.mode_paiement_id', 'mode_paiements.id')
-                    ->where('entrees.id','=',$entree)
+                    ->where('entrees.id','=',$entre)
                     // ->select(DB::raw('entrees.*, entrees.id,date_entree, entrees.fournisseur_id, name,nom_magasin
                     // ,nomtype, nom_mode'))
                     ->select('fournisseurs.*','magasins.*','typeentrees.*','mode_paiements.*','entrees.*')
                     ->first();
         $detail_entree = DB::table('detail_entrees')
                         ->join('entrees', 'detail_entrees.entree_id', 'entrees.id')
-                        ->select('entrees.*', 'detail_entrees.*')
+                        ->join('produits', 'detail_entrees.produit_id', 'produits.id')
+                        ->select('entrees.*','produits.*', 'detail_entrees.*')
+                        ->where('detail_entrees.entree_id', $entre)
                         ->get();
-
-    //    dd($entree->id);
-        if(!isset($entree->id))
-        return redirect('404');
+       
+    //    dd($entree);
+         if(!isset($entree->id))
+         return redirect('404');
         return view('detail_entrees.show', [
 
             'fournisseurs' => $fournisseurs,
@@ -179,10 +181,11 @@ class Detail_entreeController extends Controller
 
 
     public function destroy(Detail_entree $detail_entree)
-    {
-
+    { 
+        
         $detail_entree = Detail_entree::find($detail_entree->id);
+        $entree = $detail_entree->entree_id; 
         $detail_entree->delete();
-        return redirect('detail_entrees');
+        return redirect()->route('detail_entrees.show', $entree);
     }
 }
