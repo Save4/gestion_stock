@@ -28,6 +28,17 @@
        <div class="col-lg-12">
            <div class="card">
                <div class="card-header"><i class="fa fa-table"></i> Liste Mode de paiement</div>
+               @error('nom_mode')
+               <div class="alert alert-light-danger alert-dismissible" role="alert">
+                   <button type="button" class="close" data-dismiss="alert">×</button>
+                   <div class="alert-icon">
+                       <i class="icon-close"></i>
+                   </div>
+                   <div class="alert-message">
+                       <span> {{ $message }}</span>
+                   </div>
+               </div>
+               @enderror
                <div class="col-xs-12">
                 @if (session('status'))
                 <div class="alert alert-success">
@@ -103,8 +114,10 @@
                                    @method('POST')
                                    <div class="form-group">
                                        <label for="input-5">Mode de paiement</label>
-                                       <input type="text" name="nom_mode" class="form-control" id="input-5" required>
-
+                                       <input type="text" name="nom_mode" class="form-control @error('nom_mode') is-danger @enderror"" id="input-5" required>
+                                       @error('nom_mode')
+                                       <div class="alert alert-danger">{{$message}}</div>
+                                       @enderror
 
                                    </div>
 
