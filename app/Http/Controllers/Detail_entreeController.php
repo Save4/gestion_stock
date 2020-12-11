@@ -87,7 +87,7 @@ class Detail_entreeController extends Controller
                         ->where('detail_entrees','=',$detail_entree)
                         ->select('entrees.*', 'detail_entrees.*')
                         ->get();
-       
+
 
         $detail_entree = new Detail_entree();
         $detail_entree->entree_id = $request->entree_id;
@@ -124,7 +124,7 @@ class Detail_entreeController extends Controller
                         ->join('entrees', 'detail_entrees.entree_id', 'entrees.id')
                         ->select('entrees.*', 'detail_entrees.*')
                         ->get();
-       
+
     //    dd($entree->id);
         if(!isset($entree->id))
         return redirect('404');
