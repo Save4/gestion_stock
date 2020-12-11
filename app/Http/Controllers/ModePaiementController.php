@@ -37,7 +37,7 @@ class ModePaiementController extends Controller
   $mode_paiement->nom_mode= $request->nom_mode;
 
   $mode_paiement->save();
-  return redirect('mode_paiements');
+  return redirect('mode_paiements')->with('status','Enregistrement reussie avec succees!!');
     }
 
 
@@ -60,7 +60,7 @@ class ModePaiementController extends Controller
       $mode_paiement->nom_mode=$request->nom_mode;
 
            $mode_paiement->save();
-           return redirect('mode_paiements');
+           return redirect('mode_paiements')->with('status','Modification reussie avec succees!!');
     }
 
 
@@ -68,6 +68,6 @@ class ModePaiementController extends Controller
     {
       $mode_paiement=Mode_paiement::find($mode_paiement->id);
     $mode_paiement->delete();
-    return redirect('mode_paiements');
+    return redirect('mode_paiements')->with('status','Suppression reussie avec succees!!');
     }
 }
