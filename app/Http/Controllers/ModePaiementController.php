@@ -29,7 +29,7 @@ class ModePaiementController extends Controller
     public function store(Request $request)
     {
       $request->validate([
-      'nom_mode' =>'required',
+      'nom_mode' =>['required','max:255','string','unique:mode_paiements,nom_mode'],
 
          ]);
 
