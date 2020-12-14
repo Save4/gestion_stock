@@ -43,6 +43,8 @@ Route::resource('mode_paiements','ModePaiementController');
 Route::resource('categories','CategoriesController');
 
 // Route::post('detail_entrees/{entree}','Detail_entreeController@store')->name('detail_entre.store');
+Route::get('detail_entrees/getPrixAchat', 'Detail_entreeController@getPrixAchat');
+Route::get('detail_entrees/getPrixVente', 'Detail_entreeController@getPrixVente');
 Route::resource('detail_entrees','Detail_entreeController');
 
 Route::resource('entrees','EntreesController');
