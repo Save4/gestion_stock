@@ -18,8 +18,10 @@ class CreateDetailEntreesTable extends Migration
             $table->unsignedBigInteger('entree_id');
             $table->unsignedBigInteger('produit_id');
             $table->integer('quantite');
-            $table->integer('prix_achat');
-            $table->integer('prix_vente');
+            $table->integer('prixachat');
+            $table->integer('prixvente');
+            $table->integer('prixachattotal');
+            $table->integer('prixventetotal');
            $table->timestamps();
            $table->foreign('entree_id')
                   ->references('id')

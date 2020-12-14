@@ -26,6 +26,12 @@
   <script src="{{ asset('js/buttons.print.min.js')}}"></script>
   <script src="{{ asset('js/buttons.colVis.min.js')}}"></script>
 
+	<script>
+		var route = "{{URL::to('/')}}";
+	</script>
+  <script src="{{asset('js/prixachat.js')}}"></script>
+  <script src="{{asset('js/prixvente.js')}}"></script>
+
     <script>
      $(document).ready(function() {
       //Default data table
