@@ -20,9 +20,9 @@
                 <form role="form" action="{{ url('categories') }}" method="POST">
                     @csrf
                     @method('POST')
-                    <button type="button" class="btn btn-primary m-1" data-toggle="modal"
+                    {{-- <button type="button" class="btn btn-primary m-1" data-toggle="modal"
                         data-target="#largesizemodal"><i class="fa fa-plus"></i> Ajouter
-                        Categorie</button>
+                        Categorie</button> --}}
                     <div class="modal fade" id="largesizemodal" aria-hidden="true" style="display: none;">
                         <div class="modal-dialog modal-lg">
                             <div class="modal-content">
@@ -119,7 +119,7 @@
                 @endif
             </div>
             <div class="card-body">
-                <div class="table-responsive">
+                {{-- <div class="table-responsive">
                     <div class="dataTables_wrapper container-fluid dt-bootstrap4" id="example_wrapper">
 
                         <div class="row">
@@ -178,7 +178,71 @@
                         </div>
 
                     </div>
+                </div> --}}
+
+                <!-- Tree view -->
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5 class="mb-4 text-center bg-success text-white ">Nouvelle Catégorie</h5>
+                        <form accept="{{ route('categories.store')}}" method="post">
+                            @csrf
+                            @if(count($errors) > 0)
+                            <div class="alert alert-danger  alert-dismissible">
+                                <button type="button" class="close" data-dismiss="alert">×</button>
+                                @foreach($errors->all() as $error)
+                                {{ $error }}<br>
+                                @endforeach
+                            </div>
+                            @endif
+                            @if ($message = Session::get('success'))
+                            <div class="alert alert-success  alert-dismissible">
+                                <button type="button" class="close" data-dismiss="alert">×</button>
+                                <strong>{{ $message }}</strong>
+                            </div>
+                            @endif
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Catégorie</label>
+                                        <input type="text" name="nom_categorie" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Parent</label>
+                                        <select class="form-control" name="parent_id">
+                                            <option selected disabled>Catégorie parent</option>
+                                            @foreach($allCategories as $key => $value)
+                                            <option value="{{ $key }}">{{ $value}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button class="btn btn-success">Enregistrer</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-6">
+                        <h5 class="text-center mb-4 bg-info text-white">Liste des Catégories</h5>
+                        <ul id="tree1">
+                            @foreach($categories as $categorie)
+                            <li>
+                                {{ $categorie->nom_categorie }}
+                                @if(count($categorie->childs))
+                                @include('categories.manageChild',['childs' => $categorie->childs])
+                                @endif
+                            </li>
+                            @endforeach
+                        </ul>
+                    </div>
                 </div>
+                <!-- end Tree viw -->
             </div>
         </div>
     </div>
