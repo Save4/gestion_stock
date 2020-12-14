@@ -68,6 +68,35 @@ class Detail_entreeController extends Controller
 
     }
 
+      // Injection des 
+      public function getPrixAchat(Request $request)
+      {
+          # code...
+          if ($request->has('produit_id')) {
+              $produit_id = $request->get('produit_id');
+              $produit = DB::table('produits')
+                  ->where('produits.id', '=',  $produit_id)
+                  ->first();
+          }
+          return view('detail_entrees.getPrixAchat', [
+              'produit' =>$produit
+          ]);
+      }
+
+      public function getPrixVente(Request $request)
+      {
+          # code...
+          if ($request->has('produit_id')) {
+              $produit_id = $request->get('produit_id');
+              $produit = DB::table('produits')
+                  ->where('produits.id', '=',  $produit_id)
+                  ->first();
+          }
+          return view('detail_entrees.getPrixVente', [
+              'produit' =>$produit
+          ]);
+      }
+
     public function store(Request $request,Entree $entree)
     {
         //
@@ -75,8 +104,10 @@ class Detail_entreeController extends Controller
             'entree_id' => 'required',
             'produit_id' => 'required',
             'quantite' => 'required',
-            'prix_achat' => 'required',
-            'prix_vente' => 'required',
+            'prixachat' => 'required',
+            'prixvente' => 'required',
+            'prixachattotal' => 'required',
+            'prixventetotal' => 'required',
         ]);
 
         $entrees = Entree::all();
@@ -92,8 +123,10 @@ class Detail_entreeController extends Controller
         $detail_entree->entree_id = $request->entree_id;
         $detail_entree->produit_id = $request->produit_id;
         $detail_entree->quantite = $request->quantite;
-        $detail_entree->prix_achat = $request->prix_achat;
-        $detail_entree->prix_vente = $request->prix_vente;
+        $detail_entree->prixachat = $request->prixachat;
+        $detail_entree->prixvente = $request->prixvente;
+        $detail_entree->prixachattotal = $request->prixachattotal;
+        $detail_entree->prixventetotal = $request->prixventetotal;
         $detail_entree->save();
         return redirect()->route('detail_entrees.show', $detail_entree->entree_id);
     }
