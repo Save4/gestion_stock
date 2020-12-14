@@ -42,9 +42,8 @@
 
                     <label for="input-23" class="col-sm-1 col-form-label">Code Entree</label>
                     <div class="col-sm-3">
-                        <select name="entree_id" id="entree_id" class="form-control" >
-                            <option value="">select code entree</option>
-                            <option value="{{$entree->id}}">{{$entree->id}} </option>
+                        <select name="entree_id" id="entree_id" class="form-control">
+                            <option value="{{$entree->id}}" >{{$entree->id}} </option>
                         </select>
                     </div>
 
@@ -59,18 +58,28 @@
                     </div>
 
                     <label for="input-23" class="col-sm-1 col-form-label">Quantite</label>
-                    <div class="col-sm-3">
-                        <input type="number" name="quantite" class="form-control" id="input-12">
+                    <div class="col-sm-1">
+                        <input type="text" name="quantite" class="form-control" id="quantite" id="input-12">
+                    </div>
+
+                    <label for="input-23" class="col-sm-1 col-form-label">P.A.T</label>
+                    <div class="col-sm-1">
+                        <input type="text" name="prixachattotal" class="form-control" id="prixachattotal" id="input-12">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="input-23" class="col-sm-2 col-form-label">Prix Achat</label>
-                    <div class="col-sm-4">
-                        <input type="text" name="prix_achat" class="form-control" id="input-12">
+                    <div class="col-sm-1">
+                        <input type="text" name="prixachat" class="form-control" id="prixachat" id="input-12">
                     </div>
                     <label for="input-23" class="col-sm-2 col-form-label">Prix Vente</label>
-                    <div class="col-sm-4">
-                        <input type="text" name="prix_vente" class="form-control" id="input-12">
+                    <div class="col-sm-1">
+                        <input type="text" name="prixvente" class="form-control" id="prixvente" id="input-12">
+                    </div>
+
+                    <label for="input-23" class="col-sm-1 col-form-label">P.V.T</label>
+                    <div class="col-sm-1">
+                        <input type="text" name="prixventetotal" class="form-control" id="prixventetotal" id="input-12">
                     </div>
                 </div>
                 <div>
@@ -106,6 +115,8 @@
                                             <th>Quantite</th>
                                             <th>Prix Achat</th>
                                             <th>Prix Vente</th>
+                                            <th>P.A.T</th>
+                                            <th>P.V.T</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -116,8 +127,10 @@
                                             <td>{{$detail_entree->entree_id}}</td>
                                             <td>{{$detail_entree->nomproduit}}</td>
                                             <td>{{$detail_entree->quantite}}</td>
-                                            <td>{{$detail_entree->prix_achat}}</td>
-                                            <td>{{$detail_entree->prix_vente}}</td>
+                                            <td>{{$detail_entree->prixachat}}</td>
+                                            <td>{{$detail_entree->prixvente}}</td>
+                                            <td>{{$detail_entree->prixachattotal}}</td>
+                                            <td>{{$detail_entree->prixventetotal}}</td>
                                             <td>
 
                                                 <a href="/detail_entrees/{{$detail_entree->id}}/edit"
