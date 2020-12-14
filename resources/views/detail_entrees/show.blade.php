@@ -127,10 +127,10 @@
                                             <td>{{$detail_entree->entree_id}}</td>
                                             <td>{{$detail_entree->nomproduit}}</td>
                                             <td>{{$detail_entree->quantite}}</td>
-                                            <td>{{$detail_entree->prixachat}}FBU</td>
-                                            <td>{{$detail_entree->prixvente}}FBU</td>
-                                            <td>{{$detail_entree->prixachattotal}}FBU</td>
-                                            <td>{{$detail_entree->prixventetotal}}FBU</td>
+                                            <td>{{$detail_entree->prixachat}}</td>
+                                            <td>{{$detail_entree->prixvente}}</td>
+                                            <td>{{$detail_entree->prixachattotal}}</td>
+                                            <td>{{$detail_entree->prixventetotal}}</td>
                                             <td>
 
                                                 <a href="/detail_entrees/{{$detail_entree->id}}/edit"
