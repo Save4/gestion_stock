@@ -14,11 +14,17 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        //
+        // categories et soous-categories
+        $categories = Category::where('parent_id', '=', 0)->get();
+        $allCategories = Category::pluck('nom_categorie', 'id')->all();
+        return view('categories.index', compact('categories', 'allCategories'));
+
+
+        /* //
         $categories = Category::all();
         return view('categories.index',[
             'categories' => $categories
-        ]);
+        ]); */
     }
 
     /**
@@ -44,10 +50,17 @@ class CategoriesController extends Controller
         $request->validate([
             'nom_categorie' => ['required',  'max:255','string', 'unique:categories,nom_categorie']
             ]);
-        $categorie = new Category();
+
+        $input = $request->all();
+        $input['parent_id'] = empty($input['parent_id']) ? 0 : $input['parent_id'];
+        Category::create($input);
+        return back()->with('success', 'Catégorie ajoutée !');
+
+
+        /* $categorie = new Category();
         $categorie->nom_categorie = $request->nom_categorie;
         $categorie->save();
-        return redirect('categories')->with('status','Enregistrement reussie avec succees!!!');
+        return redirect('categories')->with('status','Enregistrement reussie avec succees!!!'); */
     }
 
     /**
@@ -110,6 +123,6 @@ class CategoriesController extends Controller
         //
         $categorie = Category::find($id);
         $categorie->delete();
-        return redirect('categories')->with('status','Suppression reussie avec succees!!!');
+        return back()->with('success', 'Catégorie supprimé !');
     }
 }
