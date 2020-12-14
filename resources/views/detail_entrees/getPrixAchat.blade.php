@@ -1,0 +1,2 @@
+{{-- Prix Achat --}}
+{{$produit->prixachat}}
